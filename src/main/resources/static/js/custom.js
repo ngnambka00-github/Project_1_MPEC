@@ -1,8 +1,7 @@
-var nameContentPath = 'Project_1';
-
 $(document).ready(function(){
-    let heightScreen = $(window).height();
-    let widthScreen = $(window).width();
+    var nameContentPath = 'Project_1';
+    var heightScreen = $(window).height();
+    var widthScreen = $(window).width();
 
     /* ===================================================================== */ 
     /* Khu vực sử lý sự kiện scroll */
