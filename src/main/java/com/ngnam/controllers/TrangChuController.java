@@ -1,7 +1,9 @@
 package com.ngnam.controllers;
 
-import com.ngnam.entities.DanhMuc;
-import com.ngnam.service_impls.DanhMucServiceImpls;
+import com.ngnam.entities.HinhAnh;
+import com.ngnam.entities.MauSac;
+import com.ngnam.service_impls.HinhAnhServiceImpls;
+import com.ngnam.service_impls.MauSacServiceImpls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +15,13 @@ import java.util.List;
 @RequestMapping(path="/")
 public class TrangChuController {
     @Autowired
-    DanhMucServiceImpls danhMucService;
+    HinhAnhServiceImpls hinhAnhService;
 
     @GetMapping
     public String getDefault() {
-        List<DanhMuc> listDanhMuc = danhMucService.getListDanhMuc();
-        for (DanhMuc dm : listDanhMuc) {
-            System.out.println(dm.toString());
+        List<HinhAnh> listHinhAnh = hinhAnhService.getListHinhAnh();
+        for (HinhAnh ha : listHinhAnh) {
+            System.out.println(ha.toString());
         }
         return "client/trang-chu";
     }
