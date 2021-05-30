@@ -1,7 +1,11 @@
 package com.ngnam.entities;
 
+import com.ngnam.service_impls.HinhAnhServiceImpls;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="hinh_anh")

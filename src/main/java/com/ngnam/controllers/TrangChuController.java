@@ -17,11 +17,14 @@ public class TrangChuController {
     @Autowired
     HinhAnhServiceImpls hinhAnhService;
 
+    @Autowired
+    MauSacServiceImpls mauSacService;
+
     @GetMapping
     public String getDefault() {
-        List<HinhAnh> listHinhAnh = hinhAnhService.getListHinhAnh();
-        for (HinhAnh ha : listHinhAnh) {
-            System.out.println(ha.toString());
+        List<MauSac> listMauSac = mauSacService.findMauSacByIdSanPham(2);
+        for (MauSac ms : listMauSac) {
+            System.out.println(ms.toString());
         }
         return "client/trang-chu";
     }

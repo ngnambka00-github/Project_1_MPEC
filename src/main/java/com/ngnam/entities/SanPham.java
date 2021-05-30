@@ -37,4 +37,5 @@ public class SanPham {
 
     @Column(name="is_active")
     private boolean isActive;
+
 }

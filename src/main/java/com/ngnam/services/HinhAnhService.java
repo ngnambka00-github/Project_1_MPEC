@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface HinhAnhService {
     public List<HinhAnh> getListHinhAnh();
+    public List<HinhAnh> findHinhAnhByIdSanPham(int idSanPham);
 }

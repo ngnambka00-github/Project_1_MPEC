@@ -17,4 +17,9 @@ public class MauSacServiceImpls implements MauSacService {
     public List<MauSac> getListMauSac() {
         return mauSacRepo.findAll();
     }
+
+    @Override
+    public List<MauSac> findMauSacByIdSanPham(int idSanPham) {
+        return mauSacRepo.findMauSacByIdSanPham(idSanPham);
+    }
 }
