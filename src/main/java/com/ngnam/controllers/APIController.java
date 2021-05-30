@@ -8,12 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,13 +15,9 @@ import java.nio.file.Paths;
 @RestController
 @RequestMapping(path="/api")
 public class APIController {
-    @GetMapping
-    public String getImageProduct() {
-        return "";
-    }
 
     // API lấy hình ảnh từ server trả về cho giao diện
-    // Từ file uploads/images/mau_san_pham
+    // Lấy ảnh từ file /uploads/images/mau_san_pham (mẫu sản phẩm)
     @GetMapping(path="/getimages/{photo}")
     public ResponseEntity<ByteArrayResource> getImage(
             @PathVariable("photo") String photo) {
@@ -39,12 +29,13 @@ public class APIController {
             try {
                 Path fileName = Paths.get("uploads/images/mau_san_pham/", photo);
                 byte[] buffer = Files.readAllBytes(fileName);
-
                 ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
+
                 return ResponseEntity.ok()
                         .contentLength(buffer.length)
                         .contentType(MediaType.parseMediaType(contentType))
                         .body(byteArrayResource);
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
