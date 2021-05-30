@@ -17,4 +17,9 @@ public class HinhAnhServiceImpls implements HinhAnhService {
     public List<HinhAnh> getListHinhAnh() {
         return hinhAnhRepo.findAll();
     }
+
+    @Override
+    public List<HinhAnh> findHinhAnhByIdSanPham(int idSanPham) {
+        return hinhAnhRepo.findHinhAnhByIdSanPham(idSanPham);
+    }
 }
