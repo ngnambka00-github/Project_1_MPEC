@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Chèn icon cho title website -->
-    <link rel="icon" th:href="@{'images/' + ${name_image}}" type="image/x-icon">
+    <link rel="icon" th:href="@{'/images/' + ${name_image}}" type="image/x-icon">
 
     <!-- Link font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
@@ -13,7 +13,7 @@
     <!-- Link CSS animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" type="text/css" th:href="@{styles/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/style.css}">
     <title>[[ ${title} ]]</title>
 </head>
 <body>
@@ -152,7 +152,7 @@
                 <div class="danh-sach-gio-hang">
                     <div class="item-san-pham">
                         <div class="item-san-pham-img">
-                            <img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+                            <img th:src="@{/api/getimages/ao-ba-lo-nam-loose-tie-dye-patten-hoa-tiettrangwhitetrang-xanh-1.jpg}" alt="">
                         </div>
                         <div class="item-content">
                             <span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
@@ -185,7 +185,7 @@
 
                     <div class="item-san-pham">
                         <div class="item-san-pham-img">
-                            <img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+                            <img th:src="@{/api/getimages/ao-ba-lo-nam-loose-tie-dye-patten-hoa-tiettrangwhitetrang-xanh-1.jpg}" alt="">
                         </div>
                         <div class="item-content">
                             <span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
@@ -218,7 +218,7 @@
 
                     <div class="item-san-pham">
                         <div class="item-san-pham-img">
-                            <img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+                            <img th:src="@{/api/getimages/ao-ba-lo-nam-loose-tie-dye-patten-hoa-tiettrangwhitetrang-xanh-1.jpg}" alt="">
                         </div>
                         <div class="item-content">
                             <span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
@@ -251,7 +251,7 @@
 
                     <div class="item-san-pham">
                         <div class="item-san-pham-img">
-                            <img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+                            <img th:src="@{/api/getimages/ao-ba-lo-nam-loose-tie-dye-patten-hoa-tiettrangwhitetrang-xanh-1.jpg}" alt="">
                         </div>
                         <div class="item-content">
                             <span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
@@ -284,7 +284,7 @@
 
                     <div class="item-san-pham">
                         <div class="item-san-pham-img">
-                            <img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+                            <img th:src="@{/api/getimages/ao-ba-lo-nam-loose-tie-dye-patten-hoa-tiettrangwhitetrang-xanh-1.jpg}" alt="">
                         </div>
                         <div class="item-content">
                             <span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
@@ -317,7 +317,7 @@
 
                     <div class="item-san-pham">
                         <div class="item-san-pham-img">
-                            <img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+                            <img th:src="@{/api/getimages/ao-ba-lo-nam-loose-tie-dye-patten-hoa-tiettrangwhitetrang-xanh-1.jpg}" alt="">
                         </div>
                         <div class="item-content">
                             <span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
@@ -483,77 +483,77 @@
         <div class="marquee">
             <div class="marquee-content">
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
                 <div class="item-text">
-                    <img th:src="@{images/logo_bg_white.svg}">
+                    <img th:src="@{/images/logo_bg_white.svg}">
                     <span>MADE IN THE STREET</span>
                     <span>ETS.03</span>
                 </div>
@@ -655,10 +655,10 @@
         </script>
 
         <!-- Link thư viện jquery -->
-        <script type="text/javascript" th:src="@{js/jquery-3.6.0.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
 
         <!-- Link thư viện javascript tự custom -->
-        <script type="text/javascript" th:src="@{js/custom.js}"></script>
+        <script type="text/javascript" th:src="@{/js/custom.js}"></script>
     </th:block>
 </body>
 </html>

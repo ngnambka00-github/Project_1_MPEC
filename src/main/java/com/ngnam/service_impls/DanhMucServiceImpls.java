@@ -17,4 +17,9 @@ public class DanhMucServiceImpls implements DanhMucService {
     public List<DanhMuc> getListDanhMuc() {
         return danhMucRepo.findAll();
     }
+
+    @Override
+    public DanhMuc findDanhMucById(int idDanhMuc) {
+        return danhMucRepo.findDanhMucById(idDanhMuc);
+    }
 }

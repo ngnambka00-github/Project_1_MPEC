@@ -25,6 +25,10 @@ public class TrangChuController {
 
     @GetMapping
     public String getDefault() {
+        List<SanPham> listSanPham = sanPhamService.findSanPhamByMaDanhMuc(1);
+        for (SanPham sp : listSanPham) {
+            System.out.println(sp.toString());
+        }
         return "client/trang-chu";
     }
 }

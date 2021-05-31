@@ -12,9 +12,7 @@
     <div class="main-content">
         <div class="show-san-pham">
             <div class="title">
-                <h2 th:if="${danhMuc == null}">Tất cả các sản phẩm</h2>
-                <h2 th:unless="${danhMuc == null}">Danh mục: [[${danhMuc.tenDanhMuc}]]</h2>
-                <h3 th:if="${listSanPham.size() == 0}">Không có sản phẩm nào</h3>
+                <h2>Tất cả các sản phẩm</h2>
             </div>
             <div class="danh-sach">
                 <th:block th:each="sp : ${listSanPham}">
@@ -49,7 +47,7 @@
                                     <div class="mau-sac-detail"
                                          th:style="${ms.maMau == '' || ms.maMau == null}?'background: green':'background:'+${ms.maMau}"
                                          th:classappend="${iter.count == 1} ? 'active-border-color' : ''"
-                                         th:attr="data-id-mau-sac=${ms.idMauSac}, data-id-san-pham=${sp.idSanPham}"></div>
+                                         th:attr="data-id-mau=${ms.idMauSac}"></div>
                                 </th:block>
                             </div>
                         </div>
