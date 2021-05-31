@@ -22,4 +22,9 @@ public class HinhAnhServiceImpls implements HinhAnhService {
     public List<HinhAnh> findHinhAnhByIdSanPham(int idSanPham) {
         return hinhAnhRepo.findHinhAnhByIdSanPham(idSanPham);
     }
+
+    @Override
+    public List<HinhAnh> findHinhAnhByIdSanPhamIdMauSac(int idSanPham, int idMauSac) {
+        return hinhAnhRepo.findHinhAnhByIdSanPhamIdMauSac(idSanPham, idMauSac);
+    }
 }

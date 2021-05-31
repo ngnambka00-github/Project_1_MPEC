@@ -13,8 +13,9 @@ public class SanPham {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSanPham;
 
-    @Column(name="id_danh_muc")
-    private int idDanhMuc;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_danh_muc")
+    private DanhMuc danhMuc;
 
     @Column(name="ten_san_pham")
     private String tenSanPham;
