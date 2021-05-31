@@ -17,4 +17,10 @@ public class KichThuocServiceImpls implements KichThuocService {
     public List<KichThuoc> getListKichThuoc() {
         return kichThuocRepo.findAll();
     }
+
+
+    @Override
+    public List<KichThuoc> getListKichThuocTheoIdSanPhamIdMauSac(int idSanPham, int idMauSac) {
+        return kichThuocRepo.getListKichThuocTheoIdSanPhamIdMauSac(idSanPham, idMauSac);
+    }
 }

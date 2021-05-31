@@ -1,23 +1,41 @@
 package com.ngnam.dto;
 
+import com.ngnam.entities.MauSac;
+import com.ngnam.entities.SanPham;
+import com.ngnam.service_impls.MauSacServiceImpls;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SanPhamDTO {
     private int idSanPham;
-    private int idDanhMuc;
     private String tenSanPham;
+    private DanhMucDTO danhMuc;
     private int giaSanPham;
     private int idKhuyenMai;
     private String gioiTinh;
     private String moTaSanPham;
     private String ngayNhap;
-    private boolean isActive;
+    private List<MauSacDTO> listMauSac = new ArrayList<>();
+
+    MauSacServiceImpls mauSacService = new MauSacServiceImpls();
 
     public SanPhamDTO() {
 
+    }
+
+    public SanPhamDTO(SanPham sp) {
+        this.idSanPham = sp.getIdSanPham();
+        this.tenSanPham = sp.getTenSanPham();
+        this.danhMuc = new DanhMucDTO(sp.getDanhMuc());
+        this.giaSanPham = sp.getGiaSanPham();
+        this.gioiTinh = sp.getGioiTinh();
+        this.moTaSanPham = sp.getMoTaSanPham();
+        this.ngayNhap = sp.getNgayNhap();
     }
 
     public int getIdSanPham() {
@@ -28,13 +46,6 @@ public class SanPhamDTO {
         this.idSanPham = idSanPham;
     }
 
-    public int getIdDanhMuc() {
-        return idDanhMuc;
-    }
-
-    public void setIdDanhMuc(int idDanhMuc) {
-        this.idDanhMuc = idDanhMuc;
-    }
 
     public String getTenSanPham() {
         return tenSanPham;
@@ -84,11 +95,20 @@ public class SanPhamDTO {
         this.ngayNhap = ngayNhap;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public DanhMucDTO getDanhMuc() {
+        return danhMuc;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setDanhMuc(DanhMucDTO danhMuc) {
+        this.danhMuc = danhMuc;
     }
+
+    public List<MauSacDTO> getListMauSac() {
+        return listMauSac;
+    }
+
+    public void setListMauSac(List<MauSacDTO> listMauSac) {
+        this.listMauSac = listMauSac;
+    }
+
 }

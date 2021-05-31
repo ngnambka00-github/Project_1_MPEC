@@ -10,6 +10,15 @@ import java.util.List;
 
 @Repository
 public interface HinhAnhRepo extends JpaRepository<HinhAnh, Integer> {
+
     @Query("select ha from HinhAnh ha where ha.idSanPham = :id_san_pham and ha.isActive = true")
     public List<HinhAnh> findHinhAnhByIdSanPham(@Param("id_san_pham") int idSanPham);
+
+    @Query("select ha from HinhAnh ha " +
+            "where ha.idSanPham = :id_san_pham and ha.idMauSac = :id_mau_sac")
+    public List<HinhAnh> findHinhAnhByIdSanPhamIdMauSac(
+            @Param("id_san_pham") int idSanPham,
+            @Param("id_mau_sac") int idMauSac
+    );
+
 }
