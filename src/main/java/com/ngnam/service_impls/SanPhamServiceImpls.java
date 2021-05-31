@@ -22,4 +22,9 @@ public class SanPhamServiceImpls implements SanPhamService {
     public SanPham findSanPhamById(int idSanPham) {
         return sanPhamRepo.findById(idSanPham).get();
     }
+
+    @Override
+    public List<SanPham> findSanPhamByMaDanhMuc(int idDanhMuc) {
+        return sanPhamRepo.findSanPhamByMaDanhMuc(idDanhMuc);
+    }
 }

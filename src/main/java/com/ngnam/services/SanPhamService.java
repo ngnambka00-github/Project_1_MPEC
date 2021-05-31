@@ -7,4 +7,5 @@ import java.util.List;
 public interface SanPhamService {
     public List<SanPham> getListSanPham();
     public SanPham findSanPhamById(int idSanPham);
+    public List<SanPham> findSanPhamByMaDanhMuc(int idDanhMuc);
 }

@@ -422,6 +422,36 @@ $(document).ready(function(){
         $(this).addClass('active-border-color');
 
         // Xử lý Ajax
+        let idSanPham = $(this).attr('data-id-san-pham');
+        let idMauSac = $(this).attr('data-id-mau-sac');
+
+        let boxImage1 = $(this).closest('.san-pham-detail')
+            .prev().find('.box-image').first().find('img');
+        let boxImage2 = $(this).closest('.san-pham-detail')
+            .prev().find('.box-image').last().find('img');
+        let boxSizes = $(this).closest('.san-pham-detail').prev().find('.bang-chon-size');
+
+        $.ajax({
+            url: `/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`,
+            type: "GET",
+            success: function(value) {
+                let objectColor = JSON.parse(value);
+                boxImage1.attr({
+                    'src': `/${nameContentPath}/api/getimages/${objectColor.listHinhAnh[0].tenHinhAnh}`
+                });
+                boxImage2.attr({
+                    'src': `/${nameContentPath}/api/getimages/${objectColor.listHinhAnh[1].tenHinhAnh}`
+                });
+
+                let innerKichThuoc = '';
+                for (let kt of objectColor.listKichThuoc) {
+                    if (kt.soLuong != 0) {
+                        innerKichThuoc += `<span>${kt.kyHieu}</span>`
+                    }
+                }
+                boxSizes.html(innerKichThuoc);
+            }
+        });
     });
     // Sự kiện cho sự thay đổi lựa chọn tên size của sản phẩm 
     $('.san-pham-item > .box-images > .bang-size > .ben-trai').on('mouseover', function() {
@@ -437,6 +467,7 @@ $(document).ready(function(){
         parent.addClass('set-none-visible');
 
         // Sử lý tiếp Ajax
+
     });
     // Sự kiện cho button add
     $('.san-pham-item > .box-images > .bang-size > .ben-phai').on('click', function() {
