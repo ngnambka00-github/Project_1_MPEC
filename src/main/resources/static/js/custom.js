@@ -406,6 +406,8 @@ $(document).ready(function(){
 
     /* ===================================================== */ 
     /* Javascript cho phần sản phẩm bán chay */
+
+    // => Phần chọn vào item để xem chi tiết sản phẩm
     $(`.san-pham-item > .san-pham-detail > .danh-sach-mau-sac, 
         .san-pham-item > .box-images > .bang-size`).click(function(event) {
         event.preventDefault();
@@ -436,6 +438,12 @@ $(document).ready(function(){
 
         // Sử lý tiếp Ajax
     });
+    // Sự kiện cho button add
+    $('.san-pham-item > .box-images > .bang-size > .ben-phai').on('click', function() {
+        alert("Chọn thêm sản phẩm");
+        // Sử lý tiếp Ajax
+    });
+
 
     // Sự kiện cho việc click vào next và previous cho phần sản phẩm bán chạy nhất
     var indexCurrentSPBanChay = 1;
