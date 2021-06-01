@@ -12,7 +12,6 @@ public class DataTransformer {
         String json = null;
         try {
             json = mapper.writeValueAsString(obj);
-            System.out.println(json);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

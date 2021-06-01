@@ -94,7 +94,14 @@ public class SanPhamController {
 
         modelMap.addAttribute("listSanPham", listSPDTO);
         modelMap.addAttribute("danhMuc", danhMuc);
-        return "client/danh-sach-san-pham";
+        return "/client/danh-sach-san-pham";
     }
 
+
+    // Xem chi tiết của một sản phẩm
+    @GetMapping(path="/chitiet/{id_san_pham}")
+    public String getChiTietSanPham(
+            @PathVariable("id_san_pham") int idSanPham) {
+        return "/client/chi-tiet-san-pham";
+    }
 }

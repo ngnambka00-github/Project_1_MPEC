@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vn">
+
+<head
+        th:replace="~{/fragments/main-frag-1::main-header(title='Chi tiết sản phẩm', name_image='icon_title.png')}">
+</head>
+<body>
+    <th:block th:replace="~{/fragments/main-frag-1::quang-cao-header}"></th:block>
+
+    <!-- ================================================== -->
+    <!-- Nội dung chính của website -->
+    <div class="main-content">
+        <div class="catagory">
+            <a href="#">Trang chủ</a>
+            <span>/</span>
+            <a href="#">Váy ngắn</a>
+        </div>
+        <div class="container">
+            <div class="show-item">
+                <!-- <div class="show-item-1"> -->
+                <div class="box-image">
+                    <img th:src="@{/images/a1.jpg}" alt="" class="image">
+                </div>
+                <div class="box-image">
+                    <img th:src="@{/images/a2.jpg}" alt="" class="image">
+                </div>
+                <div class="box-image">
+                    <img th:src="@{/images/a3.jpg}" alt="" class="image">
+                </div>
+                <div class="box-image">
+                    <img th:src="@{/images/a4.jpg}" alt="" class="image">
+                </div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-item-title">
+                    <p class="detail-font">ÁO PHÔNG NỮ LOCAL R FILM COLLECTION</p>
+                </div>
+                <div class="detail-item-price ">
+                    <p>399,000đ</p>
+
+                </div>
+                <div class="detail-item-common  detail-item-variation">
+                    <div class="box-image">
+                        <img src="https://cdn.boo.vn/products/330/ao-ni-mu-oversized-tie-dye-nau-sua-1.jpg" alt="" class="active-border">
+                    </div>
+                    <div class="box-image">
+                        <img src="https://cdn.boo.vn/products/330/ao-ni-mu-oversized-tie-dye-solidden-blackden-1.jpg" alt="">
+                    </div>
+                </div>
+                <button class="sizetable-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg" style="font-size: 16px; height: 16px; width: 16px;"><path d="M1.39,18.36L3.16,16.6L4.58,18L5.64,16.95L4.22,15.54L5.64,14.12L8.11,16.6L9.17,15.54L6.7,13.06L8.11,11.65L9.53,13.06L10.59,12L9.17,10.59L10.59,9.17L13.06,11.65L14.12,10.59L11.65,8.11L13.06,6.7L14.47,8.11L15.54,7.05L14.12,5.64L15.54,4.22L18,6.7L19.07,5.64L16.6,3.16L18.36,1.39L22.61,5.64L5.64,22.61L1.39,18.36Z"></path></svg>
+                    <span>BẢNG SIZE</span>
+                </button>
+
+
+                <div class="detail-item-size">
+                    <button class="item-size active-border">XS</button>
+                    <button class="item-size none-pointer">S</button>
+                    <button class="item-size">M</button>
+                    <button class="item-size">L</button>
+                    <button class="item-size">XL</button>
+                </div>
+                <div class="detail-item-add">
+                    THÊM VÀO GIỎ HÀNG
+                </div>
+                <div class="detail-item-find">TÌM TẠI CỬA HÀNG</div>
+
+                <div class="detail-item-common detail-item-describe">
+                    <p class="item-describe-head">Mô tả sản phẩm</p>
+                    <p class="item-describe-id">Mã sản phẩm : 1.2.02.1.02.047.121.01</p>
+                    <p class="item-describe-type">Áo phông nữ dáng regular, in graphic: "FilmCollections"</p>
+                    <p class="item-describe-material">- Chất liệu: Cotton</p>
+                    <p class="item-describe-size">- Size mẫu mặc: S</p>
+                    <p class="item-describe-temp">- Số đo mẫu: 164cm, 44kg.</p>
+                </div>
+                <div class="detail-info">
+                    <label for="info" class="text">Thông tin chi tiết & Bảo quản</label>
+                    <input type="checkbox" id="info" class="input-info">
+                    <div class="product-detail"></div>
+                    <label for="info" class="overlay"></label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Kết thúc phần nội dung chính của website -->
+    <!-- ================================================== -->
+
+    <!-- Nội dung phần footer -->
+    <footer th:replace="~{/fragments/main-frag-1::contact-footer}"></footer>
+    <!-- Kết thúc nội dung phần footer -->
+
+    <th:block th:replace="~{/fragments/main-frag-1::link-ref}"></th:block>
+</body>
+</html>
