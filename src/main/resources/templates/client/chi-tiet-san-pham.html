@@ -29,14 +29,14 @@
                 </div>
                 <div class="detail-item-price ">
                     <p>[[${ sanPham.giaSanPham }]]đ</p>
-
                 </div>
                 <div class="detail-item-common  detail-item-variation">
                     <th:block th:each="ms, iter : ${sanPham.listMauSac}">
                         <div class="box-image">
                             <img th:src="@{'/api/getimages/' + ${ms.listHinhAnh[0].tenHinhAnh}}"
                                  alt=""
-                                 th:class="${iter.count == 1} ? 'active-border' : ''">
+                                 th:class="${iter.count == 1} ? 'active-border' : ''"
+                                 th:attr="data-id-mau-sac=${ms.idMauSac}, data-id-san-pham=${sanPham.idSanPham}">
                         </div>
                     </th:block>
                 </div>
@@ -45,12 +45,14 @@
                     <span>BẢNG SIZE</span>
                 </button>
 
-
                 <div class="detail-item-size">
-                    <th:block th:each="kt, iter : ${sanPham.listMauSac[0].listKichThuoc}">
-                        <button class="item-size active-border" th:if="${ iter.count == 1 }">[[${ kt.kyHieu }]]</button>
-                        <button class="item-size none-pointer" th:if="${ kt.soLuong == 0 }">[[${ kt.kyHieu }]]</button>
-                        <button class="item-size" th:if="${ iter.count != 1 && kt.soLuong != 0 }">[[${ kt.kyHieu }]]</button>
+                    <th:block th:each="kt: ${sanPham.listMauSac[0].listKichThuoc}">
+                        <button th:if="${ kt.soLuong == 0 }"
+                                th:attr="data-id-kich-thuoc=${kt.idKichThuoc}"
+                                class="item-size none-pointer">[[${ kt.kyHieu }]]</button>
+                        <button th:unless="${ kt.soLuong == 0 }"
+                                th:attr="data-id-kich-thuoc=${kt.idKichThuoc}"
+                                class="item-size">[[${ kt.kyHieu }]]</button>
                     </th:block>
                 </div>
                 <div class="detail-item-add">

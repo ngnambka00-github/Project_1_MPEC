@@ -21,10 +21,14 @@
                     <a th:href="@{'/sanpham/chitiet/'+ ${sp.idSanPham}}" class="san-pham-item" th:attr="data-id-san-pham=${sp.idSanPham}">
                         <div class="box-images">
                             <div class="box-image">
-                                <img th:src="@{'/api/getimages/' + ${sp.listMauSac[0].listHinhAnh[0].tenHinhAnh}}" alt="" class="item-image item-image-1">
+                                <img th:src="@{'/api/getimages/' + ${sp.listMauSac[0].listHinhAnh[0].tenHinhAnh}}"
+                                     alt=""
+                                     class="item-image item-image-1">
                             </div>
                             <div class="box-image">
-                                <img th:src="@{'/api/getimages/' + ${sp.listMauSac[0].listHinhAnh[1].tenHinhAnh}}" alt="" class="item-image item-image-2">
+                                <img th:src="@{'/api/getimages/' + ${sp.listMauSac[0].listHinhAnh[1].tenHinhAnh}}"
+                                     alt=""
+                                     class="item-image item-image-2">
                             </div>
 
                             <div class="bang-size">
@@ -32,7 +36,8 @@
                                     <span class="chon-size">Size</span>
                                     <div class="bang-chon-size set-none-visible">
                                         <th:block th:each="kt : ${sp.listMauSac[0].listKichThuoc}">
-                                            <span th:unless="${kt.soLuong == 0}">[[${kt.kyHieu}]]</span>
+                                            <span th:unless="${kt.soLuong == 0}"
+                                                  th:attr="data-id-kich-thuoc=${kt.idKichThuoc}">[[${kt.kyHieu}]]</span>
                                         </th:block>
                                     </div>
                                 </div>
