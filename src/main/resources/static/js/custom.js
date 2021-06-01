@@ -622,7 +622,7 @@ $(document).ready(function(){
 
 
     /* ===================================================== */
-    /* Javascipt cho phần chi tiết sản phẩm */
+    /* Javascipt cho phần chi tiết sản phẩm */  
     // Chọn từng kích thước sản phẩm
     $('body').on('click', '.detail-item .detail-item-size .item-size', function() {
         $('.detail-item .detail-item-size .item-size').removeClass('active-border');
