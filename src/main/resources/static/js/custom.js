@@ -611,5 +611,26 @@ $(document).ready(function(){
         indexCurrentSPDaXem += 1;
     });
     /* Kết thúc phần javascipt cho phẩn sản phẩm bán chạy */ 
-    /* ===================================================== */ 
+    /* ===================================================== */
+
+
+    /* ===================================================== */
+    /* Javascipt cho phần chi tiết sản phẩm */
+    // Chọn từng kích thước sản phẩm
+    $('.detail-item .detail-item-size .item-size').on('click', function() {
+        $('.detail-item .detail-item-size .item-size').removeClass('active-border');
+        $(this).addClass('active-border');
+
+        // Xử lý Ajax
+    });
+
+    // Chọn màu cho từng sản phẩm
+    $('.detail-item .detail-item-common .box-image img').on('click', function() {
+        $('.detail-item .detail-item-common .box-image img').removeClass('active-border');
+        $(this).addClass('active-border');
+
+        // Xử lý Ajax
+    });
+    /* Kết thúc phần javascipt cho phần chi tiết sản phẩm */
+    /* ===================================================== */
 });

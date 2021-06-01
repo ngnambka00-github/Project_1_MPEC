@@ -1767,3 +1767,241 @@ a.change-color-animate {
 }
 /* Kết thúc phần tùy chỉnh danh sách show sản phẩm */
 /*============================================================================*/
+
+
+/*============================================================================*/
+/* Phần Style chi tiết sản phầm */
+.catagory {
+	margin-top: 40px;
+	padding: 0px 0px 0px 20px;
+}
+.catagory > a {
+	color: grey;
+	text-decoration: none;
+}
+.catagory > a:last-child {
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.catagory > a:hover {
+	color: #111;
+}
+.catagory > span {
+	margin: 0px 8px;
+}
+.container {
+	width: 100%;
+	margin-bottom: 50px;
+	display: flex;
+	margin-left: auto;
+	flex-wrap: wrap;
+	padding: 0px 10px;
+}
+
+.container > .show-item {
+	width: 75%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.container > .show-item > .box-image {
+	width: calc(50% - 1px);
+	display: flex;
+	margin-bottom: 2px;
+}
+.container > .show-item  > .box-image img{
+	width: 100%;
+	object-fit: cover;
+}
+
+.container > .detail-item{
+	width: 25%;
+	padding: 10px;
+}
+.detail-font{
+	font-weight: 450;
+	font-size: 2vw;
+	margin-bottom:  0px;
+}
+.detail-item > .detail-item-title {
+	padding: 10px 0px;
+}
+.detail-item > .sizetable-text > span{
+	font-size: 15px;
+	line-height: 10px;
+}
+.detail-item-price {
+	/* padding: 0px 0px 10px; */
+	font-weight: 450;
+	font-size: 25px;
+	color: gray;
+}
+.detail-item-variation{
+	display: flex;
+}
+
+.detail-item-variation > .box-image {
+	width: 50px;
+	/* height: 100px; */
+	margin: 0px 2px 0px 0px;
+	box-sizing: border-box;
+}
+
+.active-border {
+	border: 1px solid black !important;
+}
+
+.none-pointer {
+	pointer-events: none !important;
+	background: #fff !important;
+	color: #444 !important;
+}
+
+.detail-item-variation > .box-image img{
+	width: 100%;
+	object-fit: cover;
+}
+
+.sizetable-text{
+	padding: 5px;
+	margin-top: 30px;
+	font-size: 16px;
+	display: block;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.detail-item-size{
+	margin-top: 0px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.item-size{
+	border: 1px solid rgb(245, 237, 237);
+	width: 24%;
+	height: 35px;
+	text-align: center;
+	margin: 1.5px;
+	padding: 0px 5px;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.item-size:hover{
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.text{
+	font-size: 14px;
+	color: gray;
+}
+
+.text:hover{
+	cursor: pointer;
+	transition: 0.5s;
+	color: rgb(196, 189, 189);
+}
+.text:visited{
+	color: red;
+}
+.product-detail{
+	position: fixed;
+	width: 70%;
+	height: 90%;
+	background-color: rgb(248, 244, 244);
+	z-index: 1;
+	margin: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+
+.overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.3);
+	display: none;
+}
+.input-info {
+	display: none;
+}
+.input-info:checked~.product-detail{
+	display: block;
+}
+.input-info:checked~.overlay{
+	display: block;
+}
+
+.detail-item-add{
+	background-color: rgb(165, 247, 208);
+	padding: 10px;
+	margin-top: 15px;
+	text-align: center;
+	width: 100%;
+	border-radius: 2px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.detail-item-add:hover{
+	background-color: rgb(187, 224, 210);
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+
+.detail-item-find{
+	/* width: 0%; */
+	color: gray;
+	background-color: rgb(242, 246, 247);
+	padding: 10px;
+	margin-top: 15px;
+	text-align: center;
+	min-width: 270px;
+	border-radius: 2px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.detail-item-find:hover{
+	background-color: rgb(191, 197, 195);
+	color:black;
+	cursor: pointer;
+	transition: 0.5s;
+}
+.detail-item-common {
+	padding: 0px 0px 10px;
+	border-bottom: 1px solid gray;
+	margin: 15px 0px;
+}
+
+.detail-item-describe{
+}
+
+.item-describe-head{
+	font-size: 20px;
+	color: black;
+	font-weight: 400;
+	padding:  5px 0px;
+}
+
+.item-describe-id{
+	font-size: 13px;
+	color: rgb(141, 136, 136);
+	padding: 0px 0px 5px;
+}
+.item-describe-type, .item-describe-material, .item-describe-size, .item-describe-temp{
+	font-size: 14px;
+	color: #222;
+}
+/* Kết thúc phần chi tiết sản phẩm */
+/*============================================================================*/

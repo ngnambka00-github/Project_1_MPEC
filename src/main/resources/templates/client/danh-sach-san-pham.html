@@ -18,7 +18,7 @@
             </div>
             <div class="danh-sach">
                 <th:block th:each="sp : ${listSanPham}">
-                    <a th:href="@{'/chitietsanpham/'+ ${sp.idSanPham}}" class="san-pham-item" th:attr="data-id-san-pham=${sp.idSanPham}">
+                    <a th:href="@{'/sanpham/chitiet/'+ ${sp.idSanPham}}" class="san-pham-item" th:attr="data-id-san-pham=${sp.idSanPham}">
                         <div class="box-images">
                             <div class="box-image">
                                 <img th:src="@{'/api/getimages/' + ${sp.listMauSac[0].listHinhAnh[0].tenHinhAnh}}" alt="" class="item-image item-image-1">
