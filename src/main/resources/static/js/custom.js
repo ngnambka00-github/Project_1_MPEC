@@ -450,7 +450,7 @@ $(document).ready(function(){
                 let innerKichThuoc = '';
                 for (let kt of objectColor.listKichThuoc) {
                     if (kt.soLuong != 0) {
-                        innerKichThuoc += `<span>${kt.kyHieu}</span>`
+                        innerKichThuoc += `<span data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</span>`
                     }
                 }
                 boxSizes.html(innerKichThuoc);
@@ -621,7 +621,7 @@ $(document).ready(function(){
     /* ===================================================== */
     /* Javascipt cho phần chi tiết sản phẩm */
     // Chọn từng kích thước sản phẩm
-    $('.detail-item .detail-item-size .item-size').on('click', function() {
+    $('body').on('click', '.detail-item .detail-item-size .item-size', function() {
         $('.detail-item .detail-item-size .item-size').removeClass('active-border');
         $(this).addClass('active-border');
 
@@ -634,6 +634,38 @@ $(document).ready(function(){
         $(this).addClass('active-border');
 
         // Xử lý Ajax
+        let idSanPham = $(this).attr('data-id-san-pham');
+        let idMauSac = $(this).attr('data-id-mau-sac');
+
+        let boxImages = $(this).closest('.detail-item').prev();
+        let boxSizes = $(this).closest('.detail-item').find('.detail-item-size');
+        $.ajax({
+            url: `/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`,
+            type: "GET",
+            success: function(value) {
+                let objectColor = JSON.parse(value);
+                let htmlBoxImages = '';
+                for (let ha of objectColor.listHinhAnh) {
+                    htmlBoxImages += `
+                        <div class="box-image">
+                            <img src="/${nameContentPath}/api/getimages/${ha.tenHinhAnh}" alt="" class="image">
+                        </div>`;
+                }
+                boxImages.html(htmlBoxImages);
+
+                let htmlBoxSizes = '';
+                for (let kt of objectColor.listKichThuoc) {
+                    if (kt.soLuong == 0) {
+                        htmlBoxSizes += `
+                        <button class="item-size none-pointer" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
+                    } else {
+                        htmlBoxSizes += `
+                        <button class="item-size" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
+                    }
+                }
+                boxSizes.html(htmlBoxSizes);
+            }
+        });
     });
     /* Kết thúc phần javascipt cho phần chi tiết sản phẩm */
     /* ===================================================== */
