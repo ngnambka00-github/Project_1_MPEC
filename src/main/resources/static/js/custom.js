@@ -56,11 +56,15 @@ $(document).ready(function(){
     /* Kết thúc xử lý sự kiện liên quan đến scroll */
     /* ===================================================================== */ 
 
+    /* Thực hiện click vào icon-logo cửa hàng */
+    $('.header .header__box--image img').on('click', function() {
+        window.location.href = `/${nameContentPath}/`;
+    });
+    /* Kết thúc hiện click vào icon-logo cửa hàng */
 
     // thực hiện code jquery
     $(".header .header-menu .menu-header-icon a").click(function(event) {
         $(".show-menu").removeClass("display-none");
-        // $(".show-menu").find('.box-menu').css('background', 'linear-gradient(to right, white 50%, white 50%)');
         $(".show-menu").find('.box-menu').addClass('change-background-color');
         event.preventDefault();
     });

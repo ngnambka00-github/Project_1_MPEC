@@ -22,4 +22,9 @@ public class DanhMucServiceImpls implements DanhMucService {
     public DanhMuc findDanhMucById(int idDanhMuc) {
         return danhMucRepo.findDanhMucById(idDanhMuc);
     }
+
+    @Override
+    public DanhMuc findDanhMucByIdSanPham(int idSanPham) {
+        return danhMucRepo.findDanhMucByIdSanPham(idSanPham);
+    }
 }

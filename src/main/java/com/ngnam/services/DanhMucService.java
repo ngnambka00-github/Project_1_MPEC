@@ -7,4 +7,5 @@ import java.util.List;
 public interface DanhMucService {
     public List<DanhMuc> getListDanhMuc();
     public DanhMuc findDanhMucById(int idDanhMuc);
+    public DanhMuc findDanhMucByIdSanPham(int idSanPham);
 }

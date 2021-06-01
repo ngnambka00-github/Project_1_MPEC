@@ -82,7 +82,7 @@ public class SanPhamController {
         return "client/danh-sach-san-pham";
     }
 
-    @GetMapping(path="/dm/{id_danh_muc}")
+    @GetMapping(path="/danhmuc/{id_danh_muc}")
     public String getNext(
             @PathVariable(name="id_danh_muc") int idDanhMuc,
             ModelMap modelMap) {
@@ -101,7 +101,15 @@ public class SanPhamController {
     // Xem chi tiết của một sản phẩm
     @GetMapping(path="/chitiet/{id_san_pham}")
     public String getChiTietSanPham(
-            @PathVariable("id_san_pham") int idSanPham) {
+            @PathVariable("id_san_pham") int idSanPham,
+            ModelMap modelMap) {
+        SanPham sp = sanPhamService.findSanPhamById(idSanPham);
+        SanPhamDTO spDTO = getSanPhamDTO(sp);
+
+        DanhMuc dm = danhMucService.findDanhMucByIdSanPham(idSanPham);
+
+        modelMap.addAttribute("sanPham", spDTO);
+        modelMap.addAttribute("danhMuc", dm);
         return "/client/chi-tiet-san-pham";
     }
 }
