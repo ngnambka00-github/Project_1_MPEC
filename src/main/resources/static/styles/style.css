@@ -388,6 +388,7 @@ a.change-color-animate {
 
 .show-menu .box-menu .content-box-menu .box-right ul.danh-muc-chi-tiet li a {
 	text-decoration: none;
+	text-transform: uppercase;
 	color: #555;
 	font-size: 15px;
 	text-shadow: none;
@@ -1959,7 +1960,6 @@ a.change-color-animate {
 	cursor: pointer;
 	transition: 0.5s;
 }
-
 
 .detail-item-find{
 	/* width: 0%; */

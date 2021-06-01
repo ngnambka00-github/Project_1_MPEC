@@ -4,10 +4,7 @@ import com.ngnam.dto.HinhAnhDTO;
 import com.ngnam.dto.KichThuocDTO;
 import com.ngnam.dto.MauSacDTO;
 import com.ngnam.dto.SanPhamDTO;
-import com.ngnam.entities.HinhAnh;
-import com.ngnam.entities.KichThuoc;
-import com.ngnam.entities.MauSac;
-import com.ngnam.entities.SanPham;
+import com.ngnam.entities.*;
 import com.ngnam.service_impls.*;
 import com.ngnam.utils.DataTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,5 +116,11 @@ public class APIController {
             }
         }
         return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping(path="/listdanhmuc")
+    public ResponseEntity<List<DanhMuc>> getListDanhMuc() {
+        List<DanhMuc> listDanhMuc = danhMucService.getListDanhMuc();
+        return ResponseEntity.ok(listDanhMuc);
     }
 }

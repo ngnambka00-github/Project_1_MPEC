@@ -1,7 +1,10 @@
+var nameContentPath = 'Project_1';
 $(document).ready(function(){
-    var nameContentPath = 'Project_1';
     var heightScreen = $(window).height();
     var widthScreen = $(window).width();
+
+    // upldate list danh mục của sản phẩm
+    updateListDanhMuc();
 
     /* ===================================================================== */ 
     /* Khu vực sử lý sự kiện scroll */
@@ -670,3 +673,22 @@ $(document).ready(function(){
     /* Kết thúc phần javascipt cho phần chi tiết sản phẩm */
     /* ===================================================== */
 });
+
+// Sự kiện update toàn bộ danh mục của sản phẩm
+function updateListDanhMuc() {
+    let danhMuc = $('.danh-muc-chi-tiet');
+    $.ajax({
+        url: `/${nameContentPath}/api/listdanhmuc`,
+        type: "GET",
+        success: function(objectDanhMuc) {
+            let htmlDanhMuc = ``;
+            for (let dm of objectDanhMuc) {
+                htmlDanhMuc += `
+                    <li>
+                        <a href="/${nameContentPath}/sanpham/danhmuc/${dm.idDanhMuc}" class="change-color-animate">${dm.tenDanhMuc}</a>
+                    </li>`;
+            }
+            danhMuc.html(htmlDanhMuc);
+        }
+    });
+}
