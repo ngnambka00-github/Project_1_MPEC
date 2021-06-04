@@ -2007,3 +2007,285 @@ a.change-color-animate {
 }
 /* Kết thúc phần chi tiết sản phẩm */
 /*============================================================================*/
+
+/*============================================================================*/
+/* Customize cho phần thông báo thêm sản phẩm vào giỏ hàng */
+.them-san-pham {
+	width: 100%;
+	height: 100vh;
+	background: #80808096;
+	position: fixed;
+	top: 0px;
+	left:0px;
+	display: flex;
+	justify-content: flex-end;
+	z-index: 3;
+}
+
+
+.them-san-pham > .content-gio-hang {
+	width: 400px;
+	height: 275px;
+	background: white;
+	margin: 10px;
+	opacity: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	animation: chi_tiet_them_san_pham;
+	animation-delay: 0.2s;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes chi_tiet_them_san_pham {
+	from { opacity: 0;  }
+	to {  opacity: 1; }
+}
+
+.them-san-pham > .content-gio-hang > .title-gioi-hang{
+	height: 60px;
+	width: 100%;
+	padding: 20px 15px;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 1px 1px 1px #7979791f, 1px 6px 3px #b7b7b74a;
+}
+
+.them-san-pham > .content-gio-hang .title-gioi-hang span.span-title {
+	line-height: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 400;
+	display: inline-block;
+}
+
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang {
+	flex-grow: 1;
+	padding: 0px 15px;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham {
+	width: 100%;
+	height: 135px;
+	margin: 14px 0px 10px;
+	display: flex;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-san-pham-img {
+	width: 90px;
+	height:100%;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-san-pham-img img{
+	height: 100%;
+	user-select: none;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content{
+	padding: 0 15px 0 15px;
+	flex-grow: 1;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content span {
+	display: block;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .title-san-pham {
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .ma-san-pham {
+	font-size: 13px;
+	line-height: 25px;
+	color: grey;
+}
+
+.them-san-pham > .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .option-san-pham {
+	height: 22px;
+	margin: 5px 0px;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.them-san-pham > .content-gio-hang .chi-tiet {
+	padding: 0px 20px 20px;
+}
+
+.them-san-pham > .content-gio-hang .chi-tiet > hr {
+	margin: 0px 0px 10px;
+}
+
+.them-san-pham > .content-gio-hang .chi-tiet .noi-dung {
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+	font-weight: 450;
+}
+/* Kết thúc cho phần thông báo thêm sản phẩm vào giỏ hàng */
+/*============================================================================*/
+
+
+/*============================================================================*/
+/* Customize phần thông báo */
+.thong-bao {
+	width: 100%;
+	height: 100vh;
+	background: #80808096;
+	position: fixed;
+	top: 0px;
+	left:0px;
+	display: flex;
+	justify-content: flex-end;
+	z-index: 3;
+}
+
+.thong-bao > .noi-dung {
+	width: 400px;
+	height: 200px;
+	background: white;
+	margin: 10px;
+	opacity: 0;
+	animation: show_thong_bao;
+	animation-delay: 0.2s;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes show_thong_bao {
+	from { opacity: 0;  }
+	to {  opacity: 1; }
+}
+
+.thong-bao > .noi-dung > .title {
+	height: 60px;
+	width: 100%;
+	padding: 20px 15px;
+	box-shadow: 1px 1px 1px #7979791f, 1px 6px 3px #b7b7b74a;
+}
+
+.thong-bao > .noi-dung .title span.span-title {
+	line-height: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 400;
+	display: inline-block;
+}
+
+.thong-bao > .noi-dung > .noi-dung-chinh {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.thong-bao > .noi-dung > .noi-dung-chinh > .icon-success {font-size:  60px;color: #00b300;margin:  20px 0px 10px;}
+.thong-bao > .noi-dung > .noi-dung-chinh > .icon-failture {font-size:  60px;color: #fb1c1c;margin:  20px 0px 10px;}
+.thong-bao > .noi-dung > .noi-dung-chinh > .noi-dung-thong-bao {font-size: 22px;}
+
+/* kết thúc phần customize phần thông báo */
+/*============================================================================*/
+
+
+/*============================================================================*/
+/* Customize phần xác minh Yes/No */
+.xac-minh {
+	width: 100%;
+	height: 100vh;
+	background: #80808096;
+	position: fixed;
+	top: 0px;
+	left:0px;
+	display: flex;
+	justify-content: flex-end;
+	z-index: 3;
+}
+
+.xac-minh > .noi-dung {
+	width: 400px;
+	height: 200px;
+	background: white;
+	opacity: 0;
+	animation: show_xac_minh;
+	animation-delay: 0.2s;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	border: solid 1px #000000a6;
+	position: absolute;
+	top:  50%;
+	right: 50%;
+	transform: translateX(50%) translateY(-50%);
+}
+
+@keyframes show_xac_minh {
+	from { opacity: 0;  }
+	to {  opacity: 1; }
+}
+
+.xac-minh > .noi-dung > .title {
+	height: 60px;
+	width: 100%;
+	padding: 20px 15px;
+	box-shadow: 1px 1px 1px #7979791f, 1px 6px 3px #b7b7b74a;
+}
+
+.xac-minh > .noi-dung .title span.span-title {
+	line-height: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 400;
+	display: inline-block;
+}
+
+.xac-minh > .noi-dung > .noi-dung-chinh {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+}
+
+.xac-minh > .noi-dung > .noi-dung-chinh > .cau-hoi {
+	margin-top: 25px;
+	font-size:  24px;
+	font-weight: 400;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi {
+	font-size: 60px;
+	color: white;
+	margin: 18px 0px 10px;
+	display: flex;
+	justify-content: space-around;
+	width: 70%;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .yes {
+	font-size: 25px;
+	color: white;
+	background: #00dd00;
+	width: 100px;
+	text-align: center;
+	padding: 5px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .no {
+	background: red;
+	font-size: 25px;
+	width: 100px;
+	text-align: center;
+	padding: 5px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition:  0.2s;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .yes:hover {
+	background: #018301;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .no:hover {
+	background: #d60000;
+}
+/* kết thúc phần xác minh Yes/No */
+/*============================================================================*/

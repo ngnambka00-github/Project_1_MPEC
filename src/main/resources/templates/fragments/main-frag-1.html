@@ -563,6 +563,85 @@
     </th:block>
     <!-- Kết thúc phần quảng cáo đầu trang web -->
 
+    <!--================================================-->
+    <!-- Phần code các thông báo và hiển thị -->
+    <th:block th:fragment="thong-bao">
+        <!-- Thông báo thêm thành công một sản phẩm vào giỏ hàng -->
+        <div class="them-san-pham display-none">
+            <div class="content-gio-hang">
+                <div class="title-gioi-hang">
+                    <span class="span-title">Đã thêm 1 sản phẩm mới</span>
+                </div>
+                <div class="danh-sach-gio-hang">
+                    <div class="item-san-pham">
+                        <div class="item-san-pham-img">
+                            <img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+                        </div>
+                        <div class="item-content">
+                            <span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+                            <span class="ma-san-pham">Mã sản phẩm: 1.2.02.1.06.010.121.01</span>
+                            <span class="mau-san-pham">Màu: abcd </span>
+                            <span class="size-san-pham">Size: abcd</span>
+                            <div class="delete-price">
+                                <span class="total-money">Giá tiền: 550,000đ</span>
+                            </div>
+
+                            <div class="discount-price none-giam-gia">
+                                <span class="discount">
+                                    <i class="fas fa-tag"></i>
+                                    <i class="text-giam-gia">Giảm giá</i>
+                                </span>
+                                <span class="total-money">450,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chi-tiet">
+                    <hr>
+                    <div class="noi-dung">
+                        <span>Chi tiết xem tại nhỏ hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Kết thúc phần thông báo thêm thành công 1 sản phẩm vào giỏ hàng -->
+
+        <!-- Thông báo thêm thành công / thất bại -->
+        <div class="thong-bao display-none">
+            <div class="noi-dung">
+                <div class="title">
+                    <span class="span-title">Thông báo</span>
+                </div>
+                <div class="noi-dung-chinh">
+                    <i class="fas fa-check-circle icon-success"></i>
+                    <!-- <i class="fas fa-exclamation-triangle icon-failture"></i> -->
+                    <span class="noi-dung-thong-bao">Thêm sản phẩm thành công</span>
+                </div>
+            </div>
+        </div>
+        <!-- Kết thúc thông báo thêm thành công / thất bại -->
+
+        <!-- Thông báo thêm thành công / thất bại -->
+        <div class="xac-minh display-none">
+            <div class="noi-dung">
+                <div class="title">
+                    <span class="span-title">Thông báo xác minh</span>
+                </div>
+                <div class="noi-dung-chinh">
+                    <h2 class="cau-hoi">Bạn có chắc chắc muốn xóa</h2>
+                    <div class="tra-loi">
+                        <div class="yes">Yes</div>
+                        <div class="no">No</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Kết thúc thông báo thêm thành công / thất bại -->
+    </th:block>
+    <!-- Kết thúc phần code các thông báo và hiển thị -->
+    <!--================================================-->
+
+
     <!-- Nội dung của phần footer -->
     <footer th:fragment="contact-footer" class="footer">
         <div class="content-top">

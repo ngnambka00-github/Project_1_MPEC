@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vn">
+<head
+        th:replace="~{/fragments/admin-frag::main-header(title='Màu sắc admin', name_image='icon_title.png')}">
+</head>
+<body>
+    <nav th:replace="~{/fragments/admin-frag::nav-header}"></nav>
+    <th:block th:replace="~{/fragments/admin-frag::thong-bao}"></th:block>
+
+    <!-- Nội dung chính của web -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col px-0">
+                <h3 class="text-normal text-uppercase text-warning mt-4">Danh sách kích thước</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="col-5 px-0">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên kích thước để tìm kiếm"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary"
+                                type="button" style="z-index: 1"
+                                id="btn-timkiem-kichthuoc">
+                            <i class="fas fa-search"></i>
+                            Tìm kiếm
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 pr-0">
+                <button class="btn btn-outline-success w-100" data-toggle="modal" data-target=".modal-themmoikichthuoc">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Thêm mới kích thước
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="bg-info">
+                <tr>
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col">Tên kích thước</th>
+                    <th scope="col" class="text-center">Ký hiệu</th>
+                    <th scope="col" class="text-center">Xem chi tiết</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" class="align-middle text-center">1</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">2</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">3</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">4</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">5</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">6</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">7</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">8</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="align-middle text-center">9</th>
+                    <td class="align-middle">Rất lớn</td>
+                    <td class="align-middle text-center">
+                        XXL
+                    </td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade modal-themmoikichthuoc" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white">Thêm danh kích thước</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group row">
+                            <label for="ten-kich-thuoc" class="col-sm-2 col-form-label pr-0">Tên kích thước</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ten-kich-thuoc"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ky-hieu" class="col-sm-2 col-form-label">Ký hiệu</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ky-hieu"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Thêm mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-chitietkichthuoc" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white">Thông tin kích thước</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group row">
+                            <label for="ma-kich-thuoc-chinh-sua" class="col-sm-2 col-form-label pr-0">Mã kích thước</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control" id="ma-kich-thuoc-chinh-sua"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ten-kich-thuoc-chinh-sua" class="col-sm-2 col-form-label pr-0">Tên kích thước</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ten-kich-thuoc-chinh-sua"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ky-hieu-chinh-sua" class="col-sm-2 col-form-label">Ký hiệu</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ky-hieu-chinh-sua"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info">Cập nhập</button>
+                    <button type="button" class="btn btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kết thúc phần nội dung chính của website-->
+
+    <footer th:replace="~{/fragments/admin-frag::contact-footer}"></footer>
+    <th:block th:replace="~{/fragments/admin-frag::link-ref}"></th:block>
+</body>
+</html>

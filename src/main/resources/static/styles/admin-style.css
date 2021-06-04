@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*==========================================================================*/
+/* Tùy chỉnh lại thanh scrollbar */
+::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: #777;
+    border: 2px solid #555555;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::selection {
+    color: #eee;
+    background: #222;
+}
+
+div.display-none {
+    display: none !important;
+}
+/* Kết thúc phần tùy chỉnh thanh scrollbar */
+/*==========================================================================*/
+
+
+/*==========================================================================*/
+/* Customize lại phần chọn màu sắc */
+.choose-color {
+    flex: 1;
+    color: #fff;
+}
+
+.choose-color div {
+    display: flex;
+    position: relative;
+}
+
+.choose-color div + div {
+    margin-top: 0.5em;
+}
+
+.choose-color input {
+    margin: 0;
+    padding: 0 0.5em;
+    border: none;
+    width: 7em;
+    outline: none;
+    border-radius: 0 1em 1em 0;
+}
+
+.choose-color input[type=color] {
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em 0 0 1em;
+}
+
+.choose-color input[type=color]::-webkit-color-swatch {
+    border: none;
+    border-radius: 1em;
+}
+
+.choose-color input[type=color]::-webkit-color-swatch-wrapper {
+    padding: 0.25em;
+    border-radius: 1em;
+}
+
+.choose-color input[type=text] {
+    width: 40%;
+    background: #c0c0c0;
+    color: black;
+    font-weight: bold;
+}
+/* Kết thúc phần customize lại phần chọn màu sắc */
+/*==========================================================================*/
+
+
+/*============================================================================*/
+/* Thực hiện CSS cho phần footer */
+.footer {
+    width: 100%;
+    padding: 20px 50px 30px;
+}
+
+.footer > .content-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+    border-top: 1px solid black;
+}
+
+.footer > .content-bottom > .bottom-left {
+    text-align: center;
+    width: 40%;
+}
+
+.footer > .content-bottom > .bottom-left > .school {
+    font-weight: 400;
+}
+
+.footer > .content-bottom > .bottom-left > .major {
+    letter-spacing: 2px;
+}
+
+.footer > .content-bottom > .bottom-left > .box-image {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer > .content-bottom > .bottom-left > .box-image > img {
+    height: 100%;
+    margin: 10px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.footer > .content-bottom > .bottom-right {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer > .content-bottom > .bottom-right .item-bottom-right {
+    width: 50%;
+    padding: 0px 20px;
+}
+
+.footer > .content-bottom > .bottom-right .item-bottom-right .card-image {
+    width: 100%;
+    padding: 20px 20%;
+}
+
+.footer > .content-bottom > .bottom-right .item-bottom-right .card-image img {
+    width: 100%;
+}
+
+.footer > .content-bottom > .bottom-right .item-bottom-right .information {
+    text-align: center;
+}
+
+.footer > .content-bottom > .bottom-right .item-bottom-right .information .detail-infor {
+    display: block;
+    font-size: 18px;
+}
+
+.footer > .content-bottom > .bottom-right .item-bottom-right .information .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+/* Kết thúc phần CSS cho footer */
+/*============================================================================*/
+
+
+/*============================================================================*/
+/* Customize phần thông báo */
+.thong-bao {
+    width: 100%;
+    height: 100vh;
+    background: #80808096;
+    position: fixed;
+    top: 0px;
+    left:0px;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 3;
+}
+
+.thong-bao > .noi-dung {
+    width: 400px;
+    height: 200px;
+    background: white;
+    margin: 10px;
+    opacity: 0;
+    animation: show_thong_bao;
+    animation-delay: 0.2s;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show_thong_bao {
+    from { opacity: 0;  }
+    to {  opacity: 1; }
+}
+
+.thong-bao > .noi-dung > .title {
+    height: 60px;
+    width: 100%;
+    padding: 20px 15px;
+    box-shadow: 1px 1px 1px #7979791f, 1px 6px 3px #b7b7b74a;
+}
+
+.thong-bao > .noi-dung .title span.span-title {
+    line-height: 25px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.thong-bao > .noi-dung > .noi-dung-chinh {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.thong-bao > .noi-dung > .noi-dung-chinh > .icon-success {font-size:  60px;color: #00b300;margin:  20px 0px 10px;}
+.thong-bao > .noi-dung > .noi-dung-chinh > .icon-failture {font-size:  60px;color: #fb1c1c;margin:  20px 0px 10px;}
+.thong-bao > .noi-dung > .noi-dung-chinh > .noi-dung-thong-bao {font-size: 22px;}
+/* kết thúc phần customize phần thông báo */
+/*============================================================================*/
+
+
+/*============================================================================*/
+/* Customize phần xác minh Yes/No */
+.xac-minh {
+    width: 100%;
+    height: 100vh;
+    background: #80808096;
+    position: fixed;
+    top: 0px;
+    left:0px;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 3;
+}
+
+.xac-minh > .noi-dung {
+    width: 400px;
+    height: 200px;
+    background: white;
+    opacity: 0;
+    animation: show_xac_minh;
+    animation-delay: 0.2s;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    border: solid 1px #000000a6;
+    position: absolute;
+    top:  50%;
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+}
+
+@keyframes show_xac_minh {
+    from { opacity: 0;  }
+    to {  opacity: 1; }
+}
+
+.xac-minh > .noi-dung > .title {
+    height: 60px;
+    width: 100%;
+    padding: 20px 15px;
+    box-shadow: 1px 1px 1px #7979791f, 1px 6px 3px #b7b7b74a;
+}
+
+.xac-minh > .noi-dung .title span.span-title {
+    line-height: 25px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.xac-minh > .noi-dung > .noi-dung-chinh {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.xac-minh > .noi-dung > .noi-dung-chinh > .cau-hoi {
+    margin-top: 25px;
+    font-size:  24px;
+    font-weight: 400;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi {
+    font-size: 60px;
+    color: white;
+    margin: 18px 0px 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .yes {
+    font-size: 25px;
+    color: white;
+    background: #00dd00;
+    width: 100px;
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .no {
+    background: red;
+    font-size: 25px;
+    width: 100px;
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:  0.2s;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .yes:hover {
+    background: #018301;
+}
+.xac-minh > .noi-dung > .noi-dung-chinh > .tra-loi .no:hover {
+    background: #d60000;
+}
+/* kết thúc phần xác minh Yes/No */
+/*============================================================================*/

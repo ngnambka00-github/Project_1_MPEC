@@ -12,7 +12,11 @@ public class DanhMucDTO {
     public DanhMucDTO(DanhMuc dm) {
         this.idDanhMuc = dm.getIdDanhMuc();
         this.tenDanhMuc = dm.getTenDanhMuc();
-        this.moTa = dm.getMoTa();
+        if (dm.getMoTa() == null) {
+            this.moTa = "";
+        } else {
+            this.moTa = dm.getMoTa();
+        }
     }
 
     public int getIdDanhMuc() {

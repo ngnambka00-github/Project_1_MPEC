@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vn">
+<head
+      th:replace="~{/fragments/admin-frag::main-header(title='Danh mục admin', name_image='icon_title.png')}">
+</head>
+<body>
+    <nav th:replace="~{/fragments/admin-frag::nav-header}"></nav>
+
+    <th:block th:replace="~{/fragments/admin-frag::thong-bao}"></th:block>
+
+    <!-- Nội dung chính của web -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col px-0">
+                <h3 class="text-normal text-uppercase text-warning mt-4">Danh sách danh mục sản phẩm</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="col-5 px-0">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên danh mục để tìm kiếm"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" id="btn-timkiem-danhmuc" style="z-index: 1">
+                            <i class="fas fa-search"></i>
+                            Tìm kiếm
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 pr-0">
+                <button class="btn btn-outline-success w-100" data-toggle="modal" data-target=".modal-themmoidanhmuc">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Thêm mới danh mục
+                </button>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="bg-info">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tên danh mục</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col" class="text-center">Xem chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="dm : ${listDanhMuc}">
+                        <th scope="row" class="align-middle text-center">[[${dm.idDanhMuc}]]</th>
+                        <td class="align-middle">[[${dm.tenDanhMuc}]]</td>
+                        <td class="align-middle">[[${dm.moTa}]]</td>
+                        <td class="p-1 align-middle w-25">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietdanhmuc">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade modal-themmoidanhmuc" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white">Thêm danh mục mới</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Tên danh mục</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="staticEmail"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Mô tả</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="inputPassword"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Thêm mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-chitietdanhmuc" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white">Thông tin danh mục</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group row">
+                            <label for="ma-danh-muc-chinh-sua" class="col-sm-2 col-form-label">Mã danh mục</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control" id="ma-danh-muc-chinh-sua"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ten-danh-muc-chinh-sua" class="col-sm-2 col-form-label">Tên danh mục</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ten-danh-muc-chinh-sua"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label for="mo-ta-danh-muc-chinh-sua" class="col-sm-2 col-form-label">Mô tả</label>
+                            <div class="col-sm-10">
+                                <textarea type="password" class="form-control" id="mo-ta-danh-muc-chinh-sua"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info">Cập nhập</button>
+                    <button type="button" class="btn btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kết thúc phần nội dung chính của website-->
+
+    <footer th:replace="~{/fragments/admin-frag::contact-footer}"></footer>
+    <th:block th:replace="~{/fragments/admin-frag::link-ref}"></th:block>
+</body>
+</html>
