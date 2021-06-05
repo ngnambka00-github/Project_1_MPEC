@@ -17,7 +17,7 @@
         <div class="row d-flex justify-content-between">
             <div class="col-5 px-0">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nhập tên màu sắc để tìm kiếm"/>
+                    <input type="text" class="form-control input-timkiem-mausac" placeholder="Nhập tên màu sắc để tìm kiếm"/>
                     <div class="input-group-append">
                         <button class="btn btn-secondary" type="button"
                                 style="z-index: 1"
@@ -49,16 +49,16 @@
                 </thead>
                 <tbody>
                     <tr th:each="ms : ${listMauSac}">
-                        <th scope="row" class="align-middle text-center">[[${ms.idMauSac}]]</th>
-                        <td class="align-middle">[[${ms.tenMauSac}]]</td>
-                        <td class="align-middle text-center">[[${ms.maMau}]]</td>
+                        <th scope="row" class="align-middle text-center id-mau-sac">[[${ms.idMauSac}]]</th>
+                        <td class="align-middle ten-mau-sac">[[${ms.tenMauSac}]]</td>
+                        <td class="align-middle text-center ma-mau-sac">[[${ms.maMau}]]</td>
                         <td class="align-middle p-1">
                             <button class="w-100 btn" th:styleappend="${ms.maMau} ? 'background:' + ${ms.maMau} : ''">
                                 <span style="opacity: 0;">.</span>
                             </button>
                         </td>
                         <td class="p-1 align-middle">
-                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                            <button class="btn btn-primary w-100 py-1 view-chi-tiet-mau-sac" data-toggle="modal" data-target=".modal-chitietmausac">
                                 Xem chi tiết
                                 <i class="fas fa-chevron-circle-down"></i>
                             </button>
@@ -81,20 +81,19 @@
                 <div class="modal-body">
                     <div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Tên màu sắc</label>
+                            <label for="id-tenmausac-themmoi" class="col-sm-2 col-form-label">Tên màu sắc</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="staticEmail"/>
+                                <input type="text" class="form-control" id="id-tenmausac-themmoi"/>
                             </div>
                         </div>
                         <div class="form-group row mb-0 d-flex">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Màu/Mã màu</label>
+                            <label class="col-sm-2 col-form-label">Màu/Mã màu</label>
                             <div class="choose-color">
                                 <div>
                                     <input type="color" v-model="color1" />
-                                    <input type="text" v-model="color1" />
+                                    <input readonly type="text" v-model="color1" />
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -117,23 +116,23 @@
                 <div class="modal-body">
                     <div>
                         <div class="form-group row">
-                            <label for="ma-danh-muc-chinh-sua" class="col-sm-2 col-form-label">Mã màu sắc</label>
-                            <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" id="ma-danh-muc-chinh-sua"/>
+                            <label for="ma-mau-sac-chinh-sua" class="col-sm-3 col-form-label">Mã màu sắc</label>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control" id="ma-mau-sac-chinh-sua"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="ten-danh-muc-chinh-sua" class="col-sm-2 col-form-label">Tên màu sắc</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ten-danh-muc-chinh-sua"/>
+                            <label for="ten-mau-sac-chinh-sua" class="col-sm-3 col-form-label">Tên màu sắc</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="ten-mau-sac-chinh-sua"/>
                             </div>
                         </div>
                         <div class="form-group row mb-0 d-flex">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Màu / Mã màu</label>
+                            <label for="staticEmail" class="col-sm-3 col-form-label">Màu / Mã màu</label>
                             <div class="choose-color">
                                 <div>
-                                    <input type="color" v-model="color1" />
-                                    <input type="text" v-model="color1" />
+                                    <input type="color" />
+                                    <input type="text" class="text-center" />
                                 </div>
                             </div>
                         </div>

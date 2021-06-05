@@ -15,11 +15,16 @@ public class MauSacServiceImpls implements MauSacService {
 
     @Override
     public List<MauSac> getListMauSac() {
-        return mauSacRepo.findAll();
+        return mauSacRepo.getListMauSac();
     }
 
     @Override
     public List<MauSac> findMauSacByIdSanPham(int idSanPham) {
         return mauSacRepo.findMauSacByIdSanPham(idSanPham);
+    }
+
+    @Override
+    public List<MauSac> findListMauSacByName(String noiDung) {
+        return mauSacRepo.getListMauSacByName(noiDung);
     }
 }

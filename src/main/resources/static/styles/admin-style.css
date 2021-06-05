@@ -185,7 +185,7 @@ div.display-none {
     left:0px;
     display: flex;
     justify-content: flex-end;
-    z-index: 3;
+    z-index: 4;
 }
 
 .thong-bao > .noi-dung {
@@ -245,7 +245,7 @@ div.display-none {
     left:0px;
     display: flex;
     justify-content: flex-end;
-    z-index: 3;
+    z-index: 4;
 }
 
 .xac-minh > .noi-dung {

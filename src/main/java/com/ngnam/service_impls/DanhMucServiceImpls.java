@@ -15,7 +15,13 @@ public class DanhMucServiceImpls implements DanhMucService {
 
     @Override
     public List<DanhMuc> getListDanhMuc() {
-        return danhMucRepo.findAll();
+        List<DanhMuc> listDanhMuc = danhMucRepo.getListDanhMuc();
+        for (DanhMuc dm : listDanhMuc) {
+            if (dm.getMoTa() == null) {
+                dm.setMoTa("");
+            }
+        }
+        return listDanhMuc;
     }
 
     @Override
@@ -26,5 +32,23 @@ public class DanhMucServiceImpls implements DanhMucService {
     @Override
     public DanhMuc findDanhMucByIdSanPham(int idSanPham) {
         return danhMucRepo.findDanhMucByIdSanPham(idSanPham);
+    }
+
+    @Override
+    public DanhMuc createNewDanhMuc(DanhMuc danhMuc) {
+        return danhMucRepo.save(danhMuc);
+    }
+
+    @Override
+    public List<DanhMuc> findDanhMucByName(String name) {
+        return danhMucRepo.findDanhMucByTen(name);
+    }
+
+    @Override
+    public DanhMuc deleteDanhMuc(DanhMuc danhMuc) {
+        int idDanhMuc = danhMuc.getIdDanhMuc();
+        danhMuc.setActive(false);
+        danhMucRepo.save(danhMuc);
+        return danhMucRepo.findDanhMucByIdIgnoreActive(idDanhMuc);
     }
 }

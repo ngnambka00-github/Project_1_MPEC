@@ -16,4 +16,11 @@ public interface MauSacRepo extends JpaRepository<MauSac, Integer> {
             "where ha.idSanPham = :id_san_pham and ha.isActive = true)" +
             " and ms.isActive = true")
     public List<MauSac> findMauSacByIdSanPham(@Param("id_san_pham") int idSanPham);
+
+    @Query("select ms from MauSac ms where ms.isActive = true")
+    public List<MauSac> getListMauSac();
+
+    @Query("select ms from MauSac  ms where ms.isActive = true and " +
+            "lower(ms.tenMauSac) like concat('%', :noi_dung, '%')")
+    public List<MauSac> getListMauSacByName(@Param("noi_dung") String noiDung);
 }
