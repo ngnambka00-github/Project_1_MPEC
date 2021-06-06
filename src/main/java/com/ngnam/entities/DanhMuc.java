@@ -3,6 +3,8 @@ package com.ngnam.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="danh_muc")

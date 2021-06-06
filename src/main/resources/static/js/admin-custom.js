@@ -461,6 +461,76 @@ $(document).ready(function() {
         $(this).find('#tenkichthuoc-themmoi').focus();
     });
     /* ===================== Kết thúc xử lý page danh mục ==================*/
+
+    /* ======================= Xử lý page danh mục =========================*/
+    // Sự kiện change selection DanhMuc
+    $('#id-select-danhmuc').on('change', function(e) {
+        let idDanhMuc = parseInt($(this).val());
+        let listSanPham = null;
+        if (idDanhMuc == 0) { // lấy toàn bộ SanPham
+            listSanPham = ajaxGet(`/${nameContentPath}/admin/api/sanpham`);
+        } else { // lấy SanPham theo idDanhMuc
+            listSanPham = ajaxGet(`/${nameContentPath}/admin/api/sanpham/theodanhmuc/${idDanhMuc}`);
+        }
+        updateListSanPham(listSanPham);
+    });
+
+    // Sự kiện tìm kiếm danh sách SanPham theo DanhMuc
+    $('#btn-timkiem-sanpham').on('click', function() {
+        let idDanhMuc = parseInt($('#id-select-danhmuc').val());
+        let noiDung = $(this).closest('.input-group').find('input').val();
+
+        if (noiDung !== '') {
+            let listSanPham = ajaxGet(`/${nameContentPath}/admin/api/sanpham/find/${idDanhMuc}/${noiDung}`);
+            updateListSanPham(listSanPham);
+        }
+    });
+
+    // Update list SanPham lên giao diện table
+    function updateListSanPham(listSanPham) {
+        let table = $('table tbody');
+        let innerHTML = '';
+        if (listSanPham.length != 0) {
+            for (let sp of listSanPham) {
+                innerHTML += `
+                    <tr>
+                        <th scope="row" class="align-middle text-center">${sp.idSanPham}</th>
+                        <td class="align-middle">${sp.tenSanPham}</td>
+                        <td class="align-middle text-center">${sp.danhMuc.tenDanhMuc}</td>
+                        <td class="p-1 align-middle">
+                            <img src="/${nameContentPath}/api/getimages/${sp.listHinhAnh[0].tenHinhAnh}" height="60"/>
+                            <img src="/${nameContentPath}/api/getimages/${sp.listHinhAnh[1].tenHinhAnh}" height="60"/>
+                        </td>
+                        <td class="align-middle">${sp.giaSanPham}đ</td>
+                        <td class="align-middle text-center">${sp.gioiTinh}</td>`;
+
+                if (sp.idKhuyenMai == null) {
+                    innerHTML += `<td class="align-middle text-center"> </td>`;
+                } else {
+                    innerHTML += `<td class="align-middle text-center">${sp.idKhuyenMai}</td>`;
+                }
+
+                innerHTML += `
+                    <td class="align-middle text-center">${sp.ngayNhap}</td>
+                    <td class="p-1 align-middle">
+                        <a class="btn btn-primary w-100 py-1" href="/${nameContentPath}/admin/sanpham/chitiet/${sp.idSanPham}">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </a>
+                    </td>
+                </tr>`;
+            };
+        } else {
+            innerHTML = `
+                <tr>
+                    <td colspan="9" class="text-center align-middle text-danger text-uppercase">
+                        <h3 class="mb-0">Không có kết quả</h3>
+                    </td>
+                </tr>`;
+        }
+        table.html(innerHTML);
+    }
+    /* ===================== Kết thúc xử lý page sản phẩm ==================*/
 });
 
 // type = 1 => thông báo thành công

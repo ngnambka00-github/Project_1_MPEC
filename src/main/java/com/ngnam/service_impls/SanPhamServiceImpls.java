@@ -14,8 +14,8 @@ public class SanPhamServiceImpls implements SanPhamService {
     SanPhamRepo sanPhamRepo;
 
     @Override
-    public List<SanPham> getListSanPham() {
-        return sanPhamRepo.findAll();
+    public List<SanPham> getListSanPhamActive() {
+        return sanPhamRepo.getListSanPhamActive();
     }
 
     @Override
@@ -26,5 +26,15 @@ public class SanPhamServiceImpls implements SanPhamService {
     @Override
     public List<SanPham> findSanPhamByMaDanhMuc(int idDanhMuc) {
         return sanPhamRepo.findSanPhamByMaDanhMuc(idDanhMuc);
+    }
+
+    @Override
+    public List<SanPham> findSanPhamByContent(String noiDung) {
+        return sanPhamRepo.findSanPhamByContent(noiDung);
+    }
+
+    @Override
+    public List<SanPham> findSanPhamByIdDanhMucAndContent(int idDanhMuc, String noiDung) {
+        return sanPhamRepo.findSanPhamByIdDanhMucAndContent(idDanhMuc, noiDung);
     }
 }

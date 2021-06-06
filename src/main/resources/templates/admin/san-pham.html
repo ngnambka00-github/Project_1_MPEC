@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vn">
+<head
+        th:replace="~{/fragments/admin-frag::main-header(title='Sản phẩm admin', name_image='icon_title.png')}">
+</head>
+<body>
+    <nav th:replace="~{/fragments/admin-frag::nav-header}"></nav>
+    <th:block th:replace="~{/fragments/admin-frag::thong-bao}"></th:block>
+
+    <!-- Nội dung chính của web -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col px-0">
+                <h3 class="text-normal text-uppercase text-warning mt-4">Danh sách sản phẩm</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5 px-0">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm để tìm kiếm"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" id="btn-timkiem-sanpham">
+                            <i class="fas fa-search"></i>
+                            Tìm kiếm
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 pr-0">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-secondary text-white" id="basic-addon3">Danh mục SP</span>
+                    </div>
+                    <select class="form-control" id="id-select-danhmuc">
+                        <option value="0" selected>Tất cả sản phẩm</option>
+                        <th:block th:each="dm : ${listDanhMuc}">
+                            <option th:value="${dm.idDanhMuc}" th:text="${dm.tenDanhMuc}">3</option>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
+            <div class="col-3 pr-0">
+                <a class="btn btn-outline-success w-100" href="#">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Thêm mới sản phẩm
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="bg-info">
+                    <tr>
+                        <th scope="col" class="align-middle">ID</th>
+                        <th scope="col" class="align-middle">Tên sản phẩm</th>
+                        <th scope="col" class="align-middle">Danh mục</th>
+                        <th scope="col" class="align-middle text-center">Hình ảnh</th>
+                        <th scope="col" class="align-middle text-center">Giá tiền</th>
+                        <th scope="col" class="align-middle text-center">Giới tính</th>
+                        <th scope="col" class="align-middle">Mã khuyến mãi</th>
+                        <th scope="col" class="align-middle text-center">Ngày nhập</th>
+                        <th scope="col" class="align-middle text-center">Xem chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="sp : ${listSanPham}">
+                        <th scope="row" class="align-middle text-center">[[ ${sp.idSanPham} ]]</th>
+                        <td class="align-middle">[[ ${sp.tenSanPham} ]]</td>
+                        <td class="align-middle text-center">[[ ${sp.danhMuc.tenDanhMuc} ]]</td>
+                        <td class="p-1 align-middle">
+                            <img th:src="@{'/api/getimages/' + ${sp.listHinhAnh[0].tenHinhAnh}}" height="60"/>
+                            <img th:src="@{'/api/getimages/' + ${sp.listHinhAnh[1].tenHinhAnh}}"height="60"/>
+                        </td>
+                        <td class="align-middle">[[ ${sp.giaSanPham} ]]đ</td>
+                        <td class="align-middle text-center">[[ ${sp.gioiTinh} ]]</td>
+
+                        <td class="align-middle text-center" th:if="${sp.idKhuyenMai == null}"> </td>
+                        <td class="align-middle text-center" th:unless="${sp.idKhuyenMai == null}" th:text="${sp.idKhuyenMai}"></td>
+
+                        <td class="align-middle text-center">[[ ${sp.ngayNhap} ]]</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" th:href="@{'/admin/sanpham/chitiet/' + ${sp.idSanPham}}">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Kết thúc phần nội dung chính của website-->
+
+    <footer th:replace="~{/fragments/admin-frag::contact-footer}"></footer>
+    <th:block th:replace="~{/fragments/admin-frag::link-ref}"></th:block>
+</body>
+</html>

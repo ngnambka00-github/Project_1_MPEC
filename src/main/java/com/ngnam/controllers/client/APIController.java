@@ -1,4 +1,4 @@
-package com.ngnam.controllers;
+package com.ngnam.controllers.client;
 
 import com.ngnam.dto.HinhAnhDTO;
 import com.ngnam.dto.KichThuocDTO;
