@@ -36,7 +36,7 @@
                 </button>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-4">
             <table class="table table-hover table-bordered table-striped">
                 <thead class="bg-info">
                 <tr>
@@ -90,15 +90,15 @@
                             <label class="col-sm-2 col-form-label">Màu/Mã màu</label>
                             <div class="choose-color">
                                 <div>
-                                    <input type="color" v-model="color1" />
-                                    <input readonly type="text" v-model="color1" />
+                                    <input type="color"/>
+                                    <input readonly type="text"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Thêm mới</button>
+                    <button type="button" class="btn btn-primary btn-mausac-save">Thêm mới</button>
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@
                         <div class="form-group row">
                             <label for="ma-mau-sac-chinh-sua" class="col-sm-3 col-form-label">Mã màu sắc</label>
                             <div class="col-sm-9">
-                                <input type="text" readonly class="form-control" id="ma-mau-sac-chinh-sua"/>
+                                <input type="text" id="ma-mau-sac-chinh-sua" class="form-control" readonly/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                         <div class="form-group row mb-0 d-flex">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Màu / Mã màu</label>
+                            <label class="col-sm-3 col-form-label">Màu / Mã màu</label>
                             <div class="choose-color">
                                 <div>
                                     <input type="color" />
@@ -139,8 +139,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info">Cập nhập</button>
-                    <button type="button" class="btn btn-danger">Xóa</button>
+                    <button type="button" class="btn btn-info btn-update-mausac">Cập nhập</button>
+                    <button type="button" class="btn btn-danger btn-delete-mausac">Xóa</button>
                 </div>
             </div>
         </div>

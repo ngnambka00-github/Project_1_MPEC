@@ -27,4 +27,22 @@ public class MauSacServiceImpls implements MauSacService {
     public List<MauSac> findListMauSacByName(String noiDung) {
         return mauSacRepo.getListMauSacByName(noiDung);
     }
+
+    @Override
+    public MauSac saveNewMauSac(MauSac mauSac) {
+        return mauSacRepo.save(mauSac);
+    }
+
+    @Override
+    public MauSac deleteMauSac(MauSac mauSac) {
+        int idMauSac = mauSac.getIdMauSac();
+        mauSac.setActive(false);
+        mauSacRepo.save(mauSac);
+        return mauSacRepo.findMauSacByIdIgnoreActive(idMauSac);
+    }
+
+    @Override
+    public MauSac findMauSacById(int idMauSac) {
+        return mauSacRepo.findById(idMauSac).get();
+    }
 }

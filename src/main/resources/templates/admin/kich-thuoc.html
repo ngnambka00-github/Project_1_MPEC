@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="vn">
 <head
-        th:replace="~{/fragments/admin-frag::main-header(title='Màu sắc admin', name_image='icon_title.png')}">
+        th:replace="~{/fragments/admin-frag::main-header(title='Kích thước admin', name_image='icon_title.png')}">
 </head>
 <body>
     <nav th:replace="~{/fragments/admin-frag::nav-header}"></nav>
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="row mt-3">
+        <div class="row mt-4">
             <table class="table table-hover table-bordered table-striped">
                 <thead class="bg-info">
                 <tr>
@@ -45,135 +45,20 @@
                     <th scope="col">Tên kích thước</th>
                     <th scope="col" class="text-center">Ký hiệu</th>
                     <th scope="col" class="text-center">Xem chi tiết</th>
-
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row" class="align-middle text-center">1</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">2</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">3</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">4</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">5</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">6</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">7</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">8</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row" class="align-middle text-center">9</th>
-                    <td class="align-middle">Rất lớn</td>
-                    <td class="align-middle text-center">
-                        XXL
-                    </td>
-                    <td class="align-middle w-25">
-                        <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietkichthuoc">
-                            Xem chi tiết
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </td>
-                </tr>
+                    <tr th:each="kt : ${listKichThuoc}">
+                        <th scope="row" class="align-middle text-center id-kich-thuoc">[[ ${kt.idKichThuoc} ]]</th>
+                        <td class="align-middle ten-kich-thuoc">[[ ${kt.tenKichThuoc} ]]</td>
+                        <td class="align-middle text-center ky-hieu-kich-thuoc">[[ ${kt.kyHieu} ]]</td>
+                        <td class="align-middle w-25">
+                            <button class="btn btn-primary w-100 py-1 view-chi-tiet-kich-thuoc" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -191,21 +76,21 @@
                 <div class="modal-body">
                     <div>
                         <div class="form-group row">
-                            <label for="ten-kich-thuoc" class="col-sm-2 col-form-label pr-0">Tên kích thước</label>
+                            <label for="tenkichthuoc-themmoi" class="col-sm-2 col-form-label pr-0">Tên kích thước</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ten-kich-thuoc"/>
+                                <input type="text" class="form-control" id="tenkichthuoc-themmoi"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="ky-hieu" class="col-sm-2 col-form-label">Ký hiệu</label>
+                            <label for="kyhieukichthuoc-themmoi" class="col-sm-2 col-form-label">Ký hiệu</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ky-hieu"/>
+                                <input type="text" class="form-control" id="kyhieukichthuoc-themmoi"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Thêm mới</button>
+                    <button type="button" class="btn btn-primary btn-kichthuoc-save">Thêm mới</button>
                 </div>
             </div>
         </div>
@@ -223,28 +108,28 @@
                 <div class="modal-body">
                     <div>
                         <div class="form-group row">
-                            <label for="ma-kich-thuoc-chinh-sua" class="col-sm-2 col-form-label pr-0">Mã kích thước</label>
+                            <label for="idkichthuoc-chinhsua" class="col-sm-2 col-form-label pr-0">Mã kích thước</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" id="ma-kich-thuoc-chinh-sua"/>
+                                <input type="text" readonly class="form-control" id="idkichthuoc-chinhsua"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="ten-kich-thuoc-chinh-sua" class="col-sm-2 col-form-label pr-0">Tên kích thước</label>
+                            <label for="tenkichthuoc-chinhsua" class="col-sm-2 col-form-label pr-0">Tên kích thước</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ten-kich-thuoc-chinh-sua"/>
+                                <input type="text" class="form-control" id="tenkichthuoc-chinhsua"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="ky-hieu-chinh-sua" class="col-sm-2 col-form-label">Ký hiệu</label>
+                            <label for="kyhieukichthuoc-chinhsua" class="col-sm-2 col-form-label">Ký hiệu</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ky-hieu-chinh-sua"/>
+                                <input type="text" class="form-control" id="kyhieukichthuoc-chinhsua"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info">Cập nhập</button>
-                    <button type="button" class="btn btn-danger">Xóa</button>
+                    <button type="button" class="btn btn-info btn-update-kichthuoc">Cập nhập</button>
+                    <button type="button" class="btn btn-danger btn-delete-kichthuoc">Xóa</button>
                 </div>
             </div>
         </div>

@@ -1,10 +1,6 @@
 var nameContentPath = 'Project_1';
 var confirmNo = true;
 $(document).ready(function() {
-    $('#btn-timkiem-kichthuoc').on('click', function () {
-        showFormConfirm("Bạn có chắc chắn muốn xóa");
-    });
-
     // Customize lại input chọn màu sắc
     $('.choose-color input[type=color]').on('change', function () {
         $('.choose-color input[type=text]').val($(this).val());
@@ -49,6 +45,80 @@ $(document).ready(function() {
         if (noiDung !== '') {
             let listMauSac = ajaxGet(`/${nameContentPath}/admin/api/mausac/find/${noiDung}`);
             updateListMauSac(listMauSac);
+        }
+    });
+
+    // Thêm màu sắc mới
+    $('.modal-themmoimausac .btn-mausac-save').on('click', function() {
+        // Lấy dữ liệu từ form
+        let tenMauSac = $(this).closest('.modal-themmoimausac').find('#id-tenmausac-themmoi').val();
+        let maMau = $(this).closest('.modal-themmoimausac').find('.choose-color input[type="text"]').val();
+
+        // Tạo data
+        let data = {tenMauSac, maMau};
+
+        // Call API
+        let mauSauObject = ajaxPost(`/${nameContentPath}/admin/api/mausac`, data);
+
+        // Hiển thị thông báo
+        resetFormMauSacThemMoi();
+        $('.modal-themmoimausac').find('.close').click();
+        if (mauSauObject !== null) { // Thêm mới thành công
+            // Update lại giao diện
+            let listMauSac = ajaxGet(`/${nameContentPath}/admin/api/mausac`);
+            updateListMauSac(listMauSac);
+
+            // Show thông báo
+            showThongBao(1, "Thêm mới màu sắc thành công!");
+        } else { // Thêm mới thất bại
+            showThongBao(0, "Thêm mới màu sắc thất bại!");
+        }
+    });
+
+    // Xóa một màu sắc khỏi danh sách
+    $('.modal-chitietmausac .btn-delete-mausac').on('click', function() {
+        // Lấy id
+        let idMauSac = $(this).closest('.modal-chitietmausac').find('#ma-mau-sac-chinh-sua').val();
+
+        // Thực hiện call API HTTP Delete
+        let checkDelete = ajaxDelete(`/${nameContentPath}/admin/api/mausac/${idMauSac}`);
+
+        // Hiển thị thông báo xóa thành công / thất bại
+        $(this).closest('.modal-chitietmausac').find('.close').click();
+        if (checkDelete) { // Tức là xóa thành công
+            // Cập nhập lại giao diện
+            let listMauSac = ajaxGet(`/${nameContentPath}/admin/api/mausac`);
+            updateListMauSac(listMauSac);
+
+            // show thông báo hiển thị
+            showThongBao(1, `Xóa màu sắc ID:${idMauSac} thành công!`);
+        } else { // Tức là xóa không thành công
+            showThongBao(0, `Xóa màu sắc ID:${idMauSac} thất bại!`);
+        }
+    });
+
+    // Update lại 1 object màu sắc mới vào danh sách
+    $('.modal-chitietmausac .btn-update-mausac').on('click', function() {
+        // Lấy dữ liệu
+        let idMauSac = parseInt($(this).closest('.modal-chitietmausac').find('#ma-mau-sac-chinh-sua').val());
+        let tenMauSac = $(this).closest('.modal-chitietmausac').find('#ten-mau-sac-chinh-sua').val();
+        let maMau = $(this).closest('.modal-chitietmausac').find('.choose-color input[type="text"]').val();
+        let data = {idMauSac, tenMauSac, maMau};
+
+        // Call API PUT để update màu sắc vào database
+        let mauSacUpdate = ajaxPut(`/${nameContentPath}/admin/api/mausac`, data);
+
+        // Xuất thông báo hiển thị
+        $(this).closest('.modal-chitietmausac').find('.close').click();
+        if (mauSacUpdate !== null) { // update thành công
+            // Update dữ liệu lại lên giao diện
+            let listMauSac = ajaxGet(`/${nameContentPath}/admin/api/mausac`);
+            updateListMauSac(listMauSac);
+
+            // Hiển thị thông báo
+            showThongBao(1, `Cập nhập ID:${idMauSac} thành công!`)
+        } else { // update không thành công
+            showThongBao(0, `Cập nhập ID:${idMauSac} thất bại!`);
         }
     });
 
@@ -97,6 +167,11 @@ $(document).ready(function() {
     // Sự kiện reset form khi thoát khoải form thêm màu sắc mới
     $('.modal-themmoimausac').on('hidden.bs.modal', function (e) {
         resetFormMauSacThemMoi();
+    });
+
+    // set focus for name_input sau khi mở form modal-themmoimausac
+    $('.modal-themmoimausac').on('shown.bs.modal', function(e){
+        $(this).find('#id-tenmausac-themmoi').focus();
     });
     /*================= Kết thúc xử lý page màu sắc =====================*/
 
@@ -233,15 +308,159 @@ $(document).ready(function() {
         $('.modal-themmoidanhmuc').find('#mota-themmoi-danhmuc').val('');
     };
 
-    // Sự kiện khi toán modal thêm sản phẩm mới
+    // Sự kiện khi close modal thêm sản phẩm mới
     $('.modal-themmoidanhmuc').on('hidden.bs.modal', function (e) {
         resetFormDanhMucThemMoi();
     });
+
+    // set focus for name_input sau khi mở form modal-themmoidanhmuc
+    $('.modal-themmoidanhmuc').on('shown.bs.modal', function(e){
+        $(this).find('#id-themmoi-danhmuc').focus();
+    });
     /* ======================= Kết thúc xử lý page danh mục ==================*/
 
-    $('.view-chi-tiet-kich-thuoc').on('click', function() {
 
+    /* ======================= Xử lý page kích thước =======================*/
+    // View chi tiết kích thuớc
+    $('body').on('click', '.view-chi-tiet-kich-thuoc', function() {
+        // Lấy dữ liệu
+        let idKichThuoc = $(this).closest('tr').find('.id-kich-thuoc').text();
+        let tenKichThuoc = $(this).closest('tr').find('.ten-kich-thuoc').text();
+        let kyHieuKichThuoc = $(this).closest('tr').find('.ky-hieu-kich-thuoc').text();
+
+        // Cập nhập lên form giao diện
+        $('.modal-chitietkichthuoc').find('#idkichthuoc-chinhsua').val(idKichThuoc);
+        $('.modal-chitietkichthuoc').find('#tenkichthuoc-chinhsua').val(tenKichThuoc);
+        $('.modal-chitietkichthuoc').find('#kyhieukichthuoc-chinhsua').val(kyHieuKichThuoc);
     });
+
+    // Chức năng tìm kiếm kích thước
+    $('#btn-timkiem-kichthuoc').on('click', function() {
+        let noiDung = $(this).closest('.input-group').find('input').val();
+        if (noiDung !== '') {
+            let listKichThuoc = ajaxGet(`/${nameContentPath}/admin/api/kichthuoc/find/${noiDung}`);
+            updateListKichThuoc(listKichThuoc);
+        }
+    });
+
+    // Chức năng thêm mới đối tượng KichThuoc
+    $('.modal-themmoikichthuoc .btn-kichthuoc-save').on('click', function() {
+        // Lấy dữ liệu
+        let tenKichThuoc = $(this).closest('.modal-themmoikichthuoc').find('#tenkichthuoc-themmoi').val();
+        let kyHieu = $(this).closest('.modal-themmoikichthuoc').find('#kyhieukichthuoc-themmoi').val();
+        let data = {tenKichThuoc, kyHieu};
+
+        // Call API tạo mới dữ liệu
+        let kichThuocObject = ajaxPost(`/${nameContentPath}/admin/api/kichthuoc`, data);
+
+        // Xuất hiển thị thông báo
+        resetFormKichThuocThemMoi();
+        $('.modal-themmoikichthuoc').find('.close').click();
+        if (kichThuocObject !== null) { // thêm object kích thước mới thành công
+            // Update giao diện danh sách kích thước mới sau khi thêm
+            let listKichThuoc = ajaxGet(`/${nameContentPath}/admin/api/kichthuoc`);
+            updateListKichThuoc(listKichThuoc);
+
+            // Hiển thị thông báo
+            showThongBao(1, "Thêm mới kích thước thành công!");
+        } else { // thêm object kích thước mới thất bại
+            showThongBao(0, "Thêm mới kích thước thất bại!");
+        }
+    });
+
+    // Chức năng xóa đối tượng KichThuoc theo idKichThuoc
+    $('.modal-chitietkichthuoc .btn-delete-kichthuoc').on('click', function() {
+        // Tìm idKichThuoc
+        let idKichThuoc = $(this).closest('.modal-chitietkichthuoc').find('#idkichthuoc-chinhsua').val();
+
+        // Call API thực hiện xóa đối tượng KichThuoc
+        let checkDelete = ajaxDelete(`/${nameContentPath}/admin/api/kichthuoc/${idKichThuoc}`);
+
+        // Hiển thị thông báo giao diện thành công / thất bại
+        $('.modal-chitietkichthuoc').find('.close').click();
+        if (checkDelete) { // Xóa thành công đối tượng KichThuoc
+            // Update lại gioa diện sau khi xóa
+            let listKichThuoc = ajaxGet(`/${nameContentPath}/admin/api/kichthuoc`);
+            updateListKichThuoc(listKichThuoc);
+
+            // Hiển thị thông báo xóa thành công
+            showThongBao(1, `Xóa Kích thước ID:${idKichThuoc} thành công!`);
+        } else { // Xóa đối tượng KichThuoc thất bại
+            showThongBao(0, `Xóa Kích thước ID:${idKichThuoc} thất bại!`);
+        }
+    });
+
+    // Chức năng update KichThuoc
+    $('.modal-chitietkichthuoc .btn-update-kichthuoc').on('click', function() {
+        // Lấy dữ liệu
+        let idKichThuoc = parseInt($(this).closest('.modal-chitietkichthuoc').find('#idkichthuoc-chinhsua').val());
+        let tenKichThuoc = $(this).closest('.modal-chitietkichthuoc').find('#tenkichthuoc-chinhsua').val();
+        let kyHieu = $(this).closest('.modal-chitietkichthuoc').find('#kyhieukichthuoc-chinhsua').val();
+        let data = {idKichThuoc, tenKichThuoc, kyHieu};
+
+        // Call API update dữ liệu
+        let kichThuocObject = ajaxPut(`/${nameContentPath}/admin/api/kichthuoc`, data);
+
+        // // Xuất thông báo lên giao diện
+        $('.modal-chitietkichthuoc').find('.close').click();
+        if (kichThuocObject !== null) { // update KichThuoc thành công
+            // Update lại giao diện sau khi update
+            let listKichThuoc = ajaxGet(`/${nameContentPath}/admin/api/kichthuoc`);
+            updateListKichThuoc(listKichThuoc);
+
+            // Hiển thị thông báo
+            showThongBao(1, `Update Kích thước ID:${idKichThuoc} thành công!`)
+        } else { // Update KichThuoc thất bại
+            showThongBao(0, `Update Kích thước ID:${idKichThuoc} thất bại!`);
+        }
+    });
+
+    // Update nội dung danh sách KichThuoc vào table Frontend
+    function updateListKichThuoc(listKichThuoc) {
+        let table = $('table tbody');
+        let innerHTML = '';
+        if (listKichThuoc.length != 0) {
+            for (let kt of listKichThuoc) {
+                innerHTML += `
+                <tr>
+                    <th scope="row" class="align-middle text-center id-kich-thuoc">${kt.idKichThuoc}</th>
+                    <td class="align-middle ten-kich-thuoc">${kt.tenKichThuoc}</td>
+                    <td class="align-middle text-center ky-hieu-kich-thuoc">${kt.kyHieu}</td>
+                    <td class="align-middle w-25">
+                        <button class="btn btn-primary w-100 py-1 view-chi-tiet-kich-thuoc" data-toggle="modal" data-target=".modal-chitietkichthuoc">
+                            Xem chi tiết
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            };
+        } else {
+            innerHTML = `
+                <tr>
+                    <td colspan="4" class="text-center align-middle text-danger text-uppercase">
+                        <h3 class="mb-0">Không có kết quả</h3>
+                    </td>
+                </tr>`;
+        }
+        table.html(innerHTML);
+    }
+
+    // Hàm có chức năng reset lại form Kích Thước - Thêm mới
+    function resetFormKichThuocThemMoi() {
+        $('.modal-themmoikichthuoc #tenkichthuoc-themmoi').val('');
+        $('.modal-themmoikichthuoc #kyhieukichthuoc-themmoi').val('');
+    }
+
+    // Sự kiện khi close modal thêm kích thước mới
+    $('.modal-themmoikichthuoc').on('hidden.bs.modal', function (e) {
+        resetFormKichThuocThemMoi();
+    });
+
+    // set focus for name_input sau khi mở form modal-themmoikichthuoc
+    $('.modal-themmoikichthuoc').on('shown.bs.modal', function(e){
+        $(this).find('#tenkichthuoc-themmoi').focus();
+    });
+    /* ===================== Kết thúc xử lý page danh mục ==================*/
 });
 
 // type = 1 => thông báo thành công
@@ -282,7 +501,7 @@ function ajaxGet(url) {
         }
     });
     return result;
-}
+};
 
 // Ajax POST and return data hợp lệ
 function ajaxPost(url, data){
@@ -300,7 +519,7 @@ function ajaxPost(url, data){
         }
     });
     return result;
-}
+};
 
 function ajaxDelete(url) {
     let result = null;
@@ -315,7 +534,7 @@ function ajaxDelete(url) {
         }
     });
     return result;
-}
+};
 
 function ajaxPut(url, data) {
     let result = null;
@@ -332,4 +551,4 @@ function ajaxPut(url, data) {
         }
     });
     return result;
-}
+};
