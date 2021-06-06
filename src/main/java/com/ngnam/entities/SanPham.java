@@ -3,6 +3,8 @@ package com.ngnam.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 @Table(name="san_pham")
@@ -38,5 +40,9 @@ public class SanPham {
 
     @Column(name="is_active")
     private boolean isActive;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="id_san_pham")
+    private List<HinhAnh> listHinhAnh;
 
 }

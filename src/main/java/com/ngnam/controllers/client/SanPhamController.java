@@ -1,4 +1,4 @@
-package com.ngnam.controllers;
+package com.ngnam.controllers.client;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +73,7 @@ public class SanPhamController {
     @GetMapping
     public String getDefault(ModelMap modelMap) {
         List<SanPhamDTO> listSPDTO = new ArrayList<>();
-        for (SanPham sp : sanPhamService.getListSanPham()) {
+        for (SanPham sp : sanPhamService.getListSanPhamActive()) {
             listSPDTO.add(getSanPhamDTO(sp));
         }
 
