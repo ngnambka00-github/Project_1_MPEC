@@ -11,8 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/admin/api/mausac")
 public class MauSacAPI {
-    @Autowired
-    MauSacServiceImpls mauSacService;
+    @Autowired private MauSacServiceImpls mauSacService;
 
     // Lấy tất cả các đối tượng màu sắc mà được active = true
     @GetMapping

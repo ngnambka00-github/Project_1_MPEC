@@ -13,8 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping(path="/admin/kichthuoc")
 public class KichThuocController {
-    @Autowired
-    KichThuocServiceImpls kichThuocService;
+    @Autowired private KichThuocServiceImpls kichThuocService;
 
     @GetMapping
     public String getDefault(ModelMap modelMap) {

@@ -445,10 +445,10 @@ $(document).ready(function(){
             success: function(value) {
                 let objectColor = JSON.parse(value);
                 boxImage1.attr({
-                    'src': `/${nameContentPath}/api/getimages/${objectColor.listHinhAnh[0].tenHinhAnh}`
+                    'src': `/${nameContentPath}${objectColor.listHinhAnh[0].imagePath}`
                 });
                 boxImage2.attr({
-                    'src': `/${nameContentPath}/api/getimages/${objectColor.listHinhAnh[1].tenHinhAnh}`
+                    'src': `/${nameContentPath}${objectColor.listHinhAnh[1].imagePath}`
                 });
 
                 let innerKichThuoc = '';
@@ -652,7 +652,7 @@ $(document).ready(function(){
                 for (let ha of objectColor.listHinhAnh) {
                     htmlBoxImages += `
                         <div class="box-image">
-                            <img src="/${nameContentPath}/api/getimages/${ha.tenHinhAnh}" alt="" class="image">
+                            <img src="/${nameContentPath}${ha.imagePath}" alt="" class="image">
                         </div>`;
                 }
                 boxImages.html(htmlBoxImages);

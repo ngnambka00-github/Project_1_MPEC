@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.beans.Transient;
 import java.util.List;
 
 @Entity
@@ -27,4 +28,9 @@ public class HinhAnh {
 
     @Column(name="is_active")
     private boolean isActive;
+
+    @Transient
+    public String getImagePath() {
+        return "/getimages/images/mau_san_pham/" + tenHinhAnh;
+    }
 }

@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class MauSacServiceImpls implements MauSacService {
-    @Autowired
-    MauSacRepo mauSacRepo;
+    @Autowired private MauSacRepo mauSacRepo;
 
     @Override
     public List<MauSac> getListMauSac() {

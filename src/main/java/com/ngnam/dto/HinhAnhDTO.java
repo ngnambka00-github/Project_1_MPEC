@@ -10,6 +10,7 @@ import javax.persistence.Id;
 public class HinhAnhDTO {
     private int idHinhAnh;
     private String tenHinhAnh;
+    private String imagePath;
 
     public HinhAnhDTO() {
 
@@ -18,6 +19,7 @@ public class HinhAnhDTO {
     public HinhAnhDTO(HinhAnh ha) {
         this.idHinhAnh = ha.getIdHinhAnh();
         this.tenHinhAnh = ha.getTenHinhAnh();
+        this.imagePath = ha.getImagePath();
     }
 
     public int getIdHinhAnh() {
@@ -34,5 +36,13 @@ public class HinhAnhDTO {
 
     public void setTenHinhAnh(String tenHinhAnh) {
         this.tenHinhAnh = tenHinhAnh;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

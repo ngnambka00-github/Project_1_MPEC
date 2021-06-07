@@ -498,8 +498,8 @@ $(document).ready(function() {
                         <td class="align-middle">${sp.tenSanPham}</td>
                         <td class="align-middle text-center">${sp.danhMuc.tenDanhMuc}</td>
                         <td class="p-1 align-middle">
-                            <img src="/${nameContentPath}/api/getimages/${sp.listHinhAnh[0].tenHinhAnh}" height="60"/>
-                            <img src="/${nameContentPath}/api/getimages/${sp.listHinhAnh[1].tenHinhAnh}" height="60"/>
+                            <img src="/${nameContentPath}/getimages/images/mau_san_pham/${sp.listHinhAnh[0].tenHinhAnh}" height="60"/>
+                            <img src="/${nameContentPath}/getimages/images/mau_san_pham/${sp.listHinhAnh[1].tenHinhAnh}" height="60"/>
                         </td>
                         <td class="align-middle">${sp.giaSanPham}đ</td>
                         <td class="align-middle text-center">${sp.gioiTinh}</td>`;

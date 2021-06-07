@@ -9,8 +9,7 @@ import java.util.List;
 
 @Service
 public class KhuyenMaiServiceImpls implements KhuyenMaiService {
-    @Autowired
-    KhuyenMaiRepo khuyenMaiRepo;
+    @Autowired private KhuyenMaiRepo khuyenMaiRepo;
 
     @Override
     public List<KhuyenMai> getListKhuyenMai() {

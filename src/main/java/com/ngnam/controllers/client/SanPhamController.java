@@ -21,23 +21,17 @@ import java.util.List;
 @Controller
 @RequestMapping(path="/sanpham")
 public class SanPhamController {
-    @Autowired
-    SanPhamServiceImpls sanPhamService;
+    @Autowired private SanPhamServiceImpls sanPhamService;
 
-    @Autowired
-    DanhMucServiceImpls danhMucService;
+    @Autowired private DanhMucServiceImpls danhMucService;
 
-    @Autowired
-    MauSacServiceImpls mauSacService;
+    @Autowired private MauSacServiceImpls mauSacService;
 
-    @Autowired
-    HinhAnhServiceImpls hinhAnhService;
+    @Autowired private HinhAnhServiceImpls hinhAnhService;
 
-    @Autowired
-    KichThuocServiceImpls kichThuocService;
+    @Autowired private KichThuocServiceImpls kichThuocService;
 
-    @Autowired
-    ChiTietSanPhamServiceImpls chiTietSanPhamService;
+    @Autowired private ChiTietSanPhamServiceImpls chiTietSanPhamService;
 
     public SanPhamDTO getSanPhamDTO(SanPham sp) {
         int id = sp.getIdSanPham();

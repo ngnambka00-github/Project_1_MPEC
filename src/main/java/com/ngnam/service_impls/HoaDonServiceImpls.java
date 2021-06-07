@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class HoaDonServiceImpls implements HoaDonService {
-    @Autowired
-    HoaDonRepo hoaDonRepo;
+    @Autowired private HoaDonRepo hoaDonRepo;
 
     @Override
     public List<HoaDon> getListHoaDon() {

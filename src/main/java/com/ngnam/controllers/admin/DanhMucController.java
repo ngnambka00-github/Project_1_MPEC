@@ -13,8 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping(path="/admin/danhmuc")
 public class DanhMucController {
-    @Autowired
-    DanhMucServiceImpls danhMucService;
+    @Autowired private DanhMucServiceImpls danhMucService;
 
     @GetMapping
     public String getDefault(ModelMap modelMap) {

@@ -19,7 +19,7 @@
             <div class="show-item">
                 <th:block th:each="ha : ${ sanPham.listMauSac[0].listHinhAnh }">
                     <div class="box-image">
-                        <img th:src="@{'/api/getimages/' + ${ha.tenHinhAnh}}" alt="" class="image">
+                        <img th:src="@{${ha.imagePath}}" alt="" class="image">
                     </div>
                 </th:block>
             </div>
@@ -33,7 +33,7 @@
                 <div class="detail-item-common  detail-item-variation">
                     <th:block th:each="ms, iter : ${sanPham.listMauSac}">
                         <div class="box-image">
-                            <img th:src="@{'/api/getimages/' + ${ms.listHinhAnh[0].tenHinhAnh}}"
+                            <img th:src="@{${ms.listHinhAnh[0].imagePath}}"
                                  alt=""
                                  th:class="${iter.count == 1} ? 'active-border' : ''"
                                  th:attr="data-id-mau-sac=${ms.idMauSac}, data-id-san-pham=${sanPham.idSanPham}">

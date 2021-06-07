@@ -12,8 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/admin/api/danhmuc")
 public class DanhMucAPI {
-    @Autowired
-    DanhMucServiceImpls danhMucService;
+    @Autowired private DanhMucServiceImpls danhMucService;
 
     // Lấy danh sách các danh mục mà được có active = true
     @GetMapping

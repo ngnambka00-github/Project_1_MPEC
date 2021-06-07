@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class KichThuocServiceImpls implements KichThuocService {
-    @Autowired
-    KichThuocRepo kichThuocRepo;
+    @Autowired private KichThuocRepo kichThuocRepo;
 
     // Lấy các đối tượng kích thước mà được active = true
     @Override

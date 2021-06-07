@@ -20,8 +20,7 @@ import java.util.List;
 @Controller
 @RequestMapping(path="/")
 public class TrangChuController {
-    @Autowired
-    SanPhamServiceImpls sanPhamService;
+    @Autowired private SanPhamServiceImpls sanPhamService;
 
     @GetMapping
     public String getDefault() {

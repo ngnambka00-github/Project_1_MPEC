@@ -25,23 +25,17 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/api")
 public class APIController {
-    @Autowired
-    SanPhamServiceImpls sanPhamService;
+    @Autowired private SanPhamServiceImpls sanPhamService;
 
-    @Autowired
-    DanhMucServiceImpls danhMucService;
+    @Autowired private DanhMucServiceImpls danhMucService;
 
-    @Autowired
-    MauSacServiceImpls mauSacService;
+    @Autowired private MauSacServiceImpls mauSacService;
 
-    @Autowired
-    HinhAnhServiceImpls hinhAnhService;
+    @Autowired private HinhAnhServiceImpls hinhAnhService;
 
-    @Autowired
-    KichThuocServiceImpls kichThuocService;
+    @Autowired private KichThuocServiceImpls kichThuocService;
 
-    @Autowired
-    ChiTietSanPhamServiceImpls chiTietSanPhamService;
+    @Autowired private ChiTietSanPhamServiceImpls chiTietSanPhamService;
 
     public SanPhamDTO getSanPhamDTO(SanPham sp) {
         int id = sp.getIdSanPham();
@@ -89,33 +83,6 @@ public class APIController {
             }
         }
         return new DataTransformer().dataToJson(msDTO);
-    }
-
-    // API lấy hình ảnh từ server trả về cho giao diện
-    // Lấy ảnh từ file /uploads/images/mau_san_pham (mẫu sản phẩm)
-    @GetMapping(path="/getimages/{photo}")
-    public ResponseEntity<ByteArrayResource> getImage(
-            @PathVariable("photo") String photo) {
-        // Lấy định dạng của ảnh
-        String[] typeOfImage = photo.split("\\.");
-        String contentType = "image/" + typeOfImage[1];
-
-        if (!photo.isEmpty() || photo != null) {
-            try {
-                Path fileName = Paths.get("uploads/images/mau_san_pham/", photo);
-                byte[] buffer = Files.readAllBytes(fileName);
-                ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
-
-                return ResponseEntity.ok()
-                        .contentLength(buffer.length)
-                        .contentType(MediaType.parseMediaType(contentType))
-                        .body(byteArrayResource);
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        return ResponseEntity.badRequest().build();
     }
 
     @GetMapping(path="/listdanhmuc")

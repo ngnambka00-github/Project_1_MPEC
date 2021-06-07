@@ -20,11 +20,9 @@ import java.util.Set;
 @RestController
 @RequestMapping(path="/admin/api/sanpham")
 public class SanPhamAPI {
-    @Autowired
-    SanPhamServiceImpls sanPhamService;
+    @Autowired private SanPhamServiceImpls sanPhamService;
 
-    @Autowired
-    DanhMucServiceImpls danhMucService;
+    @Autowired private DanhMucServiceImpls danhMucService;
 
     // Lấy toàn bộ sản phẩm được active
     @GetMapping
