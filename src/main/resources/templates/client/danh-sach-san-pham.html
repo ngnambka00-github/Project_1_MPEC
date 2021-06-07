@@ -21,12 +21,12 @@
                     <a th:href="@{'/sanpham/chitiet/'+ ${sp.idSanPham}}" class="san-pham-item" th:attr="data-id-san-pham=${sp.idSanPham}">
                         <div class="box-images">
                             <div class="box-image">
-                                <img th:src="@{'/api/getimages/' + ${sp.listMauSac[0].listHinhAnh[0].tenHinhAnh}}"
+                                <img th:src="@{${sp.listMauSac[0].listHinhAnh[0].imagePath}}"
                                      alt=""
                                      class="item-image item-image-1">
                             </div>
                             <div class="box-image">
-                                <img th:src="@{'/api/getimages/' + ${sp.listMauSac[0].listHinhAnh[1].tenHinhAnh}}"
+                                <img th:src="@{${sp.listMauSac[0].listHinhAnh[1].imagePath}}"
                                      alt=""
                                      class="item-image item-image-2">
                             </div>

@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class DanhMucServiceImpls implements DanhMucService {
-    @Autowired
-    DanhMucRepo danhMucRepo;
+    @Autowired private DanhMucRepo danhMucRepo;
 
     @Override
     public List<DanhMuc> getListDanhMuc() {

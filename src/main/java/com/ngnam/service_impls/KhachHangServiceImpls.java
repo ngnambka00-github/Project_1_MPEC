@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class KhachHangServiceImpls implements KhachHangService {
-    @Autowired
-    KhachHangRepo khachHangRepo;
+    @Autowired private KhachHangRepo khachHangRepo;
 
     @Override
     public List<KhachHang> getListKhachHang() {

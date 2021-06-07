@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ChiTietSanPhamServiceImpls implements ChiTietSanPhamService {
-    @Autowired
-    ChiTietSanPhamRepo chiTietSanPhamRepo;
+    @Autowired private ChiTietSanPhamRepo chiTietSanPhamRepo;
 
     @Override
     public int getSoLuongTheoSPTheoMauSacKichThuoc(int idSanPham, int idMauSac, int idKichThuoc) {

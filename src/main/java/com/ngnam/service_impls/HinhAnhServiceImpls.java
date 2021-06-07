@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class HinhAnhServiceImpls implements HinhAnhService {
-    @Autowired
-    HinhAnhRepo hinhAnhRepo;
+    @Autowired private HinhAnhRepo hinhAnhRepo;
 
     @Override
     public List<HinhAnh> getListHinhAnh() {

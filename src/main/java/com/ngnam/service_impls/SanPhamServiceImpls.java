@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class SanPhamServiceImpls implements SanPhamService {
-    @Autowired
-    SanPhamRepo sanPhamRepo;
+    @Autowired private SanPhamRepo sanPhamRepo;
 
     @Override
     public List<SanPham> getListSanPhamActive() {

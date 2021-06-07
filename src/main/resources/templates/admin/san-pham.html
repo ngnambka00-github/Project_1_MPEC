@@ -67,8 +67,8 @@
                         <td class="align-middle">[[ ${sp.tenSanPham} ]]</td>
                         <td class="align-middle text-center">[[ ${sp.danhMuc.tenDanhMuc} ]]</td>
                         <td class="p-1 align-middle">
-                            <img th:src="@{'/api/getimages/' + ${sp.listHinhAnh[0].tenHinhAnh}}" height="60"/>
-                            <img th:src="@{'/api/getimages/' + ${sp.listHinhAnh[1].tenHinhAnh}}"height="60"/>
+                            <img th:src="@{${sp.listHinhAnh[0].imagePath}}" height="60"/>
+                            <img th:src="@{${sp.listHinhAnh[1].imagePath}}"height="60"/>
                         </td>
                         <td class="align-middle">[[ ${sp.giaSanPham} ]]đ</td>
                         <td class="align-middle text-center">[[ ${sp.gioiTinh} ]]</td>

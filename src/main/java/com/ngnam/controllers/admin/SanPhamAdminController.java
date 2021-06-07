@@ -13,11 +13,9 @@ import java.util.List;
 
 @Controller
 public class SanPhamAdminController {
-    @Autowired
-    SanPhamServiceImpls sanPhamService;
+    @Autowired private SanPhamServiceImpls sanPhamService;
 
-    @Autowired
-    DanhMucServiceImpls danhMucService;
+    @Autowired private DanhMucServiceImpls danhMucService;
 
     @GetMapping(path={"/admin/sanpham", "/admin"})
     public String getDefault(ModelMap modelMap) {

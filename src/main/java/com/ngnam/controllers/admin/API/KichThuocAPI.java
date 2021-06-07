@@ -12,8 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/admin/api/kichthuoc")
 public class KichThuocAPI {
-    @Autowired
-    KichThuocServiceImpls kichThuocService;
+    @Autowired private KichThuocServiceImpls kichThuocService;
 
     // Trả về toàn bộ danh sách kích thước mà được active
     @GetMapping

@@ -13,8 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping(path="/admin/mausac")
 public class MauSacController {
-    @Autowired
-    MauSacServiceImpls mauSacService;
+    @Autowired private MauSacServiceImpls mauSacService;
 
     @GetMapping
     public String getDefault(ModelMap modelMap) {
