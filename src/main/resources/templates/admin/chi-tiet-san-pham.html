@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vn">
+<head
+        th:replace="~{/fragments/admin-frag::main-header(title='Admin - Chi tiết sản phẩm', name_image='icon_title.png')}">
+</head>
+<body>
+    <nav th:replace="~{/fragments/admin-frag::nav-header}"></nav>
+    <th:block th:replace="~{/fragments/admin-frag::thong-bao}"></th:block>
+
+    <!-- Nội dung chính của web -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col px-0">
+                <h3 class="text-normal text-uppercase text-warning mt-4 mb-2">Thông tin sản phẩm ID:[[ ${sanPham.idSanPham} ]]</h3>
+            </div>
+        </div>
+        <div class="row border-bottom border-dark mb-4">
+            <div class="col-7 pl-0">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-white bg-secondary text-center" id="basic-addon3">Danh mục sản phẩm</span>
+                    </div>
+                    <select class="form-control" id="id-select-danhmuc">
+                        <th:block th:each="dm : ${listDanhMuc}">
+                            <option th:if="${dm.idDanhMuc == sanPham.danhMuc.idDanhMuc}" selected>[[ ${dm.tenDanhMuc} ]]</option>
+                            <option th:unless="${dm.idDanhMuc == sanPham.danhMuc.idDanhMuc}">[[ ${dm.tenDanhMuc} ]]</option>
+                        </th:block>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="id-tensanpham">Tên sản phẩm</label>
+                    <input type="text" class="form-control" id="id-tensanpham" th:value="${sanPham.tenSanPham}" placeholder="Nhập tên sản phẩm">
+                </div>
+
+                <div class="form-group row">
+                    <label for="id-giatien" class="col-sm-2 col-form-label">Giá tiền</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="id-giatien" th:value="${sanPham.giaSanPham}" placeholder="Nhập giá tiền">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Giới tính</label>
+                    <div class="col-sm-10 d-flex">
+                        <div class="form-check col-4">
+                            <input class="form-check-input" type="radio" name="gioitinh" id="id-gioitinh-nam" value="Nam" th:checked="${sanPham.gioiTinh == 'Nam'}">
+                            <label class="form-check-label" for="id-gioitinh-nam">
+                                Nam (Male)
+                            </label>
+                        </div>
+
+                        <div class="form-check col-4">
+                            <input class="form-check-input" type="radio" name="gioitinh" id="id-gioitinh-nu" value="Nữ" th:checked="${sanPham.gioiTinh == 'Nữ'}">
+                            <label class="form-check-label" for="id-gioitinh-nu">
+                                Nữ (Female)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="id-ngaynhap" class="col-sm-2 col-form-label">Ngày nhập</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="id-ngaynhap" th:value="${sanPham.ngayNhap}" placeholder="Ngày nhập">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="id-makhuyenmai" class="col-sm-2 col-form-label">Mã khuyến mãi</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="id-makhuyenmai" placeholder="Nhập mã khuyến mãi">
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 pr-0">
+                <button class="btn btn-outline-primary btn-block btn-lg">
+                    <i class="fas fa-save mr-1"></i>
+                    Cập nhập thông tin
+                </button>
+                <label for="id-mota" class="mt-2">Mô tả sản phẩm</label>
+                <textarea id="id-mota" rows="8" class="w-100 form-control">[[ ${sanPham.moTaSanPham} ]]</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 px-0 mb-2 d-flex justify-content-between ">
+                <h3 class="text-normal text-uppercase text-warning mb-2 mr-3">Chi tiết sản phẩm ([[ ${sanPham.getListMauSac().size()} ]])</h3>
+                <button class="btn btn-info px-5 font-weight-bold">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Thêm chi tiết
+                </button>
+            </div>
+        </div>
+
+        <!-- Phần chi tiết sản phẩm -->
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <th:block th:each="ms, iter : ${sanPham.listMauSac}">
+                                <div class="item">
+                                    <tr style="background-color: #c2d0d0">
+                                        <th colspan="3" class="align-middle text-center">STT: [[ ${iter.count} ]] / Màu: [[ ${ms.tenMauSac} ]] / Mã màu: [[ ${ms.maMau} ]]</th>
+                                        <td class="align-middle p-1" style="width: 150px">
+                                            <button class="w-100 btn" th:styleappend="${ms.maMau} ? 'background:' + ${ms.maMau} : ''">
+                                                <span style="opacity: 0;">.</span>
+                                            </button>
+                                        </td>
+                                        <td class="p-1 align-middle" style="width: 150px;">
+                                            <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                                Xem chi tiết
+                                                <i class="fas fa-chevron-circle-down"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" class="px-0 py-0">
+                                            <table class="table table-hover table-bordered table-striped">
+                                                <thead class="bg-warning">
+                                                    <tr>
+                                                        <td scope="col" class="text-center">Kích thước</td>
+                                                        <td scope="col" class="text-center">Số lượng</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:classappend="${kt.soLuong == 0} ? 'bg-danger' : ''" th:each="kt : ${ms.listKichThuoc}">
+                                                        <td class="align-middle text-center">[[ ${kt.kyHieu} ]]</td>
+                                                        <td class="align-middle text-center">[[ ${kt.soLuong} ]]</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td colspan="3" class="px-0 py-0">
+                                            <table class="table mb-2">
+                                                <tr>
+                                                    <td class="pl-0 pr-1 py-1"><img class="w-100" th:src="@{${ms.listHinhAnh[0].imagePath}}"/></td>
+                                                    <td class="px-1 py-1"><img class="w-100" th:src="@{${ms.listHinhAnh[1].imagePath}}"/></td>
+                                                    <td class="px-1 py-1"><img class="w-100" th:src="@{${ms.listHinhAnh[2].imagePath}}"/></td>
+                                                    <td class="pl-1 pr-0 py-1"><img class="w-100" th:src="@{${ms.listHinhAnh[3].imagePath}}"/></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Kết thúc phần chi tiết sản phẩm -->
+    </div>
+    <!-- Kết thúc phần nội dung chính của website-->
+
+    <footer th:replace="~{/fragments/admin-frag::contact-footer}"></footer>
+    <th:block th:replace="~{/fragments/admin-frag::link-ref}"></th:block>
+</body>
+</html>
