@@ -535,11 +535,12 @@ $(document).ready(function() {
     /* ===================== Xử lý page chi tiết sản phẩm ==================*/
     // Chắc năng xem chi tiết từng màu sắc - kích thước - số lượng ứng với sản phẩm cụ thể
     $('body').on('click', '.btn-chitiet-xemchitiet', function(){
+
+
         let idSanPham = $(this).attr('data-id-san-pham');
         let idMauSac = $(this).attr('data-id-mau-sac');
 
-        let mauSacObject = JSON.parse(ajaxGet(`/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`));
-
+        let mauSacObject = ajaxGet(`/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`);
 
         // Cập nhập giao diện lên modal-chitietsanpham-mausac
         if (mauSacObject != null) {
@@ -552,7 +553,6 @@ $(document).ready(function() {
             let listIdKichThuocCuaMauSac = mauSacObject.listKichThuoc.map(function(x) {
                 return {id: x.idKichThuoc, soLuong: x.soLuong};
             });
-            console.log(listIdKichThuocCuaMauSac);
 
             $('.modal-chitietsanpham-mausac .input-group-prepend').each(function() {
                 let dataIdKichThuoc = parseInt($(this).attr('data-id-kich-thuoc'));
@@ -611,6 +611,9 @@ function ajaxGet(url) {
         async: false,
         timeout:5000,
         success: function(value) {
+            if (typeof(value) == 'string') {
+                value = JSON.parse(value);
+            }
             result = value;
         }
     });

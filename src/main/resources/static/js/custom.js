@@ -439,27 +439,24 @@ $(document).ready(function(){
             .prev().find('.box-image').last().find('img');
         let boxSizes = $(this).closest('.san-pham-detail').prev().find('.bang-chon-size');
 
-        $.ajax({
-            url: `/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`,
-            type: "GET",
-            success: function(value) {
-                let objectColor = JSON.parse(value);
-                boxImage1.attr({
-                    'src': `/${nameContentPath}${objectColor.listHinhAnh[0].imagePath}`
-                });
-                boxImage2.attr({
-                    'src': `/${nameContentPath}${objectColor.listHinhAnh[1].imagePath}`
-                });
+        let objectColor = ajaxGet(`/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`);
 
-                let innerKichThuoc = '';
-                for (let kt of objectColor.listKichThuoc) {
-                    if (kt.soLuong != 0) {
-                        innerKichThuoc += `<span data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</span>`
-                    }
+        if (objectColor != null) {
+            boxImage1.attr({
+                'src': `/${nameContentPath}${objectColor.listHinhAnh[0].imagePath}`
+            });
+            boxImage2.attr({
+                'src': `/${nameContentPath}${objectColor.listHinhAnh[1].imagePath}`
+            });
+
+            let innerKichThuoc = '';
+            for (let kt of objectColor.listKichThuoc) {
+                if (kt.soLuong != 0) {
+                    innerKichThuoc += `<span data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</span>`
                 }
-                boxSizes.html(innerKichThuoc);
             }
-        });
+            boxSizes.html(innerKichThuoc);
+        }
     });
     // Sự kiện cho sự thay đổi lựa chọn tên size của sản phẩm 
     $('.san-pham-item > .box-images > .bang-size > .ben-trai').on('mouseover', function() {
@@ -643,33 +640,30 @@ $(document).ready(function(){
 
         let boxImages = $(this).closest('.detail-item').prev();
         let boxSizes = $(this).closest('.detail-item').find('.detail-item-size');
-        $.ajax({
-            url: `/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`,
-            type: "GET",
-            success: function(value) {
-                let objectColor = JSON.parse(value);
-                let htmlBoxImages = '';
-                for (let ha of objectColor.listHinhAnh) {
-                    htmlBoxImages += `
+
+        let objectColor = ajaxGet(`/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`);
+        if (objectColor != null) {
+            let htmlBoxImages = '';
+            for (let ha of objectColor.listHinhAnh) {
+                htmlBoxImages += `
                         <div class="box-image">
                             <img src="/${nameContentPath}${ha.imagePath}" alt="" class="image">
                         </div>`;
-                }
-                boxImages.html(htmlBoxImages);
-
-                let htmlBoxSizes = '';
-                for (let kt of objectColor.listKichThuoc) {
-                    if (kt.soLuong == 0) {
-                        htmlBoxSizes += `
-                        <button class="item-size none-pointer" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
-                    } else {
-                        htmlBoxSizes += `
-                        <button class="item-size" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
-                    }
-                }
-                boxSizes.html(htmlBoxSizes);
             }
-        });
+            boxImages.html(htmlBoxImages);
+
+            let htmlBoxSizes = '';
+            for (let kt of objectColor.listKichThuoc) {
+                if (kt.soLuong == 0) {
+                    htmlBoxSizes += `
+                        <button class="item-size none-pointer" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
+                } else {
+                    htmlBoxSizes += `
+                        <button class="item-size" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
+                }
+            }
+            boxSizes.html(htmlBoxSizes);
+        }
     });
     /* Kết thúc phần javascipt cho phần chi tiết sản phẩm */
     /* ===================================================== */
@@ -701,20 +695,17 @@ $(document).ready(function(){
 // Sự kiện update toàn bộ danh mục của sản phẩm
 function updateListDanhMuc() {
     let danhMuc = $('.danh-muc-chi-tiet');
-    $.ajax({
-        url: `/${nameContentPath}/api/listdanhmuc`,
-        type: "GET",
-        success: function(objectDanhMuc) {
-            let htmlDanhMuc = ``;
-            for (let dm of objectDanhMuc) {
-                htmlDanhMuc += `
+    let objectDanhMuc = ajaxGet(`/${nameContentPath}/api/listdanhmuc`);
+    if (objectDanhMuc != null) {
+        let htmlDanhMuc = ``;
+        for (let dm of objectDanhMuc) {
+            htmlDanhMuc += `
                     <li>
                         <a href="/${nameContentPath}/sanpham/danhmuc/${dm.idDanhMuc}" class="change-color-animate">${dm.tenDanhMuc}</a>
                     </li>`;
-            }
-            danhMuc.html(htmlDanhMuc);
         }
-    });
+        danhMuc.html(htmlDanhMuc);
+    }
 }
 
 // hàm thông báo hiển thị thêm 1 sản phẩm mới vào giỏ hàng
@@ -748,3 +739,22 @@ function showFormConfirm(noiDung){
     $('.xac-minh').find('.title-span').val(noiDung);
     $('.xac-minh').removeClass('display-none');
 }
+
+// AJAX GET and return data object
+function ajaxGet(url) {
+    let result = null;
+    $.ajax({
+        url: url,
+        type: 'GET',
+        contentType: 'application/json',
+        async: false,
+        timeout:5000,
+        success: function(value) {
+            if (typeof(value) == 'string') {
+                value = JSON.parse(value);
+            }
+            result = value;
+        }
+    });
+    return result;
+};
