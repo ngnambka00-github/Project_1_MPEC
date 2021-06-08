@@ -531,6 +531,50 @@ $(document).ready(function() {
         table.html(innerHTML);
     }
     /* ===================== Kết thúc xử lý page sản phẩm ==================*/
+
+    /* ===================== Xử lý page chi tiết sản phẩm ==================*/
+    // Chắc năng xem chi tiết từng màu sắc - kích thước - số lượng ứng với sản phẩm cụ thể
+    $('body').on('click', '.btn-chitiet-xemchitiet', function(){
+        let idSanPham = $(this).attr('data-id-san-pham');
+        let idMauSac = $(this).attr('data-id-mau-sac');
+
+        let mauSacObject = JSON.parse(ajaxGet(`/${nameContentPath}/api/thongtin_sp/${idSanPham}/${idMauSac}`));
+
+
+        // Cập nhập giao diện lên modal-chitietsanpham-mausac
+        if (mauSacObject != null) {
+            $('.modal-chitietsanpham-mausac #id-tenmausac').val(mauSacObject.tenMauSac);
+            $('.modal-chitietsanpham-mausac .choose-color input[type="color"]').val(mauSacObject.maMau);
+            $('.modal-chitietsanpham-mausac .choose-color input[type="text"]').val(mauSacObject.maMau);
+
+            // checkbox - kích thước - số lượng
+            // listIdKichThuocCuaMauSac -> là chỉ chứa các id kích thước của màu sắc đó
+            let listIdKichThuocCuaMauSac = mauSacObject.listKichThuoc.map(function(x) {
+                return {id: x.idKichThuoc, soLuong: x.soLuong};
+            });
+            console.log(listIdKichThuocCuaMauSac);
+
+            $('.modal-chitietsanpham-mausac .input-group-prepend').each(function() {
+                let dataIdKichThuoc = parseInt($(this).attr('data-id-kich-thuoc'));
+                for (let i = 0; i < listIdKichThuocCuaMauSac.length; i++) {
+                    if (dataIdKichThuoc == listIdKichThuocCuaMauSac[i].id) {
+                        $(this).find('input[type="checkbox"]').attr("checked", "true");
+
+                        $(this).next().val(listIdKichThuocCuaMauSac[i].soLuong);
+                        break;
+                    }
+                }
+            });
+
+            // upload hình ảnh
+            $('.modal-chitietsanpham-mausac .list-image div:nth-child(1) img').attr('src', `/${nameContentPath}${mauSacObject.listHinhAnh[0].imagePath}`);
+            $('.modal-chitietsanpham-mausac .list-image div:nth-child(2) img').attr('src', `/${nameContentPath}${mauSacObject.listHinhAnh[1].imagePath}`);
+            $('.modal-chitietsanpham-mausac .list-image div:nth-child(3) img').attr('src', `/${nameContentPath}${mauSacObject.listHinhAnh[2].imagePath}`);
+            $('.modal-chitietsanpham-mausac .list-image div:nth-child(4) img').attr('src', `/${nameContentPath}${mauSacObject.listHinhAnh[3].imagePath}`);
+        }
+    });
+
+    /* ===================== Kết thúc xử lý page chi tiết sản phẩm ==================*/
 });
 
 // type = 1 => thông báo thành công
