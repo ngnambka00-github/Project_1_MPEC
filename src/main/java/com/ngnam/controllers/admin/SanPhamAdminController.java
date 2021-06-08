@@ -85,9 +85,11 @@ public class SanPhamAdminController {
         SanPham sp = sanPhamService.findSanPhamById(idSanPham);
         SanPhamDTO spDTO = getSanPhamDTO(sp);
         List<DanhMuc> listDanhMuc = danhMucService.getListDanhMuc();
+        List<KichThuoc> listKichThuoc = kichThuocService.getListKichThuoc();
 
         modelMap.addAttribute("sanPham", spDTO);
         modelMap.addAttribute("listDanhMuc", listDanhMuc);
+        modelMap.addAttribute("listKichThuoc", listKichThuoc);
         return "/admin/chi-tiet-san-pham";
     }
 }

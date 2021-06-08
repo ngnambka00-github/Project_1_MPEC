@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-12 px-0 mb-2 d-flex justify-content-between ">
                 <h3 class="text-normal text-uppercase text-warning mb-2 mr-3">Chi tiết sản phẩm ([[ ${sanPham.getListMauSac().size()} ]])</h3>
-                <button class="btn btn-info px-5 font-weight-bold">
+                <button class="btn btn-info px-5 font-weight-bold" data-toggle="modal" data-target=".modal-themmoi-chitietsanpham-mausac">
                     <i class="fas fa-plus-circle mr-1"></i>
                     Thêm chi tiết
                 </button>
@@ -103,15 +103,21 @@
                                 <div class="item">
                                     <tr style="background-color: #c2d0d0">
                                         <th colspan="3" class="align-middle text-center">STT: [[ ${iter.count} ]] / Màu: [[ ${ms.tenMauSac} ]] / Mã màu: [[ ${ms.maMau} ]]</th>
-                                        <td class="align-middle p-1" style="width: 150px">
+                                        <td class="align-middle p-1" style="width: 120px">
                                             <button class="w-100 btn" th:styleappend="${ms.maMau} ? 'background:' + ${ms.maMau} : ''">
                                                 <span style="opacity: 0;">.</span>
                                             </button>
                                         </td>
-                                        <td class="p-1 align-middle" style="width: 150px;">
-                                            <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                        <td class="p-1 align-middle" style="width: 225px;">
+                                            <button class="btn btn-success btn-chitiet-xemchitiet"
+                                                    data-toggle="modal" data-target=".modal-chitietsanpham-mausac"
+                                                    th:attr="data-id-san-pham=${sanPham.idSanPham}, data-id-mau-sac=${ms.idMauSac}">
                                                 Xem chi tiết
                                                 <i class="fas fa-chevron-circle-down"></i>
+                                            </button>
+                                            <button class="btn btn-danger px-3">
+                                                Xóa
+                                                <i class="fas fa-minus-circle"></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -155,6 +161,163 @@
         <!-- Kết thúc phần chi tiết sản phẩm -->
     </div>
     <!-- Kết thúc phần nội dung chính của website-->
+
+    <!-- ============ Modal thêm mới chi tiết sản phẩm ============== -->
+    <div class="modal fade modal-themmoi-chitietsanpham-mausac" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white">Thêm mới chi tiết sản phẩm</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row border-bottom border-dark">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="id-themmoi-chitiet-tenmausac">Tên màu sắc</label>
+                                <input type="text" class="form-control" id="id-themmoi-chitiet-tenmausac" placeholder="Tên màu sắc">
+                            </div>
+                        </div>
+                        <div class="col-3 pl-0">
+                            <div class="form-group">
+                                <label>Mã màu</label>
+                                <div class="choose-color">
+                                    <div>
+                                        <input type="color" v-model="color1" />
+                                        <input type="text" readonly v-model="color1" style="width: 140px" class="text-center"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3 pl-0 d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn btn-block btn-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Thêm mới
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <div>
+                                <h5 class="text-center">Kích thước - Số lượng</h5>
+                            </div>
+                            <div class="list-kich-thuoc" style="height: 300px; overflow-y: auto">
+                                <th:block th:each="kt : ${listKichThuoc}">
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-prepend" th:attr="data-id-kich-thuoc=${kt.idKichThuoc}">
+                                            <div class="input-group-text py-0" style="width: 105px;">
+                                                <input type="checkbox" />
+                                                <label class="input-group-text border-0 pr-0">[[ ${kt.kyHieu} ]]</label>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control text-center" placeholder="Số lượng">
+                                    </div>
+                                </th:block>
+                            </div>
+
+                        </div>
+
+                        <div class="col-8 pl-0">
+                            <div class="form-group">
+                                <label for="id-themmoi-chitiet-chonfile"><h5 class="my-0">Chọn hình ảnh</h5></label>
+                                <input type="file" class="form-control-file" id="id-themmoi-chitiet-chonfile">
+                            </div>
+                            <div class=" row list-image">
+                                <div class="col-6 pr-1 pb-1"><img class="w-100" src="https://picsum.photos/960/1208"></div>
+                                <div class="col-6 pl-1 pb-1"><img class="w-100" src="https://picsum.photos/960/1208"></div>
+                                <div class="col-6 pr-1 pt-1"><img class="w-100" src="https://picsum.photos/960/1208"></div>
+                                <div class="col-6 pl-1 pt-1"><img class="w-100" src="https://picsum.photos/960/1208"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== Kết thúc modal chi tiết sản phẩm ================ -->
+
+    <!-- ========== Modal chi tiết sản phẩm - màu sắc ============== -->
+    <div class="modal fade modal-chitietsanpham-mausac" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white">Thông tin chi tiết</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row border-bottom border-dark">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="id-tenmausac">Tên màu sắc</label>
+                                <input type="text" class="form-control" id="id-tenmausac"placeholder="Tên màu sắc">
+                            </div>
+                        </div>
+                        <div class="col-3 pl-0">
+                            <div class="form-group">
+                                <label>Mã màu</label>
+                                <div class="choose-color">
+                                    <div>
+                                        <input type="color" v-model="color1" />
+                                        <input type="text" readonly v-model="color1" style="width: 140px" class="text-center"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3 pl-0 d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn btn-block btn-primary">
+                                <i class="fas fa-edit"></i>
+                                Cập nhập
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <div>
+                                <h5 class="text-center">Kích thước - Số lượng</h5>
+                            </div>
+                            <div class="list-kich-thuoc" style="height: 300px; overflow-y: auto">
+                                <th:block th:each="kt : ${listKichThuoc}">
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-prepend" th:attr="data-id-kich-thuoc=${kt.idKichThuoc}">
+                                            <div class="input-group-text py-0" style="width: 105px;">
+                                                <input type="checkbox" />
+                                                <label class="input-group-text border-0 pr-0">[[ ${kt.kyHieu} ]]</label>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control text-center" placeholder="Số lượng">
+                                    </div>
+                                </th:block>
+                            </div>
+
+                        </div>
+
+                        <div class="col-8 pl-0">
+                            <div class="form-group">
+                                <label for="id-chitiet-chonfile"><h5 class="my-0">Chọn hình ảnh</h5></label>
+                                <input type="file" class="form-control-file" id="id-chitiet-chonfile">
+                            </div>
+                            <div class=" row list-image">
+                                <div class="col-6 pr-1 pb-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></div>
+                                <div class="col-6 pl-1 pb-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></div>
+                                <div class="col-6 pr-1 pt-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></div>
+                                <div class="col-6 pl-1 pt-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== Kết thúc modal chi tiết sản phẩm - màu sắc ================ -->
+
 
     <footer th:replace="~{/fragments/admin-frag::contact-footer}"></footer>
     <th:block th:replace="~{/fragments/admin-frag::link-ref}"></th:block>
