@@ -510,6 +510,8 @@ a.change-color-animate {
 .show-gio-hang .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .title-san-pham {
 	font-size: 15px;
 	font-weight: 500;
+	text-decoration: none;
+	color: #151515;
 }
 
 .show-gio-hang .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .ma-san-pham {

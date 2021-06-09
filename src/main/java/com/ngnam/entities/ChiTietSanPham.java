@@ -13,18 +13,22 @@ public class ChiTietSanPham {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idChiTietSanPham;
 
-    @Column(name="id_san_pham")
-    private int idSanPham;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="id_san_pham")
+    private SanPham sanPham;
 
-    @Column(name="id_kich_thuoc")
-    private int idKichThuoc;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="id_kich_thuoc")
+    private KichThuoc kichThuoc;
 
-    @Column(name="id_mau_sac")
-    private int idMauSac;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="id_mau_sac")
+    private MauSac mauSac;
 
     @Column(name="so_luong")
     private int soLuong;
 
     @Column(name="is_active")
     private boolean isActive;
+
 }
