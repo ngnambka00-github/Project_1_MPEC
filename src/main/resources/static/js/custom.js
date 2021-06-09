@@ -20,7 +20,7 @@ $(document).ready(function(){
             $('.header .header__box--image img')
                 .attr(
                     {
-                        'src': `/${nameContentPath}/images/logo_bg_black.svg`
+                        'src': `/${nameContentPath}/images/logo_black.png`
                     }
                 );
             $('.header').addClass('header-bg-black');
@@ -28,7 +28,7 @@ $(document).ready(function(){
             $('.header .header__box--image img')
                 .attr(
                     {
-                        'src': `/${nameContentPath}/images/logo_bg_white.svg`
+                        'src': `/${nameContentPath}/images/logo_white.png`
                     }
                 );
             $('.header').removeClass('header-bg-black');
@@ -768,9 +768,12 @@ function updateGioHang(listGioHang) {
         danhSachGioHang.html('');
         tongTienTag.html('0đ');
         titleGioHangTag.html('giỏ hàng (0)');
+        $('.show-gio-hang').find('.submit-dat-hang').addClass('none-event');
+
         return;
     }
 
+    $('.show-gio-hang').find('.submit-dat-hang').removeClass('none-event');
     let tongTien = 0;
     let tongSoLuongSanPham = 0;
 

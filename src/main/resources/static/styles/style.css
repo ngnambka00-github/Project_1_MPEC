@@ -644,20 +644,28 @@ a.change-color-animate {
 	font-weight: 400;
 	padding: 10px;
 	margin: 15px 0px 10px;
-
 	background: #beffbe;
 
 	text-transform: uppercase;
 }
 
+.show-gio-hang .content-gio-hang .tong-tien-gio-hang .submit-dat-hang a {
+	text-decoration: none;
+	color: #1d1d1d;
+	user-select: none;
+}
+
+.show-gio-hang .content-gio-hang .tong-tien-gio-hang .submit-dat-hang.none-event {
+	pointer-events: none;
+	background: #c1c1c1;
+	border: 1px solid grey;
+}
+
 .show-gio-hang .content-gio-hang .tong-tien-gio-hang .submit-dat-hang:hover {
 	background: #8bff8b;;
 }
-
-
 /* Kết thúc phần CSS cho giỏ hàng header */
 /*==========================================================================*/
-
 
 
 /*============================================================================*/
@@ -1036,9 +1044,9 @@ a.change-color-animate {
 
 .marquee .marquee-content .item-text img {
 	height: 100%;
-	transform: scale(0.35);
-	margin-right: -25px;
-	margin-left: -25px;
+	transform: scale(0.37);
+	margin-right: -32px;
+	margin-left: -40px;
 }
 
 @keyframes slide_text {

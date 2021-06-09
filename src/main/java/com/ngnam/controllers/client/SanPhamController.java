@@ -105,4 +105,10 @@ public class SanPhamController {
         modelMap.addAttribute("danhMuc", dm);
         return "/client/chi-tiet-san-pham";
     }
+
+    // Chuyển sang trang giỏ hàng - đặt hàng
+    @GetMapping(path="/dathang")
+    public String viewDatHang() {
+        return "/client/dat-hang";
+    }
 }
