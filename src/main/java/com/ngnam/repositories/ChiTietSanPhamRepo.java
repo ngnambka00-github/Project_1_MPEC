@@ -9,10 +9,21 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChiTietSanPhamRepo extends JpaRepository<ChiTietSanPham, Integer> {
     @Query("select ctsp.soLuong from ChiTietSanPham  ctsp " +
-            "where ctsp.idSanPham = :id_san_pham " +
-            "and ctsp.idMauSac = :id_mau_sac " +
-            "and ctsp.idKichThuoc = :id_kich_thuoc")
+            "where ctsp.sanPham.idSanPham = :id_san_pham " +
+            "and ctsp.mauSac.idMauSac = :id_mau_sac " +
+            "and ctsp.kichThuoc.idKichThuoc = :id_kich_thuoc")
     public int getSoLuongTheoSPTheoMauSacKichThuoc(
+            @Param("id_san_pham") int idSanPham,
+            @Param("id_mau_sac") int idMauSac,
+            @Param("id_kich_thuoc") int idKichThuoc);
+
+    @Query("select ctsp from ChiTietSanPham ctsp where ctsp.idChiTietSanPham = :id_chi_tiet_san_pham")
+    public ChiTietSanPham findChiTietSanPham(@Param("id_chi_tiet_san_pham") int idChiTietSanPham);
+
+    @Query("select ctsp from ChiTietSanPham ctsp where ctsp.sanPham.idSanPham = :id_san_pham and " +
+            "ctsp.mauSac.idMauSac = :id_mau_sac and " +
+            "ctsp.kichThuoc.idKichThuoc = :id_kich_thuoc")
+    public ChiTietSanPham findChiTietSanPham(
             @Param("id_san_pham") int idSanPham,
             @Param("id_mau_sac") int idMauSac,
             @Param("id_kich_thuoc") int idKichThuoc);

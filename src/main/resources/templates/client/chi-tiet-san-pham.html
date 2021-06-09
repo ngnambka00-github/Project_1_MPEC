@@ -6,6 +6,7 @@
 </head>
 <body>
     <th:block th:replace="~{/fragments/main-frag-1::quang-cao-header}"></th:block>
+    <th:block th:replace="~{/fragments/main-frag-1::thong-bao}"></th:block>
 
     <!-- ================================================== -->
     <!-- Nội dung chính của website -->
@@ -55,7 +56,7 @@
                                 class="item-size">[[${ kt.kyHieu }]]</button>
                     </th:block>
                 </div>
-                <div class="detail-item-add">
+                <div class="detail-item-add btn-themsanpham-gioihang">
                     THÊM VÀO GIỎ HÀNG
                 </div>
                 <div class="detail-item-find">TÌM TẠI CỬA HÀNG</div>
@@ -74,7 +75,6 @@
                     <div class="product-detail"></div>
                     <label for="info" class="overlay"></label>
                 </div>
-
             </div>
         </div>
     </div>
@@ -86,5 +86,16 @@
     <!-- Kết thúc nội dung phần footer -->
 
     <th:block th:replace="~{/fragments/main-frag-1::link-ref}"></th:block>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.detail-item-size .item-size').each(function() {
+                if(!$(this).hasClass('none-pointer')) {
+                    $(this).addClass('active-border');
+                    return false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

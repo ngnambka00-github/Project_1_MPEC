@@ -72,7 +72,7 @@ public class SanPhamController {
         }
 
         modelMap.addAttribute("listSanPham", listSPDTO);
-        return "client/danh-sach-san-pham";
+        return "/client/danh-sach-san-pham";
     }
 
     @GetMapping(path="/danhmuc/{id_danh_muc}")

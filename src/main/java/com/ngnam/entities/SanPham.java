@@ -3,6 +3,7 @@ package com.ngnam.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,5 +45,17 @@ public class SanPham {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="id_san_pham")
     private List<HinhAnh> listHinhAnh;
+
+    // Trả về listHinhAnh theo idMauSac
+    @Transient
+    public List<HinhAnh> getListHinhAnhByMauSac(MauSac ms) {
+        List<HinhAnh> listHA = new ArrayList<>();
+        for (HinhAnh ha : listHinhAnh) {
+            if (ha.getIdMauSac() == ms.getIdMauSac()) {
+                listHA.add(ha);
+            }
+        }
+        return listHA;
+    }
 
 }

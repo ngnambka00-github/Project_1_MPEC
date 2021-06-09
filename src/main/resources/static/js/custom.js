@@ -7,6 +7,9 @@ $(document).ready(function(){
     // upldate list danh mục của sản phẩm
     updateListDanhMuc();
 
+    // Thực hiện cập nhập giỏ hàng nếu có
+    firstLoadPageWithSessionGioHang();
+
     /* ===================================================================== */ 
     /* Khu vực sử lý sự kiện scroll */
     $(window).scroll(function(event) {
@@ -653,17 +656,47 @@ $(document).ready(function(){
             boxImages.html(htmlBoxImages);
 
             let htmlBoxSizes = '';
+            let checkActiveBorder = false;
             for (let kt of objectColor.listKichThuoc) {
                 if (kt.soLuong == 0) {
                     htmlBoxSizes += `
                         <button class="item-size none-pointer" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
                 } else {
-                    htmlBoxSizes += `
-                        <button class="item-size" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
+                    if (!checkActiveBorder) {
+                        htmlBoxSizes += `
+                            <button class="item-size active-border" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
+                        checkActiveBorder = true;
+                    } else {
+                        htmlBoxSizes += `
+                            <button class="item-size" data-id-kich-thuoc="${kt.idKichThuoc}">${kt.kyHieu}</button>`;
+                    }
                 }
             }
             boxSizes.html(htmlBoxSizes);
         }
+    });
+
+    // Thêm sản phẩm vào giỏ hàng
+    $('.btn-themsanpham-gioihang').on('click', function() {
+        // Lấy ra màu sắc và kích thước được chọn
+        let imageTag = $(this).closest('.detail-item').find('img.active-border');
+        let sizeTag = $(this).closest('.detail-item').find('button.item-size.active-border');
+
+        // Lấy idSanPham / idMauSac / idKichThuoc
+        let idSanPham = parseInt(imageTag.attr('data-id-san-pham'));
+        let idMauSac = parseInt(imageTag.attr('data-id-mau-sac'));
+        let idKichThuoc = parseInt(sizeTag.attr('data-id-kich-thuoc'));
+
+        // Lấy đối tượng chiTietSanPham
+        let chiTietSP = ajaxGet(`/${nameContentPath}/api/chitietsanpham/${idSanPham}/${idMauSac}/${idKichThuoc}`);
+
+        // Hiển thị thông báo
+        showThongBaoThemSanPhamMoi(chiTietSP);
+
+        // Thêm mới vào giỏ hàng và session
+        let idChiTietSanPham = chiTietSP.idChiTietSanPham;
+        let gioHang = ajaxGet(`/${nameContentPath}/api/savesession/${idChiTietSanPham}`);
+        updateGioHang(gioHang);
     });
     /* Kết thúc phần javascipt cho phần chi tiết sản phẩm */
     /* ===================================================== */
@@ -673,7 +706,7 @@ $(document).ready(function(){
     /* Sự kiện cho các phần thông báo */
     // hàng mới test
     $('.btn-hang-moi').on('click', function() {
-        showThongBao(0, 'Thêm sản phẩm mới thất bại !');
+        showThongBaoThemSanPhamMoi();
     });
     $('body').on('click', '.xac-minh', function(event) {
         if ($(event.target).hasClass('xac-minh')) {
@@ -692,6 +725,73 @@ $(document).ready(function(){
     /* ===================================================== */
 });
 
+// Load giỏ hàng khi load lại page => Nếu giỏ hàng có sản phẩm
+function firstLoadPageWithSessionGioHang() {
+    let gioHang = ajaxGet(`/${nameContentPath}/api/getsessiongiohang`);
+    updateGioHang(gioHang);
+}
+
+// Update thông tin của giỏ hàng
+function updateGioHang(listGioHang) {
+    let danhSachGioHang = $('.show-gio-hang').find('.danh-sach-gio-hang');
+    let tongTienTag = $('.show-gio-hang').find('.tong-tien span:nth-child(2)');
+    let titleGioHangTag = $('.show-gio-hang').find('.title-gioi-hang .span-title');
+
+    if (listGioHang == null) {
+        danhSachGioHang.html('');
+        tongTienTag.html('0đ');
+        titleGioHangTag.html('giỏ hàng (0)');
+        return;
+    }
+
+    let tongTien = 0;
+    let tongSoLuongSanPham = 0;
+
+    // Update frontend list giỏ hang
+    let innerItemGioHangText = '';
+    for (let gh of listGioHang) {
+        tongTien += gh.sanPham.sanPham.giaSanPham * gh.soLuong;
+        tongSoLuongSanPham += gh.soLuong;
+
+        innerItemGioHangText += `
+            <div class="item-san-pham" data-id-chi-tiet-san-pham="${gh.sanPham.idChiTietSanPham}">
+                <div class="item-san-pham-img">
+                    <img src="/${nameContentPath}/getimages/images/mau_san_pham/${gh.sanPham.sanPham.listHinhAnh[0].tenHinhAnh}" alt="">
+                </div>
+                <div class="item-content">
+                    <a class="title-san-pham" href="/${nameContentPath}/sanpham/chitiet/${gh.sanPham.sanPham.idSanPham}">${gh.sanPham.sanPham.tenSanPham.toUpperCase()}</a>
+                    <span class="ma-san-pham">Mã: SP${gh.sanPham.sanPham.idSanPham}</span>
+                    <div class="option-san-pham">
+                        <div class="mau-sac" style="background: ${gh.sanPham.mauSac.maMau}"></div>
+                        <div class="size-san-pham">${gh.sanPham.kichThuoc.kyHieu}</div>
+                        <div class="so-luong">
+                            <span class="giam-so-luong">-</span>
+                            <span class="so-luong-thuc">${gh.soLuong}</span>
+                            <span class="tang-so-luong">+</span>
+                        </div>
+                    </div>
+
+                    <div class="delete-price">
+                        <span class="delete"><i class="far fa-trash-alt"></i></span>
+                        <span class="total-money">${formatTienTe(gh.sanPham.sanPham.giaSanPham, 0)}đ</span>
+                    </div>
+
+                    <div class="discount-price">
+                        <span class="discount">
+                            <i class="fas fa-tag"></i>
+                            <i class="text-giam-gia">Giảm giá</i>
+                        </span>
+                        <span class="total-money">000,000đ</span>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    titleGioHangTag.html(`Giỏ hàng (${tongSoLuongSanPham})`);
+    danhSachGioHang.html(innerItemGioHangText);
+    tongTienTag.html(`${formatTienTe(tongTien, 0)}đ`);
+}
+
 // Sự kiện update toàn bộ danh mục của sản phẩm
 function updateListDanhMuc() {
     let danhMuc = $('.danh-muc-chi-tiet');
@@ -709,7 +809,20 @@ function updateListDanhMuc() {
 }
 
 // hàm thông báo hiển thị thêm 1 sản phẩm mới vào giỏ hàng
-function showThongBaoThemSanPhamMoi() {
+function showThongBaoThemSanPhamMoi(chiTietSP) {
+    let sanPhamObj = chiTietSP.sanPham;
+    let mauSacObj = chiTietSP.mauSac;
+    let kichThuocObj = chiTietSP.kichThuoc;
+    let listHinhAnh = sanPhamObj.listHinhAnh;
+
+    // // Update thông tin lên frontend => thông báo
+    $('.them-san-pham').find('.item-content .title-san-pham').text(sanPhamObj.tenSanPham.toUpperCase());
+    $('.them-san-pham').find('.item-content .ma-san-pham').text(`Mã sản phẩm: SP${sanPhamObj.idSanPham}`);
+    $('.them-san-pham').find('.item-content .mau-san-pham').text(`Màu: ${mauSacObj.tenMauSac}`);
+    $('.them-san-pham').find('.item-content .size-san-pham').text(`Size: ${kichThuocObj.kyHieu}`);
+    $('.them-san-pham').find('.item-content .total-money').text(`Giá tiền: ${sanPhamObj.giaSanPham}đ`);
+    $('.them-san-pham').find('.item-san-pham-img img').attr('src', `/${nameContentPath}/getimages/images/mau_san_pham/${listHinhAnh[0].tenHinhAnh}`);
+
     $('.them-san-pham').removeClass('display-none');
     setTimeout(function() {
         $('.them-san-pham').addClass('display-none');
@@ -758,3 +871,10 @@ function ajaxGet(url) {
     });
     return result;
 };
+
+// Hàm định dạng tiền tệ
+function formatTienTe(num, numFixed) {
+    return num.toFixed(numFixed).replace(/./g, function(c, i, a) {
+        return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+    });
+}
