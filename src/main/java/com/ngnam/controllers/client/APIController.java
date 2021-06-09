@@ -130,7 +130,7 @@ public class APIController {
             // check chiTietSanPham có tồn tại trong gioHang
             boolean checkTonTai = false;
             for (GioHangSession gh : listGioHang) {
-                if (gh.getSanPham().getIdChiTietSanPham() == chiTiet.getIdChiTietSanPham()) {
+                if (gh.getChiTietSanPham().getIdChiTietSanPham() == chiTiet.getIdChiTietSanPham()) {
                     gh.setSoLuong(gh.getSoLuong() + 1);
                     checkTonTai = true;
                     break;
@@ -147,6 +147,44 @@ public class APIController {
         return new DataTransformer().dataToJson(listGioHang);
     }
 
+    // Xóa / Tắng / Giảm 1 sản phẩm ở giỏ hàng
+    // Type 1: Xóa
+    // Type 2: Tăng
+    // Type 3: Giảm
+    @GetMapping(path="/customsession/{id_chi_tiet_san_pham}/{type}")
+    public String customGioHangSession(HttpSession httpSession,
+           @PathVariable("id_chi_tiet_san_pham") int idChiTietSanPham,
+           @PathVariable("type") int type){
+        List<GioHangSession> listGioHang =
+                (List<GioHangSession>) httpSession.getAttribute("giohang");
+        GioHangSession findObject = null;
+        for (GioHangSession gh : listGioHang) {
+            if (gh.getChiTietSanPham().getIdChiTietSanPham() == idChiTietSanPham) {
+                findObject = gh;
+                break;
+            }
+        }
+        if (type == 1) { // type = 1: Xóa
+            listGioHang.remove(findObject);
+        } else if (type == 2) { // type = 2: Tăng số lượng
+            findObject.setSoLuong(findObject.getSoLuong() + 1);
+        } else if (type == 3) { // type = 3: Giảm số lượng
+            if (findObject.getSoLuong() != 1) {
+                findObject.setSoLuong(findObject.getSoLuong() - 1);
+            }
+        }
+
+        // Trường hợp xóa hết k còn chiTietSanPham nào trong giỏ hàng
+        if (listGioHang.size() == 0) {
+            listGioHang = null;
+        }
+
+        // Cập nhập lại dữ liệu vào session
+        httpSession.setAttribute("giohang", listGioHang);
+        return new DataTransformer().dataToJson(listGioHang);
+    }
+
+    // Lấy ra toàn bộ danh sách danh sách trong giỏ hàng
     @GetMapping(path="/getsessiongiohang")
     public String getSessionGioHang(HttpSession httpSession) {
         List<GioHangSession> listGioHang = null;
