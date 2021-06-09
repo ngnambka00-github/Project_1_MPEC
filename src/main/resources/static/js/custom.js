@@ -698,6 +698,33 @@ $(document).ready(function(){
         let gioHang = ajaxGet(`/${nameContentPath}/api/savesession/${idChiTietSanPham}`);
         updateGioHang(gioHang);
     });
+
+    // Xóa 1 sản phẩm khỏi giỏi hàng
+    $('body').on('click', '.show-gio-hang .item-san-pham .delete', function() {
+        let idChiTietSanPham = $(this).closest('.item-san-pham').attr('data-id-chi-tiet-san-pham');
+        let listGioHang = ajaxGet(`/${nameContentPath}/api/customsession/${idChiTietSanPham}/1`);
+        updateGioHang(listGioHang);
+    });
+
+    // Tăng số lượng
+    $('body').on('click', '.show-gio-hang .item-san-pham .so-luong .tang-so-luong', function() {
+        let idChiTietSanPham = $(this).closest('.item-san-pham').attr('data-id-chi-tiet-san-pham');
+        let listGioHang = ajaxGet(`/${nameContentPath}/api/customsession/${idChiTietSanPham}/2`);
+        updateGioHang(listGioHang);
+    });
+
+    // Giảm số lượng
+    $('body').on('click', '.show-gio-hang .item-san-pham .so-luong .giam-so-luong', function() {
+        // Kiểm tra số lượng sản phẩm hiện tại
+        let soLuong = parseInt($(this).next().text());
+        if (soLuong == 1) {
+            return;
+        }
+        let idChiTietSanPham = $(this).closest('.item-san-pham').attr('data-id-chi-tiet-san-pham');
+        let listGioHang = ajaxGet(`/${nameContentPath}/api/customsession/${idChiTietSanPham}/3`);
+        updateGioHang(listGioHang);
+    });
+
     /* Kết thúc phần javascipt cho phần chi tiết sản phẩm */
     /* ===================================================== */
 
@@ -750,20 +777,20 @@ function updateGioHang(listGioHang) {
     // Update frontend list giỏ hang
     let innerItemGioHangText = '';
     for (let gh of listGioHang) {
-        tongTien += gh.sanPham.sanPham.giaSanPham * gh.soLuong;
+        tongTien += gh.chiTietSanPham.sanPham.giaSanPham * gh.soLuong;
         tongSoLuongSanPham += gh.soLuong;
 
         innerItemGioHangText += `
-            <div class="item-san-pham" data-id-chi-tiet-san-pham="${gh.sanPham.idChiTietSanPham}">
+            <div class="item-san-pham" data-id-chi-tiet-san-pham="${gh.chiTietSanPham.idChiTietSanPham}">
                 <div class="item-san-pham-img">
-                    <img src="/${nameContentPath}/getimages/images/mau_san_pham/${gh.sanPham.sanPham.listHinhAnh[0].tenHinhAnh}" alt="">
+                    <img src="/${nameContentPath}/getimages/images/mau_san_pham/${gh.chiTietSanPham.sanPham.listHinhAnh[0].tenHinhAnh}" alt="">
                 </div>
                 <div class="item-content">
-                    <a class="title-san-pham" href="/${nameContentPath}/sanpham/chitiet/${gh.sanPham.sanPham.idSanPham}">${gh.sanPham.sanPham.tenSanPham.toUpperCase()}</a>
-                    <span class="ma-san-pham">Mã: SP${gh.sanPham.sanPham.idSanPham}</span>
+                    <a class="title-san-pham" href="/${nameContentPath}/sanpham/chitiet/${gh.chiTietSanPham.sanPham.idSanPham}">${gh.chiTietSanPham.sanPham.tenSanPham.toUpperCase()}</a>
+                    <span class="ma-san-pham">Mã: SP${gh.chiTietSanPham.sanPham.idSanPham}</span>
                     <div class="option-san-pham">
-                        <div class="mau-sac" style="background: ${gh.sanPham.mauSac.maMau}"></div>
-                        <div class="size-san-pham">${gh.sanPham.kichThuoc.kyHieu}</div>
+                        <div class="mau-sac" style="background: ${gh.chiTietSanPham.mauSac.maMau}"></div>
+                        <div class="size-san-pham">${gh.chiTietSanPham.kichThuoc.kyHieu}</div>
                         <div class="so-luong">
                             <span class="giam-so-luong">-</span>
                             <span class="so-luong-thuc">${gh.soLuong}</span>
@@ -773,7 +800,7 @@ function updateGioHang(listGioHang) {
 
                     <div class="delete-price">
                         <span class="delete"><i class="far fa-trash-alt"></i></span>
-                        <span class="total-money">${formatTienTe(gh.sanPham.sanPham.giaSanPham, 0)}đ</span>
+                        <span class="total-money">${formatTienTe(gh.chiTietSanPham.sanPham.giaSanPham, 0)}đ</span>
                     </div>
 
                     <div class="discount-price">

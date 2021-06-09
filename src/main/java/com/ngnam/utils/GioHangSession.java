@@ -3,25 +3,25 @@ package com.ngnam.utils;
 import com.ngnam.entities.ChiTietSanPham;
 
 public class GioHangSession {
-    private ChiTietSanPham sanPham;
+    private ChiTietSanPham chiTietSanPham;
     private int soLuong;
 
     public GioHangSession() {
-        sanPham = null;
+        chiTietSanPham = null;
         soLuong = 0;
     }
 
-    public GioHangSession(ChiTietSanPham sanPham, int soLuong) {
-        this.sanPham = sanPham;
+    public GioHangSession(ChiTietSanPham chiTietSanPham, int soLuong) {
+        this.chiTietSanPham = chiTietSanPham;
         this.soLuong = soLuong;
     }
 
-    public ChiTietSanPham getSanPham() {
-        return sanPham;
+    public ChiTietSanPham getChiTietSanPham() {
+        return chiTietSanPham;
     }
 
-    public void setSanPham(ChiTietSanPham sanPham) {
-        this.sanPham = sanPham;
+    public void setSanPham(ChiTietSanPham chiTietSanPham) {
+        this.chiTietSanPham = chiTietSanPham;
     }
 
     public int getSoLuong() {

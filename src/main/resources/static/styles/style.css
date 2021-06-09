@@ -575,8 +575,16 @@ a.change-color-animate {
 	justify-content: space-between;
 	margin: 10px 0px 5px;
 	font-size: 16px;
-
 	color: grey;
+}
+
+.show-gio-hang .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .delete-price .delete {
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.show-gio-hang .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .delete-price .delete:hover {
+	color: #e51212;
 }
 
 .show-gio-hang .content-gio-hang .danh-sach-gio-hang .item-san-pham .item-content .discount-price {
