@@ -258,7 +258,30 @@ body {
 
 .header .header_search .box-user {  }
 
-.header .header_search .box-shopping {  }
+.header .header_search .box-shopping {
+	position: relative;
+}
+
+.header .header_search .box-shopping .so-luong {
+	font-size: 11px;
+	font-weight: bold;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	color: white;
+	background: #f30e4d;
+	border-radius: 50%;
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	border: 1px solid #d5dada;
+}
+
+.header .header_search .box-shopping .so-luong.display-none {
+	display: none !important;
+}
 
 .header .header_search .box-user > i,
 .header .header_search .box-shopping > i {
