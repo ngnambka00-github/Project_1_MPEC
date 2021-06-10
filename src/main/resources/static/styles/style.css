@@ -2037,11 +2037,21 @@ a.change-color-animate {
 	padding:  5px 0px;
 }
 
-.item-describe-id{
+.item-describe-id {
 	font-size: 13px;
 	color: rgb(141, 136, 136);
 	padding: 0px 0px 5px;
 }
+
+.item-fulldecription {
+	width: 100%;
+	white-space: pre-wrap;
+	color: #373737;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 10px 0px;
+}
+
 .item-describe-type, .item-describe-material, .item-describe-size, .item-describe-temp{
 	font-size: 14px;
 	color: #222;
