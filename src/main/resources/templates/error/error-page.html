@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vn">
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Chèn icon cho title website -->
+  <link rel="icon" th:href="@{/images/icon_title.png}" type="image/x-icon">
+
+  <title>Xảy ra lỗi</title>
+  <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" th:href="@{/styles/style-error.css}" />
+
+</head>
+
+<body>
+  <div id="notfound">
+    <div class="notfound">
+      <div class="notfound-404">
+        <h1>UNISEX</h1>
+        <h2 th:if="${messageError != null}">[[${messageError}]]</h2>
+        <h2 th:unless="${messageError != null}">Không biết nối gì</h2>
+      </div>
+      <a th:href="@{/}">Trang chủ</a>
+    </div>
+  </div>
+</body>
+</html>
