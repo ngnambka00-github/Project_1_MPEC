@@ -61,14 +61,7 @@ public class SanPhamAdminController {
     }
 
     @GetMapping(path={"/admin/sanpham", "/admin"})
-    public String getDefault(ModelMap modelMap) {
-        List<SanPham> listSanPham = sanPhamService.getListSanPhamActive();
-        List<DanhMuc> listDanhMuc = danhMucService.getListDanhMuc();
-
-        modelMap.addAttribute("listSanPham", listSanPham);
-        modelMap.addAttribute("listDanhMuc", listDanhMuc);
-        return "/admin/san-pham";
-    }
+    public String getDefault() { return "/admin/san-pham"; }
 
     // Các link khác như:
     // thêm mới: /admin/sanpham/themmoi

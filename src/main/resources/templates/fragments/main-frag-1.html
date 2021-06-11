@@ -565,6 +565,21 @@
     </th:block>
     <!-- Kết thúc phần quảng cáo đầu trang web -->
 
+    <th:block th:fragment="loader">
+        <div class="loader display-none">
+            <div class="content-loader">
+                <div class="curve c1"></div>
+                <div class="curve c2"></div>
+                <div class="curve c3"></div>
+                <div class="curve c4"></div>
+                <div class="text">
+                    <img th:src="@{/images/logo_white.png}" alt="logo_white"/>
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </div>
+    </th:block>
+
     <!--================================================-->
     <!-- Phần code các thông báo và hiển thị -->
     <th:block th:fragment="thong-bao">

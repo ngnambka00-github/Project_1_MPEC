@@ -82,6 +82,27 @@ public class APIController {
         return new DataTransformer().dataToJson(msDTO);
     }
 
+
+    // Lấy toàn bộ sản phẩm theo upload page danh sách sản phẩm
+    @GetMapping(path="/listsanpham")
+    public String getListSanPham() {
+        List<SanPhamDTO> listSPDTO = new ArrayList<>();
+        for (SanPham sp : sanPhamService.getListSanPhamActive()) {
+            listSPDTO.add(getSanPhamDTO(sp));
+        }
+        return new DataTransformer().dataToJson(listSPDTO);
+    }
+
+    // Lấy toàn bộ sản phẩm theo iddanhmuc
+    @GetMapping(path="/listsanpham/danhmuc/{id_danh_muc}")
+    public String getListSanPhamByIdDanhMuc(@PathVariable("id_danh_muc") int idDanhMuc) {
+        List<SanPhamDTO> listSPDTO = new ArrayList<>();
+        for (SanPham sp : sanPhamService.findSanPhamByMaDanhMuc(idDanhMuc)) {
+            listSPDTO.add(getSanPhamDTO(sp));
+        }
+        return new DataTransformer().dataToJson(listSPDTO);
+    }
+
     // lấy toàn bộ thông tin sản phẩm theo idSanPham
     @GetMapping(path="/thongtin_sp/{id_san_pham}")
     public String getThongTinIdSP(@PathVariable("id_san_pham") int idSanPham) {
@@ -93,6 +114,11 @@ public class APIController {
     public ResponseEntity<List<DanhMuc>> getListDanhMuc() {
         List<DanhMuc> listDanhMuc = danhMucService.getListDanhMuc();
         return ResponseEntity.ok(listDanhMuc);
+    }
+
+    @GetMapping(path="/danhmuc/{id_danh_muc}")
+    public ResponseEntity<DanhMuc> getDanhMucById(@PathVariable("id_danh_muc") int idDanhMuc) {
+        return new ResponseEntity<>(danhMucService.findDanhMucById(idDanhMuc), HttpStatus.OK);
     }
 
     @GetMapping(path="/chitietsanpham/{id_san_pham}/{id_mau_sac}/{id_kich_thuoc}")

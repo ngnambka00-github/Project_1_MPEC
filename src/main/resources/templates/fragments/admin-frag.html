@@ -109,6 +109,21 @@
     <!-- Kết thúc phần code các thông báo và hiển thị -->
     <!--================================================-->
 
+    <th:block th:fragment="loader">
+        <div class="loader display-none">
+            <div class="content-loader">
+                <div class="curve c1"></div>
+                <div class="curve c2"></div>
+                <div class="curve c3"></div>
+                <div class="curve c4"></div>
+                <div class="text">
+                    <img th:src="@{/images/logo_white.png}" alt="logo_white"/>
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </div>
+    </th:block>
+
     <!-- Nội dung của phần footer -->
     <footer th:fragment="contact-footer" class="footer mt-4">
         <div class="content-bottom">

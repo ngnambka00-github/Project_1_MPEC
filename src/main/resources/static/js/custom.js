@@ -426,7 +426,7 @@ $(document).ready(function(){
         event.preventDefault();
     });
     // Sự kiện change color của từng sản phẩm
-    $('.san-pham-item > .san-pham-detail > .danh-sach-mau-sac > .mau-sac-detail').on('click',function(event) {
+    $('body').on('click', '.san-pham-item > .san-pham-detail > .danh-sach-mau-sac > .mau-sac-detail',function(event) {
         // Xử lý hiển thị 
         event.preventDefault();
         let nodeParent = $(this)
@@ -464,13 +464,15 @@ $(document).ready(function(){
         }
     });
     // Sự kiện cho sự thay đổi lựa chọn tên size của sản phẩm 
-    $('.san-pham-item > .box-images > .bang-size > .ben-trai').on('mouseover', function() {
+    $('body').on('mouseover', '.san-pham-item > .box-images > .bang-size > .ben-trai', function() {
         $(this).find('.bang-chon-size').removeClass('set-none-visible');
     });
-    $('.san-pham-item > .box-images > .bang-size > .ben-trai').on('mouseout', function() {
+    $('body').on('mouseout', '.san-pham-item > .box-images > .bang-size > .ben-trai',function() {
         $(this).find('.bang-chon-size').addClass('set-none-visible');
     });
-    $('.san-pham-item > .box-images > .bang-size > .ben-trai .bang-chon-size  span').on('click', function(){
+    $('body').on('click', '.san-pham-item > .box-images > .bang-size > .ben-trai .bang-chon-size  span', function(event){
+        event.preventDefault();
+
         let parent = $(this).parent();
         let content = $(this).text();
         let idKichThuoc = $(this).attr('data-id-kich-thuoc');
@@ -481,7 +483,9 @@ $(document).ready(function(){
     });
 
     // Sự kiện cho button add
-    $('.san-pham-item > .box-images > .bang-size > .ben-phai').on('click', function() {
+    $('body').on('click', '.san-pham-item > .box-images > .bang-size > .ben-phai', function(event) {
+        event.preventDefault();
+
         // Tìm các thông tin về idSanPham / idMauSac / idKichThuoc
         let idSanPham = $(this).closest('.san-pham-item')
                                 .find('.danh-sach-mau-sac .mau-sac-detail.active-border-color')

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vn">
+
+<head
+        th:replace="~{/fragments/main-frag-1::main-header(title='Danh sách sản phẩm', name_image='logo_title.png')}">
+</head>
+<body>
+    <th:block th:replace="~{/fragments/main-frag-1::quang-cao-header}"></th:block>
+    <th:block th:replace="~{/fragments/main-frag-1::thong-bao}"></th:block>
+    <th:block th:replace="~{/fragments/main-frag-1::loader}"></th:block>
+
+    <!-- ================================================== -->
+    <!-- Nội dung chính của website -->
+    <div class="main-content">
+        <div class="show-san-pham">
+            <div class="title"></div>
+            <div class="danh-sach"></div>
+        </div>
+    </div>
+    <!-- Kết thúc phần nội dung chính của website -->
+    <!-- ================================================== -->
+
+
+    <!-- Nội dung phần footer -->
+    <footer th:replace="~{/fragments/main-frag-1::contact-footer}"></footer>
+    <!-- Kết thúc nội dung phần footer -->
+
+    <th:block th:replace="~{/fragments/main-frag-1::link-ref}"></th:block>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.loader').removeClass('display-none');
+            let nameContentPath = 'Project_1';
+
+            // Lấy id Danh mục để cập nhập
+            let hrefArr = $(location).attr('href').split('/');
+            let length = hrefArr.length;
+            let idDanhMuc = hrefArr[length - 1];
+
+            $.ajax({
+                url: `/${nameContentPath}/api/danhmuc/${idDanhMuc}`,
+                type: 'GET',
+                contentType: 'application/json',
+                timeout:5000,
+                success: function(danhMuc) {
+                    if (typeof(danhMuc) == 'string') {
+                        danhMuc = JSON.parse(danhMuc);
+                    }
+
+                    $('.show-san-pham .title').html(`<h2>Danh mục: ${danhMuc.tenDanhMuc}</h2>`);
+
+                    $.ajax({
+                        url:  `/${nameContentPath}/api/listsanpham/danhmuc/${danhMuc.idDanhMuc}`,
+                        type: 'GET',
+                        contentType: 'application/json',
+                        timeout:5000,
+                        success: function(listSanPham) {
+                            if (typeof(listSanPham) == 'string') {
+                                listSanPham = JSON.parse(listSanPham);
+                            }
+
+                            if (listSanPham.length == 0) {
+                                $('.show-san-pham .title').append(`<h3>Không có sản phẩm nào</h3>`);
+                                return false;
+                            }
+
+                            let danhSachTag = $('.show-san-pham .danh-sach');
+                            let innerHTML = '';
+                            for (let sp of listSanPham) {
+                                innerHTML += `<a href="/${nameContentPath}/sanpham/chitiet/${sp.idSanPham}" class="san-pham-item" data-id-san-pham="${sp.idSanPham}"><div class="box-images"><div class="box-image"><img src="/${nameContentPath}${sp.listMauSac[0].listHinhAnh[0].imagePath}" alt="" class="item-image item-image-1"></div><div class="box-image"><img src="/${nameContentPath}${sp.listMauSac[0].listHinhAnh[1].imagePath}" alt="" class="item-image item-image-2"></div><div class="bang-size"><div class="ben-trai"><span class="chon-size">Size</span><div class="bang-chon-size set-none-visible">`;
+                                for (kt of sp.listMauSac[0].listKichThuoc){
+                                    if (kt.soLuong != 0) {
+                                        innerHTML += `<span data-id-kich-thuoc=${kt.idKichThuoc}>${kt.kyHieu}</span>`;
+                                    }
+                                }
+                                innerHTML += `</div></div><div class="ben-phai"><span>Add</span></div></div></div><div class="san-pham-detail"><span class="ten-san-pham">${sp.tenSanPham}</span><span class="gia-san-pham">${sp.giaSanPham}đ</span><div class="danh-sach-mau-sac">`;
+
+                                let counter = 1;
+                                for (let ms of sp.listMauSac) {
+                                    if (counter == 1) {
+                                        innerHTML += `<div class="mau-sac-detail active-border-color" style="background: ${ms.maMau}" data-id-mau-sac="${ms.idMauSac}" data-id-san-pham="${sp.idSanPham}"></div>`;
+                                    } else {
+                                        innerHTML += `<div class="mau-sac-detail" style="background: ${ms.maMau}" data-id-mau-sac="${ms.idMauSac}" data-id-san-pham="${sp.idSanPham}"></div>`;
+                                    }
+                                    counter += 1;
+                                }
+
+                                innerHTML += `</div></div></a>`;
+                            }
+                            danhSachTag.html(innerHTML);
+                        }
+                    });
+                }
+            }).done(function() {
+                setTimeout(function() { $('.loader').addClass('display-none');}, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

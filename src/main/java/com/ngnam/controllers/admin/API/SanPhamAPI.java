@@ -22,8 +22,6 @@ import java.util.Set;
 public class SanPhamAPI {
     @Autowired private SanPhamServiceImpls sanPhamService;
 
-    @Autowired private DanhMucServiceImpls danhMucService;
-
     // Lấy toàn bộ sản phẩm được active
     @GetMapping
     public ResponseEntity<List<SanPham>> getListSanPhamActive() {

@@ -7,6 +7,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+::selection {
+    color: #eee;
+    background: #222;
+}
 
 #notfound {
     position: relative;
