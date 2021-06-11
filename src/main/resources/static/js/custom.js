@@ -67,7 +67,7 @@ $(document).ready(function(){
 
     /* Thực hiện click vào icon-logo cửa hàng */
     $('.header .header__box--image img').on('click', function() {
-        window.location.href = `/${nameContentPath}/`;
+        window.location.href = `/${nameContentPath}/sanpham`;
     });
     /* Kết thúc hiện click vào icon-logo cửa hàng */
 
