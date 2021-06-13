@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Link font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Sản phẩm Admin</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="logo_bg_black.svg" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      SẢN PHẨM
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">DANH MỤC</a>
+                        <a class="dropdown-item" href="#">MÀU SẮC</a>
+                        <a class="dropdown-item" href="#">KÍCH THƯỚC</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">CHI TIẾT SẢN PHẨM</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      ĐƠN HÀNG
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">ĐƠN HÀNG CHỜ XÁC NHẬN</a>
+                        <a class="dropdown-item" href="#">ĐƠN HÀNG ĐÃ GIAO</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KHUYẾN MÃI<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KHÁCH HÀNG<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <span class="nav-text mx-2">Admin,
+                    <span class="text-primary">Nguyễn Nam</span>
+                </span>
+                <button class="btn btn-outline-success my-2 my-sm-0">Đăng xuất</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col px-0">
+                <h3 class="text-normal text-uppercase text-warning mt-4 mb-2">Thông tin thêm mới sản phẩm</h3>
+            </div>
+        </div>
+        <div class="row border-bottom border-dark mb-4">
+            <div class="col-7 pl-0">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-white bg-secondary text-center" id="basic-addon3">Danh mục sản phẩm</span>
+                    </div>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Tất cả sản phẩm</option>
+                        <option>Áo phông</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="id-tensanpham">Tên sản phẩm</label>
+                    <input type="text" class="form-control" id="id-tensanpham" aria-describedby="emailHelp" placeholder="Nhập tên sản phẩm">
+                </div>
+
+                <div class="form-group row">
+                    <label for="id-giatien" class="col-sm-2 col-form-label">Giá tiền</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="id-giatien" placeholder="Nhập giá tiền">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Giới tính</label>
+                    <div class="col-sm-10 d-flex">
+                        <div class="form-check col-4">
+                            <input class="form-check-input" type="radio" name="gioitinh" id="exampleRadios1" value="Nam" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Nam (Male)
+                            </label>
+                        </div>
+
+                        <div class="form-check col-4">
+                            <input class="form-check-input" type="radio" name="gioitinh" id="exampleRadios2" value="Nữ">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Nữ (Female)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="id-makhuyenmai" class="col-sm-2 col-form-label">Mã khuyến mãi</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="id-makhuyenmai" placeholder="Nhập mã khuyến mãi">
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 pr-0">
+                <button class="btn btn-outline-primary btn-block btn-lg">
+                    <i class="fas fa-save mr-1"></i>
+                    Lưu thông tin mới
+                </button>
+                <label for="id-mota" class="mt-2">Mô tả sản phẩm</label>
+                <textarea id="id-mota" rows="8" class="w-100 form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 px-0 mb-2 d-flex justify-content-between ">
+                <h3 class="text-normal text-uppercase text-warning mb-2 mr-3">Chi tiết sản phẩm (7)</h3> 
+                <button class="btn btn-info px-5 font-weight-bold">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Thêm chi tiết
+                </button>
+            </div>
+        </div>
+
+        <!-- Phần chi tiết sản phẩm -->
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <div class="item">
+                                <tr style="background-color: #c2d0d0">
+                                    <th colspan="3" class="align-middle text-center">STT: 1 / Màu: Solid.Đen/Black.Đen / Mã màu: #2343ff</th>
+                                    <!-- <td class="align-middle text-center">#ff22aa</td> -->
+                                    <td class="align-middle p-1" style="width: 150px">
+                                        <button class="w-100 btn" style="background: #112233">
+                                            <span style="opacity: 0;">.</span>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 align-middle" style="width: 150px;">
+                                        <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                            Xem chi tiết
+                                            <i class="fas fa-chevron-circle-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="px-0 py-0">
+                                        <table class="table table-hover table-bordered table-striped">
+                                            <thead class="bg-warning">
+                                                <tr>
+                                                    <td scope="col" class="text-center">Kích thước</td>
+                                                    <td scope="col" class="text-center">Số lượng</td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="bg-danger">
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>                                            
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td colspan="3" class="px-0 py-0">
+                                        <table class="table mb-2">
+                                            <tr>
+                                            <td class="pl-0 pr-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="pl-1 pr-0 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </div>
+                            
+                            <div class="item">
+                                <tr style="background-color: #c2d0d0">
+                                    <th colspan="3" class="align-middle text-center">STT: 2 / Màu: Solid.Đen/Black.Đen / Mã màu: #2343ff</th>
+                                    <!-- <td class="align-middle text-center">#ff22aa</td> -->
+                                    <td class="align-middle p-1" style="width: 150px">
+                                        <button class="w-100 btn" style="background: #112233">
+                                            <span style="opacity: 0;">.</span>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 align-middle" style="width: 150px;">
+                                        <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                            Xem chi tiết
+                                            <i class="fas fa-chevron-circle-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="px-0 py-0">
+                                        <table class="table table-hover table-bordered table-striped">
+                                            <thead class="bg-warning">
+                                                <tr>
+                                                    <td scope="col" class="text-center">Kích thước</td>
+                                                    <td scope="col" class="text-center">Số lượng</td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>                                            
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td colspan="3" class="px-0 py-0">
+                                        <table class="table mb-2">
+                                            <tr>
+                                            <td class="pl-0 pr-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="pl-1 pr-0 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </div>
+
+                            <div class="item">
+                                <tr style="background-color: #c2d0d0">
+                                    <th colspan="3" class="align-middle text-center">STT: 3 / Màu: Solid.Đen/Black.Đen / Mã màu: #2343ff</th>
+                                    <!-- <td class="align-middle text-center">#ff22aa</td> -->
+                                    <td class="align-middle p-1" style="width: 150px">
+                                        <button class="w-100 btn" style="background: #112233">
+                                            <span style="opacity: 0;">.</span>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 align-middle" style="width: 150px;">
+                                        <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                            Xem chi tiết
+                                            <i class="fas fa-chevron-circle-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="px-0 py-0">
+                                        <table class="table table-hover table-bordered table-striped">
+                                            <thead class="bg-warning">
+                                                <tr>
+                                                    <td scope="col" class="text-center">Kích thước</td>
+                                                    <td scope="col" class="text-center">Số lượng</td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>                                            
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td colspan="3" class="px-0 py-0">
+                                        <table class="table mb-2">
+                                            <tr>
+                                            <td class="pl-0 pr-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="pl-1 pr-0 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </div>
+
+                            <div class="item">
+                                <tr style="background-color: #c2d0d0">
+                                    <th colspan="3" class="align-middle text-center">STT: 4 / Màu: Solid.Đen/Black.Đen / Mã màu: #2343ff</th>
+                                    <!-- <td class="align-middle text-center">#ff22aa</td> -->
+                                    <td class="align-middle p-1" style="width: 150px">
+                                        <button class="w-100 btn" style="background: #112233">
+                                            <span style="opacity: 0;">.</span>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 align-middle" style="width: 150px;">
+                                        <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                            Xem chi tiết
+                                            <i class="fas fa-chevron-circle-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="px-0 py-0">
+                                        <table class="table table-hover table-bordered table-striped">
+                                            <thead class="bg-warning">
+                                                <tr>
+                                                    <td scope="col" class="text-center">Kích thước</td>
+                                                    <td scope="col" class="text-center">Số lượng</td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>                                            
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td colspan="3" class="px-0 py-0">
+                                        <table class="table mb-2">
+                                            <tr>
+                                            <td class="pl-0 pr-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="pl-1 pr-0 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </div>
+
+                            <div class="item">
+                                <tr style="background-color: #c2d0d0">
+                                    <th colspan="3" class="align-middle text-center">STT: 5 / Màu: Solid.Đen/Black.Đen / Mã màu: #2343ff</th>
+                                    <!-- <td class="align-middle text-center">#ff22aa</td> -->
+                                    <td class="align-middle p-1" style="width: 150px">
+                                        <button class="w-100 btn" style="background: #112233">
+                                            <span style="opacity: 0;">.</span>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 align-middle" style="width: 150px;">
+                                        <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                            Xem chi tiết
+                                            <i class="fas fa-chevron-circle-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="px-0 py-0">
+                                        <table class="table table-hover table-bordered table-striped">
+                                            <thead class="bg-warning">
+                                                <tr>
+                                                    <td scope="col" class="text-center">Kích thước</td>
+                                                    <td scope="col" class="text-center">Số lượng</td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>                                            
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td colspan="3" class="px-0 py-0">
+                                        <table class="table mb-2">
+                                            <tr>
+                                            <td class="pl-0 pr-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="pl-1 pr-0 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </div>
+
+                            <div class="item">
+                                <tr style="background-color: #c2d0d0">
+                                    <th colspan="3" class="align-middle text-center">STT: 6 / Màu: Solid.Đen/Black.Đen / Mã màu: #2343ff</th>
+                                    <!-- <td class="align-middle text-center">#ff22aa</td> -->
+                                    <td class="align-middle p-1" style="width: 150px">
+                                        <button class="w-100 btn" style="background: #112233">
+                                            <span style="opacity: 0;">.</span>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 align-middle" style="width: 150px;">
+                                        <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                            Xem chi tiết
+                                            <i class="fas fa-chevron-circle-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="px-0 py-0">
+                                        <table class="table table-hover table-bordered table-striped">
+                                            <thead class="bg-warning">
+                                                <tr>
+                                                    <td scope="col" class="text-center">Kích thước</td>
+                                                    <td scope="col" class="text-center">Số lượng</td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>                                            
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td colspan="3" class="px-0 py-0">
+                                        <table class="table mb-2">
+                                            <tr>
+                                            <td class="pl-0 pr-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="pl-1 pr-0 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </div>
+
+                            <div class="item">
+                                <tr style="background-color: #c2d0d0">
+                                    <th colspan="3" class="align-middle text-center">STT: 7 / Màu: Solid.Đen/Black.Đen / Mã màu: #2343ff</th>
+                                    <!-- <td class="align-middle text-center">#ff22aa</td> -->
+                                    <td class="align-middle p-1" style="width: 150px">
+                                        <button class="w-100 btn" style="background: #112233">
+                                            <span style="opacity: 0;">.</span>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 align-middle" style="width: 150px;">
+                                        <button class="btn btn-success w-100" data-toggle="modal" data-target=".modal-chitietmausac">
+                                            Xem chi tiết
+                                            <i class="fas fa-chevron-circle-down"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="px-0 py-0">
+                                        <table class="table table-hover table-bordered table-striped">
+                                            <thead class="bg-warning">
+                                                <tr>
+                                                    <td scope="col" class="text-center">Kích thước</td>
+                                                    <td scope="col" class="text-center">Số lượng</td>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="align-middle text-center">XXL</td>
+                                                    <td class="align-middle text-center">20</td>
+                                                </tr>                                            
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td colspan="3" class="px-0 py-0">
+                                        <table class="table mb-2">
+                                            <tr>
+                                            <td class="pl-0 pr-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="px-1 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            <td class="pl-1 pr-0 py-1"><img class="w-100" src="https://cdn.boo.vn/banner/nu-ao-ba-lo.jpg"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </div>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Kết thúc phần chi tiết sản phẩm -->
+    </div>
+    <!-- Link thư viện jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Link thư viện javascript tự custom -->
+    <script type="text/javascript" src="custom.js"></script>
+
+</body>
+</html>
+
+
+

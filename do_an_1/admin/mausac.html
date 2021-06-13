@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Link font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Màu sắc Admin</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="logo_bg_black.svg" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      SẢN PHẨM
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">DANH MỤC</a>
+                        <a class="dropdown-item" href="#">MÀU SẮC</a>
+                        <a class="dropdown-item" href="#">KÍCH THƯỚC</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">CHI TIẾT SẢN PHẨM</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      ĐƠN HÀNG
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">ĐƠN HÀNG CHỜ XÁC NHẬN</a>
+                        <a class="dropdown-item" href="#">ĐƠN HÀNG ĐÃ GIAO</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KHUYẾN MÃI<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KHÁCH HÀNG<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <span class="nav-text mx-2">Admin,
+                    <span class="text-primary">Nguyễn Nam</span>
+                </span>
+                <button class="btn btn-outline-success my-2 my-sm-0">Đăng xuất</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col px-0">
+                <h3 class="text-normal text-uppercase text-warning mt-4">Danh sách màu sắc</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="col-5 px-0">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên màu sắc để tìm kiếm"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" style="z-index: 1">
+                            <i class="fas fa-search"></i>
+                            Tìm kiếm
+                        </button>
+                    </div>
+                </div>   
+            </div>
+            
+            <div class="col-3 pr-0">
+                <button class="btn btn-outline-success w-100" data-toggle="modal" data-target=".modal-themmoimausac">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Thêm mới màu sắc
+                </button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="bg-info">
+                    <tr>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col">Tên màu sắc</th>
+                        <th scope="col" class="text-center">Mã màu</th>
+                        <th scope="col" class="text-center">Màu thực</th>
+                        <th scope="col" class="text-center">Xem chi tiết</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="align-middle text-center">1</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #112233">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">2</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #1abc9c">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">3</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #2ecc71">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">4</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #3498db">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">5</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #9b59b6">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">6</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #16a085">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">7</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #27ae60">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">8</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #2980b9">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">9</th>
+                        <td class="align-middle">Solid.Đen/Black.Đen</td>
+                        <td class="align-middle text-center">#ff22aa</td>
+                        <td class="align-middle p-1">
+                            <button class="w-100 btn" style="background: #e67e22">
+                                <span style="opacity: 0;">.</span>
+                            </button>
+                        </td>
+                        <td class="p-1 align-middle">
+                            <button class="btn btn-primary w-100 py-1" data-toggle="modal" data-target=".modal-chitietmausac">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade modal-themmoimausac" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white">Thêm màu sắc mới</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Tên màu sắc</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="staticEmail"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0 d-flex">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Màu/Mã màu</label>
+                            <div class="choose-color">
+                                <div>
+                                    <input type="color" v-model="color1" />
+                                    <input type="text" v-model="color1" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Thêm mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-chitietmausac" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white">Thông tin màu sắc</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group row">
+                            <label for="ma-danh-muc-chinh-sua" class="col-sm-2 col-form-label">Mã màu sắc</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control" id="ma-danh-muc-chinh-sua"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ten-danh-muc-chinh-sua" class="col-sm-2 col-form-label">Tên màu sắc</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ten-danh-muc-chinh-sua"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0 d-flex">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Màu / Mã màu</label>
+                            <div class="choose-color">
+                                <div>
+                                    <input type="color" v-model="color1" />
+                                    <input type="text" v-model="color1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info">Cập nhập</button>
+                    <button type="button" class="btn btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link thư viện jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Link thư viện javascript tự custom -->
+    <script type="text/javascript" src="custom.js"></script>
+
+</body>
+</html>
+

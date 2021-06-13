@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	 <!-- Chèn icon cho title website -->
+    <link rel="icon" href="images/icon_title.png" type="image/x-icon">
+
+	<!-- Link font awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+	<!-- Link CSS animation -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Đồ án 1</title>
+</head>
+<body>
+	<!-- Button scroll to top -->
+	<div class="scroll-to-top">
+		<div class="box-icon">
+			<i class="fas fa-chevron-up icon-up"></i>
+		</div>
+	</div>
+	<!-- Kết thúc phần button scroll to top -->
+
+
+	<!-- Header -->
+	<nav class="header">
+		<div class="header-menu">
+			<div class="menu-header-icon">
+				<a href="#"> <i class="fas fa-bars"></i> </a>
+			</div>
+		</div>
+
+		<div class="header__box--image">
+			<img alt="" src="/images/logo_bg_white.svg"/>
+		</div>
+
+		<div class="header_search">
+			<div class="header_search_item box-input" for="id-input">
+				<label for="id-input"><i class="fas fa-search" for="id-input"></i></label>
+				<input id="id-input" type="text" placeholder="Tìm kiếm">	
+			</div>
+			
+			<div class="header_search_item box-user">
+				<i class="fas fa-user"></i>
+			</div>
+
+			<div class="header_search_item box-shopping">
+				<i class="fas fa-shopping-cart"></i>
+				<span class="so-luong">13</span>
+			</div>
+		</div>
+	</nav>
+	<!-- Kết thúc nội dung phần header -->
+
+	
+	<!-- Nội dung của phần menu header -->
+	<div class="show-menu display-none">
+		<div class="slide-background-box-menu"></div>
+		<div class="box-menu">
+			<div class="box-menu-gioi-tinh">
+				<a href="#" class="change-color-animate">Nam</a> | <a href="#" class="change-color-animate">Nữ</a>	
+			</div>
+
+			<div class="content-box-menu">
+				<div class="box-left">
+					<ul>
+						<li><a href="#" class="change-color-animate">BOO</a></li>
+						<li><a href="#" class="change-color-animate">BOOZILLA</a></li>
+						<li><a href="#" class="change-color-animate"> BOOLAAB</a></li>
+						<li><a href="#" class="change-color-animate">HÀNG MỚI</a></li>
+						<li><a href="#" class="change-color-animate">QUẦN ÁO</a></li>
+						<li><a href="#" class="change-color-animate">PHỤ KIỆN</a></li>
+						<li><a href="#" class="change-color-animate">BỘ SƯU TẬP</a></li>
+						<li><a href="#" class="change-color-animate">SPECIAL PRICE</a></li>
+					</ul>
+				</div>
+
+				<div class="box-right">
+					<ul class="danh-muc-chi-tiet">
+						<li>
+							<a href="#" class="change-color-animate">ÁO PHÔNG</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO BA LỖ</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO SƠ MI</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO THUN DÀI TAY</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO LEN</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO NỈ KHÔNG MŨ</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO NỈ MŨ</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO KHOÁC NỈ</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">ÁO KHOÁC</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">BỘ ÁO DÀI</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">VÁY</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">YẾM</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">CHÂN VÁY</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">QUẦN VÁY</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">QUẦN JEANS</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">QUẦN KHAKI</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">QUẦN JOGGER</a>
+						</li>
+						<li>
+							<a href="#" class="change-color-animate">QUẦN DÀI</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- Kết thúc phần nội dung header -->
+
+	
+	<!-- Nội dung của phần giỏ hàng header -->
+	<div class="show-gio-hang display-none">
+		<div class="content-gio-hang">
+			<div class="title-gioi-hang">
+				<span class="span-title">Giỏ hàng(5)</span>
+				<i class="fas fa-times close-gio-hang"></i>
+			</div>
+			<div class="danh-sach-gio-hang">
+				<div class="item-san-pham">
+					<div class="item-san-pham-img">
+						<img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+					</div>
+					<div class="item-content">
+						<span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+						<span class="ma-san-pham">Mã: 1.2.02.1.06.010.121.01</span>
+
+						<div class="option-san-pham">
+							<div class="mau-sac"></div>
+							<div class="size-san-pham">XL</div>
+							<div class="so-luong">
+								<span class="giam-so-luong">-</span>
+								<span class="so-luong-thuc">2</span>
+								<span class="tang-so-luong">+</span>
+							</div>
+						</div>
+
+						<div class="delete-price">
+							<span class="delete"><i class="far fa-trash-alt"></i></span>
+							<span class="total-money">550,000đ</span>
+						</div>
+
+						<div class="discount-price none-giam-gia">
+							<span class="discount">
+								<i class="fas fa-tag"></i>
+								<i class="text-giam-gia">Giảm giá</i>
+							</span>
+							<span class="total-money">450,000đ</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-san-pham">
+					<div class="item-san-pham-img">
+						<img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+					</div>
+					<div class="item-content">
+						<span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+						<span class="ma-san-pham">Mã: 1.2.02.1.06.010.121.01</span>
+
+						<div class="option-san-pham">
+							<div class="mau-sac"></div>
+							<div class="size-san-pham">XL</div>
+							<div class="so-luong">
+								<span class="giam-so-luong">-</span>
+								<span class="so-luong-thuc">2</span>
+								<span class="tang-so-luong">+</span>
+							</div>
+						</div>
+
+						<div class="delete-price">
+							<span class="delete"><i class="far fa-trash-alt"></i></span>
+							<span class="total-money">550,000đ</span>
+						</div>
+
+						<div class="discount-price">
+							<span class="discount">
+								<i class="fas fa-tag"></i>
+								<i class="text-giam-gia">Giảm giá</i>
+							</span>
+							<span class="total-money">450,000đ</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-san-pham">
+					<div class="item-san-pham-img">
+						<img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+					</div>
+					<div class="item-content">
+						<span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+						<span class="ma-san-pham">Mã: 1.2.02.1.06.010.121.01</span>
+
+						<div class="option-san-pham">
+							<div class="mau-sac"></div>
+							<div class="size-san-pham">XL</div>
+							<div class="so-luong">
+								<span class="giam-so-luong">-</span>
+								<span class="so-luong-thuc">2</span>
+								<span class="tang-so-luong">+</span>
+							</div>
+						</div>
+
+						<div class="delete-price">
+							<span class="delete"><i class="far fa-trash-alt"></i></span>
+							<span class="total-money">550,000đ</span>
+						</div>
+
+						<div class="discount-price none-giam-gia">
+							<span class="discount">
+								<i class="fas fa-tag"></i>
+								<i class="text-giam-gia">Giảm giá</i>
+							</span>
+							<span class="total-money">450,000đ</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-san-pham">
+					<div class="item-san-pham-img">
+						<img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+					</div>
+					<div class="item-content">
+						<span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+						<span class="ma-san-pham">Mã: 1.2.02.1.06.010.121.01</span>
+
+						<div class="option-san-pham">
+							<div class="mau-sac"></div>
+							<div class="size-san-pham">XL</div>
+							<div class="so-luong">
+								<span class="giam-so-luong">-</span>
+								<span class="so-luong-thuc">2</span>
+								<span class="tang-so-luong">+</span>
+							</div>
+						</div>
+
+						<div class="delete-price">
+							<span class="delete"><i class="far fa-trash-alt"></i></span>
+							<span class="total-money">550,000đ</span>
+						</div>
+
+						<div class="discount-price none-giam-gia">
+							<span class="discount">
+								<i class="fas fa-tag"></i>
+								<i class="text-giam-gia">Giảm giá</i>
+							</span>
+							<span class="total-money">450,000đ</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-san-pham">
+					<div class="item-san-pham-img">
+						<img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+					</div>
+					<div class="item-content">
+						<span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+						<span class="ma-san-pham">Mã: 1.2.02.1.06.010.121.01</span>
+
+						<div class="option-san-pham">
+							<div class="mau-sac"></div>
+							<div class="size-san-pham">XL</div>
+							<div class="so-luong">
+								<span class="giam-so-luong">-</span>
+								<span class="so-luong-thuc">2</span>
+								<span class="tang-so-luong">+</span>
+							</div>
+						</div>
+
+						<div class="delete-price">
+							<span class="delete"><i class="far fa-trash-alt"></i></span>
+							<span class="total-money">550,000đ</span>
+						</div>
+
+						<div class="discount-price">
+							<span class="discount">
+								<i class="fas fa-tag"></i>
+								<i class="text-giam-gia">Giảm giá</i>
+							</span>
+							<span class="total-money">450,000đ</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-san-pham">
+					<div class="item-san-pham-img">
+						<img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+					</div>
+					<div class="item-content">
+						<span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+						<span class="ma-san-pham">Mã: 1.2.02.1.06.010.121.01</span>
+
+						<div class="option-san-pham">
+							<div class="mau-sac"></div>
+							<div class="size-san-pham">XL</div>
+							<div class="so-luong">
+								<span class="giam-so-luong">-</span>
+								<span class="so-luong-thuc">2</span>
+								<span class="tang-so-luong">+</span>
+							</div>
+						</div>
+
+						<div class="delete-price">
+							<span class="delete"><i class="far fa-trash-alt"></i></span>
+							<span class="total-money">550,000đ</span>
+						</div>
+
+						<div class="discount-price none-giam-gia">
+							<span class="discount">
+								<i class="fas fa-tag"></i>
+								<i class="text-giam-gia">Giảm giá</i>
+							</span>
+							<span class="total-money">450,000đ</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="tong-tien-gio-hang">
+				<div class="phi-van-chuyen">Miễn phí vận chuyển với hoá đơn trên 600,000đ</div>
+				<hr>
+				<div class="tong-tien">
+					<span>Tổng</span>
+					<span>3,082,000đ</span>
+				</div>
+
+				<button class="submit-dat-hang">Tiến hành đặt hàng</button>
+			</div>
+		</div>
+	</div>
+	<!-- Kết thúc nội dung của phần giỏ hàng header-->
+
+	<!-- Thông báo thêm thành công một sản phẩm vào giỏ hàng -->
+	<div class="them-san-pham display-none">
+		<div class="content-gio-hang">
+			<div class="title-gioi-hang">
+				<span class="span-title">Đã thêm 1 sản phẩm mới</span>
+			</div>
+			<div class="danh-sach-gio-hang">
+				<div class="item-san-pham">
+					<div class="item-san-pham-img">
+						<img src="https://cdn.boo.vn/products/291/ao-phong-nu-oversized-da-ca-solidtrangwhitetrang-1.jpg" alt="">
+					</div>
+					<div class="item-content">
+						<span class="title-san-pham">ÁO PHÔNG NỮ OVERSIZED DA CÁ</span>
+						<span class="ma-san-pham">Mã sản phẩm: 1.2.02.1.06.010.121.01</span>
+						<span class="mau-san-pham">Màu: abcd </span>
+						<span class="size-san-pham">Size: abcd</span>
+						<div class="delete-price">						
+							<span class="total-money">Giá tiền: 550,000đ</span>
+						</div>
+
+						<div class="discount-price none-giam-gia">
+							<span class="discount">
+								<i class="fas fa-tag"></i>
+								<i class="text-giam-gia">Giảm giá</i>
+							</span>
+							<span class="total-money">450,000đ</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="chi-tiet">
+				<hr>
+				<div class="noi-dung">
+					<span>Chi tiết xem tại nhỏ hàng</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Kết thúc phần thông báo thêm thành công 1 sản phẩm vào giỏ hàng -->
+
+	<!-- Thông báo thêm thành công / thất bại -->
+	<div class="thong-bao display-none">
+		<div class="noi-dung">
+			<div class="title">
+				<span class="span-title">Thông báo</span>
+			</div>
+			<div class="noi-dung-chinh">
+				<i class="fas fa-check-circle icon-success"></i>
+				<!-- <i class="fas fa-exclamation-triangle icon-failture"></i> -->
+				<span class="noi-dung-thong-bao">Thêm sản phẩm thành công</span>
+			</div>
+		</div>
+	</div>
+	<!-- Kết thúc thông báo thêm thành công / thất bại -->
+
+	<!-- Thông báo thêm thành công / thất bại -->
+	<div class="xac-minh display-none">
+		<div class="noi-dung">
+			<div class="title">
+				<span class="span-title">Thông báo xác minh</span>
+			</div>
+			<div class="noi-dung-chinh">
+				<h2 class="cau-hoi">Bạn có chắc chắc muốn xóa</h2>
+				<div class="tra-loi">
+					<div class="yes">Yes</div>
+					<div class="no">No</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Kết thúc thông báo thêm thành công / thất bại -->
+
+	
+	<!-- Nội dung phần đăng nhập header -->
+	<div class="show-dang-nhap display-none">
+		<div class="content-dang-nhap">
+			<div class="title-dang-nhap">
+				<span class="span-title">Đăng nhập tài khoản</span>
+				<i class="fas fa-times close-dang-nhap"></i>
+			</div>
+			<div class="form-content">
+				<div class="form-group">
+					<label for="idemailsdt">Email / SĐT</label>
+					<input type="text" id="idemailsdt" placeholder="Email / SĐT" />
+				</div>
+				<div class="form-group">
+					<label for="idmatkhau">Mật khẩu</label>
+					<input type="password" id="idmatkhau" placeholder="Mật khẩu" />
+				</div>
+
+				<span class="quen-mat-khau">Quên mật khẩu ?</span>
+
+				<div class="kind-button">
+					<button class="btn-2 btn-dang-nhap">Đăng nhập</button>
+					<button class="btn-2 btn-dang-nhap-facebook">
+						<i class="fab fa-facebook icon-thuong-hieu"></i>
+						Đăng nhập bằng facebook
+					</button>
+					<button class="btn-2 btn-dang-nhap-google">
+						<i class="fab fa-google icon-thuong-hieu"></i>Đăng nhập bằng Google
+					</button>
+					<span class="span-khach-hang-moi">Bạn là khách hàng mới ?</span>
+					<button class="btn-2 btn-dang-ky">Đăng Ký</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Kết thúc nội dung phần đăng nhập header -->
+
+
+	<!-- Nội dung phần đăng ký -->
+	<div class="show-dang-ky display-none">
+		<div class="content-dang-ky">
+			<div class="title-dang-ky">
+				<span class="span-title">
+					<i class="previous-dang-nhap fas fa-chevron-left"></i>
+					Tạo tài khoản
+				</span>
+				<i class="fas fa-times close-dang-ky"></i>
+			</div>
+
+			<div class="form-content">
+				<div class="form-group">
+					<label for="idhovaten">Họ và tên</label>
+					<input type="text" id="idhovaten" placeholder="Họ & Tên" />
+				</div>
+				<div class="form-group">
+					<label for="idsodienthoai">Số điện thoại</label>
+					<input type="text" id="idsodienthoai" placeholder="Số điện thoại" />
+				</div>
+				<div class="form-group">
+					<div class="form-checkbox">
+						<input type="radio" name="gioitinh" id="idgioitinhnu" checked="true">
+						<label for="idgioitinhnu">Nữ</label>
+					</div>
+					<div class="form-checkbox">
+						<input type="radio" name="gioitinh" id="idgioitinhnam">
+						<label for="idgioitinhnam">Nam</label>
+					</div>
+					<div class="form-checkbox"></div>
+				</div>
+				<div class="kind-button">
+					<button class="btn-2 btn-tao-tai-khoan">Tạo tài khoản</button>
+					<span class="span-check-ton-tai-tai-khoan">Bạn đã có tài khoản ?</span>
+					<button class="btn-2 btn-dang-nhap">Đăng nhập tài khoản</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Kết thúc nội dung phần đăng ký -->
+
+
+	<!-- Nội dung của form tìm kiếm  -->
+	<div class="show-tim-kiem display-none">
+		<div class="content-tim-kiem">
+			
+		</div>
+	</div>
+	<!-- Kết thúc nội dung phần tìm kiếm -->
+
+	<!-- ================================================== -->
+	<!-- Nội dung chính của website -->
+	<div class="main-content">
+		<!-- Nội dung phần slide quảng cáo -->
+		<div class="slide-giam-gia">
+			<div class="danh-sach-slide">
+				<div class="slide active">
+					<img src="/images/slide_giam_gia_1.jpg" alt=""/>
+				</div>
+				<div class="slide">
+					<img src="/images/slide_giam_gia_2.jpg" alt=""/>
+				</div>
+				<div class="slide">
+					<img src="/images/slide_giam_gia_3.jpg" alt=""/>
+				</div>
+			</div>
+
+			<div class="button-dieu-huong">
+				<span class="item-dieu-huong previous">
+					<i class="fas fa-chevron-left"></i>
+				</span>
+				<span class="item-dieu-huong next">
+					<i class="fas fa-chevron-right"></i>
+				</span>
+				<ul class="bottom">
+					<li class="active-button-slide"><i class="item-dieu-huong fas fa-circle"></i></li>
+					<li><i class="item-dieu-huong fas fa-circle"></i></li>
+					<li><i class="item-dieu-huong fas fa-circle"></i></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Kết thúc nội dung phần quảng cáo -->
+
+		<!-- Phần nội dung chạy chữ -->
+		<div class="marquee">
+			<div class="marquee-content">
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+				<div class="item-text">
+					<img src="images/logo_bg_white.svg">
+					<span>MADE IN THE STREET</span>
+					<span>ETS.03</span>
+				</div>
+			</div>
+		</div>
+		<!-- Kết thúc phần nội dung chạy chữ -->
+		
+		<!-- Phần chạy dữ liệu các gian hàng -->
+		<div class="san-pham-nam-nu">
+			<!-- Sản phầm 1 -->
+			<div class="nam-nu-item">
+				<div class="box-image" data-aos="fade-right" data-aos-duration="500">
+					<img src="https://cdn.boo.vn/banner/undefined-qovx3.jpg">
+				</div>
+				<div class="title-san-pham" data-aos="fade-right" data-aos-duration="500">
+					<h2 class="title-top">Áo nỉ nữ</h2>
+					<button class="btn-1 btn-mua-hang">Mua ngay</button>
+				</div>
+			</div>
+			<!-- Kết thúc sản phẩm 1 -->
+
+			<!-- Sản phẩm 2 -->
+			<div class="nam-nu-item">
+				<div class="box-image" data-aos="fade-left" data-aos-duration="500">
+					<img src="https://cdn.boo.vn/banner/undefined-es5z0.jpg">
+				</div>
+				<div class="title-san-pham" data-aos="fade-left" data-aos-duration="500">
+					<h2 class="title-top">Áo thun nữ</h2>
+					<button class="btn-1 btn-mua-hang">Mua ngay</button>
+				</div>
+			</div>
+			<!-- Kết thúc sản phẩm 2 -->
+
+			<!-- Sản phẩm 3 -->
+			<div class="nam-nu-item">
+				<div class="box-image" data-aos="fade-right" data-aos-duration="500">
+					<img src="https://cdn.boo.vn/banner/undefined-qovx3.jpg">
+				</div>
+				<div class="title-san-pham" data-aos="fade-right" data-aos-duration="500">
+					<h2 class="title-top">Váy & Yếm</h2>
+					<button class="btn-1 btn-mua-hang">Mua ngay</button>
+				</div>
+			</div>
+			<!-- Kết thúc sản phẩm 3 -->
+
+			<!-- Sản phẩm 4 -->
+			<div class="nam-nu-item">
+				<div class="box-image" data-aos="fade-left" data-aos-duration="500">
+					<img src="https://cdn.boo.vn/banner/undefined-uxttk.jpg">
+				</div>
+				<div class="title-san-pham" data-aos="fade-left" data-aos-duration="500">
+					<h2 class="title-top">Quần nữ</h2>
+					<button class="btn-1 btn-mua-hang">Mua ngay</button>
+				</div>
+			</div>
+			<!-- Kết thúc sản phẩm 4 -->
+
+		</div>
+		<!-- Kết thúc phần chạy dữ liệu các gian hàng -->
+
+
+		<!-- Nội dung phần sản phẩm mới -->
+		<div class="san-pham-moi">
+			<div class="box-image" data-aos="fade-up" data-aos-duration="500">
+				<img src="https://cdn.boo.vn/banner/undefined-7mupr.jpg" alt="">
+			</div>
+			<button class="btn-1 btn-hang-moi">Hàng mới</button>
+		</div>
+		<!-- Kết thúc nội dung phần sản phẩm mới -->
+
+		<!-- Nội dung phần sản phẩm bán chạy nhất -->
+		<div class="wrapper-danh-sach san-pham-ban-chay">
+			<div class="dieu-huong">
+				<i class="fas fa-chevron-left left"></i>
+				<i class="fas fa-chevron-right right"></i>
+			</div>
+			<div class="wrapper-title">
+				<h2>Sản phẩm bán chạy</h2>
+			</div>
+			<div class="danh-sach-san-pham">
+				<div class="wrap-inner">
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+				</div>
+			</div>
+		</div>
+		<!-- Kết thúc phần nội dung bán chạy nhât -->
+
+		<!-- Nội dung phần sản phẩm đã xem -->
+		<div class="san-pham-da-xem">
+			<div class="dieu-huong">
+				<i class="fas fa-chevron-left left"></i>
+				<i class="fas fa-chevron-right right"></i>
+			</div>
+			<div class="wrapper-title">
+				<h2>Sản phẩm đã xem</h2>
+			</div>
+			<div class="danh-sach-san-pham">
+				<div class="wrap-inner">
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">S</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+				</div>
+			</div>
+		</div>
+		<!-- Kết thúc phần nội dung bán đã xem -->
+
+
+		<!-- Nội dung phần sản phẩm đã xem -->
+		<div class="show-san-pham">
+			<div class="title">
+				<h2>Sản phẩm Nguyễn Văn Nam</h2>
+			</div>
+			<div class="danh-sach">
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">Size</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">Size</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">Size</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">Size</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">Size</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="san-pham-item">
+					<div class="box-images">
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-1.jpg" alt="" class="item-image item-image-1">
+						</div>
+						<div class="box-image">
+							<img src="https://cdn.boo.vn/products/395/ao-phong-o-mandalorian-patten-hoa-tietxanh-la-cay-greenxanh-reu-2.jpg" alt="" class="item-image item-image-2">	
+						</div>
+
+						<div class="bang-size">
+							<div class="ben-trai">
+								<span class="chon-size">Size</span>
+								<div class="bang-chon-size set-none-visible">
+									<span>L</span>
+									<span>X</span>
+									<span>XL</span>
+									<span>S</span>
+								</div>
+							</div>
+							<div class="ben-phai">
+								<span>Add</span>
+							</div>
+						</div>
+					</div>
+					<div class="san-pham-detail">
+						<span class="ten-san-pham">ÁO PHÔNG STARWARS L LOGO STARWARS</span>
+						<span class="gia-san-pham">449,000đ</span>
+						<div class="danh-sach-mau-sac">
+							<div class="mau-sac-detail active-border-color"></div>
+							<div class="mau-sac-detail"></div>
+							<div class="mau-sac-detail"></div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<!-- Kết thúc phần nội dung bán đã xem -->
+
+
+	</div>
+	<!-- Kết thúc phần nội dung chính của website -->
+	<!-- ================================================== -->
+
+
+	<!-- Nội dung phần footer -->
+	<footer class="footer">
+		<div class="content-top">
+			<div class="content-top-item">
+				<h3 class="title">Công ty</h3>
+				<ul class="content-detail">
+					<li><a href="#">Về BOO</a></li>
+					<li><a href="#">Về đại lý</a></li>
+					<li><a href="#">Địa chỉ cửa hàng</a></li>
+					<li><a href="#">Tuyển dụng</a></li>
+					<li><a href="#">BOO GREEN</a></li>
+					<li><a href="#">Đặt làm đồng phục</a></li>
+				</ul>
+			</div>
+			<div class="content-top-item">
+				<h3 class="title">Chính sách</h3>
+				<ul class="content-detail">
+					<li><a href="#">FAG</a></li>
+					<li><a href="#">Đăng nhập/Đăng ký thành viên</a></li>
+					<li><a href="#">Chính sách thành viên</a></li>
+					<li><a href="#">Hướng dẫn mua hàng trực tuyến</a></li>
+					<li><a href="#">Đổi/trả & Hoàn tiền</a></li>
+					<li><a href="#">Chính sách bảo mật</a></li>
+					<li><a href="#">Chính sách bảo hành</a></li>
+					<li><a href="#">Thanh toán & Vận chuyển</a></li>
+				</ul>
+			</div>
+			<div class="content-top-item">
+				<h3 class="title">Kết nối</h3>
+				<ul class="content-detail">
+					<li><a href="#">Facebook</a></li>
+					<li><a href="#">Instagram</a></li>
+					<li><a href="#">Youtube</a></li>
+					<li>
+						<a href="tel:0901599299">
+							Hotline: 1900 232313<br>
+							(8h30 - 17h30, T2-T6)
+						</a>
+					</li>
+					<li><a href="mailto:ngnambka00@gmail.com">Email: online@boo.com</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content-bottom">
+			<div class="bottom-left">
+				<h3 class="school">Trường Đại học Bách Khoa Hà Nội</h3>
+				<h3 class="major">Viện Điện tử - Viễn Thông</h3>
+				<div class="box-image">
+					<img src="https://upload.wikimedia.org/wikipedia/vi/thumb/e/ef/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_B%C3%A1ch_Khoa_H%C3%A0_N%E1%BB%99i.svg/1200px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_B%C3%A1ch_Khoa_H%C3%A0_N%E1%BB%99i.svg.png" alt="">
+					<img src="https://scontent.fhan2-2.fna.fbcdn.net/v/t31.0-8/12901446_895283617235989_6670699838495721927_o.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=ajvRh_NBDHQAX_PIFdI&_nc_ht=scontent.fhan2-2.fna&oh=b261495f632bdbd3e22a4c7bb0bdee86&oe=608149F2" alt="">
+				</div>	
+			</div>
+			<div class="bottom-right">
+				<!-- Thông tin sinh vien 1 -->
+				<div class="item-bottom-right" data-aos="zoom-in" data-aos-duration="700">
+					<div class="card-image">
+						<img src="https://lugati.org/wp-content/uploads/bfi_thumb/user-man-circle-invert-512-37myctj10l60iszltr9u6i.png" alt="">
+					</div>
+					<div class="information">
+						<span class="detail-infor name">Trần Thị Hà</span>
+						<span class="detail-infor mssv">MSSV: 20182477</span>
+						<span class="detail-infor email">Email: ha.tt20182477@sis.hust.edu.vn</span>
+					</div>
+				</div>
+				<!-- Kết thúc nội dung sinh viên 1 -->
+
+				<!-- Thông tin sinh viên 2 -->
+				<div class="item-bottom-right" data-aos="zoom-in" data-aos-duration="700">
+					<div class="card-image">
+						<img src="https://lugati.org/wp-content/uploads/bfi_thumb/user-man-circle-invert-512-37myctj10l60iszltr9u6i.png" alt="">
+					</div>
+					<div class="information">
+						<span class="detail-infor name">Nguyễn Văn Nam</span>
+						<span class="detail-infor mssv">MSSV: 20182698</span>
+						<span class="detail-infor email">Email: nam.nv182698@sis.hust.edu.vn</span>
+					</div>
+				</div>
+				<!-- Kết thúc nội dung của sinh viên 2 -->
+			</div>
+		</div>
+	</footer>
+	<!-- Kết thúc nội dung phần footer -->
+
+
+	<!-- Link thư viện tạo animation -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	 	AOS.init();
+	</script>
+
+	<!-- Link thư viện jquery -->
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
+	<!-- Link thư viện javascript tự custom -->
+	<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>

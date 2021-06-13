@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Link font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Sản phẩm Admin</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="logo_bg_black.svg" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      SẢN PHẨM
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">DANH MỤC</a>
+                        <a class="dropdown-item" href="#">MÀU SẮC</a>
+                        <a class="dropdown-item" href="#">KÍCH THƯỚC</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">CHI TIẾT SẢN PHẨM</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      ĐƠN HÀNG
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">ĐƠN HÀNG CHỜ XÁC NHẬN</a>
+                        <a class="dropdown-item" href="#">ĐƠN HÀNG ĐÃ GIAO</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KHUYẾN MÃI<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KHÁCH HÀNG<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <span class="nav-text mx-2">Admin,
+                    <span class="text-primary">Nguyễn Nam</span>
+                </span>
+                <button class="btn btn-outline-success my-2 my-sm-0">Đăng xuất</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col px-0">
+                <h3 class="text-normal text-uppercase text-warning mt-4">Danh sách sản phẩm</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5 px-0">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm để tìm kiếm"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button">
+                            <i class="fas fa-search"></i>
+                            Tìm kiếm
+                        </button>
+                    </div>
+                </div>   
+            </div>
+            <div class="col-4 pr-0">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-secondary text-white" id="basic-addon3">Danh mục SP</span>
+                    </div>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Tất cả sản phẩm</option>
+                        <option>Áo phông</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-3 pr-0">
+                <a class="btn btn-outline-success w-100" href="#">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Thêm mới sản phẩm
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="bg-info">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Danh mục</th>
+                        <th scope="col">Hình ảnh</th>
+                        <th scope="col">Giá tiền</th>
+                        <th scope="col">Giới tính</th>
+                        <th scope="col">Mã khuyến mãi</th>
+                        <th scope="col">Ngày nhập</th>
+                        <th scope="col">Xem chi tiết</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="align-middle text-center">1</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row" class="align-middle text-center">2</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">3</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">4</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">5</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">6</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">7</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">8</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">9</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">10</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="align-middle text-center">11</th>
+                        <td class="align-middle">ÁO PHÔNG Marvel S21 BOOZilla UN</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="p-1 align-middle">
+                            <img src="img1.jpg" height="60"/>
+                            <img src="img2.jpg"height="60"/>
+                        </td>
+                        <td class="align-middle">399000</td>
+                        <td class="align-middle text-center">Nam</td>
+                        <td class="align-middle text-center">1</td>
+                        <td class="align-middle text-center">14/01/2000</td>
+                        <td class="p-1 align-middle">
+                            <a class="btn btn-primary w-100 py-1" href="#">
+                                Xem chi tiết
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Link thư viện jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Link thư viện javascript tự custom -->
+    <script type="text/javascript" src="custom.js"></script>
+
+</body>
+</html>
+

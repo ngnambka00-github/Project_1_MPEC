@@ -1,0 +1,53 @@
+.choose-color {
+  flex: 1;
+  color: #fff;
+}
+
+.choose-color div {
+  display: flex;
+  position: relative;
+}
+
+.choose-color div + div {
+  margin-top: 0.5em;
+}
+
+
+.choose-color input {
+  margin: 0;
+  padding: 0 0.5em;
+  border: none;
+  width: 7em;
+  outline: none;
+  border-radius: 0 1em 1em 0;
+}
+
+.choose-color input[type=color] {
+  padding: 0;
+  width: 2em;
+  height: 2em;
+  border-radius: 1em 0 0 1em;
+}
+
+.choose-color input[type=color]::-moz-color-swatch {
+  border: none;
+  border-radius: 1em;
+  transform: scale(0.75);
+}
+
+.choose-color input[type=color]::-webkit-color-swatch {
+  border: none;
+  border-radius: 1em;
+}
+
+.choose-color input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0.25em;
+  border-radius: 1em;
+}
+
+.choose-color input[type=text] {
+  width: 40%;
+  background: #c0c0c0;
+  color: black;
+  font-weight: bold;
+}
